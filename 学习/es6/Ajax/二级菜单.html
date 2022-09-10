@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        ul,
+        li {
+            list-style: none;
+        }
+
+        .menu {
+            width: 100px;
+            background: rgba(0, 0, 0, .1);
+            margin: 10px;
+
+        }
+
+
+        .menu-item {
+            position: relative;
+
+            padding: 5px;
+            cursor: pointer;
+        }
+
+        .menu-content {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 100%;
+            width: 200px;
+            height: 100px;
+            padding: 0 5px;
+            background-color: rgba(0, 0, 0, .1);
+        }
+
+        .menu-item:hover {
+            background-color: rgba(0, 0, 0, .4);
+        }
+
+        .menu-item:hover .menu-content {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <ul id="menu" class="menu">
+        <!-- <li id="menu-item" class="menu-item">
+            <span>热门</span>
+            <div class="menu-content">
+                <p>二级菜单</p>
+            </div>
+        </li> -->
+
+    </ul>
+    <script type="module">
+        import { getJSON } from './Ajax/index.js'
+        const menuURL = 'https://www.imooc.com/api/mall-PC/index/menu'
+        const menu = document.querySelector('#menu')
+
+        getJSON(menuURL).then(response => {
+            //获取一级菜单
+            let html = ''
+            console.log(response.data)
+            for (const item of response.data) {
+                html += `<li id="menu-item" class="menu-item" data-key="${item.key}">
+                        <span>${item.title}</span>
+                        <div class="menu-content">
+                            <p>二级菜单</p>
+                        </div>
+                    </li>`
+            }
+            menu.innerHTML = html
+        }).then(() => {
+            //获取二级菜单
+            const items = menu.querySelectorAll('.menu-item')
+            for (const item of items) {
+                item.addEventListener('mouseenter', () => {
+                    if (item.dataset.done === 'done') return
+                    getJSON(`https://www.imooc.com/api/mall-PC/index/menu/${item.dataset.key}`).then(response => {
+                        //获取一次就行了 不会造成浪费
+                        item.dataset.done = 'done'
+                        let html = ''
+                        for (const value of response.data) {
+                            html += `<p>${value.title}</p>`
+                        }
+                        item.querySelector('.menu-content').innerHTML = html
+
+                    }).catch(err => {
+                        console.log(err)
+                    })
+                })
+            }
+        })
+            .catch(err => {
+                console.log(err)
+            })
+    </script>
+</body>
+
+</html>

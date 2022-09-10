@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>数字小游戏</title>
+	</head>
+	<body>
+		<h2>猜数字游戏</h2>
+		<h4>猜1~100的数字，一共有五次机会</h4>
+		<input type="" name="" id="" value="" placeholder="请输入1~100的数字" />
+		<button type="button">确认</button>
+		<script type="text/javascript">
+			var input = document.querySelector("input")
+			var btn = document.querySelector("button")
+			var r = Math.floor(Math.random() * 100 + 1)
+			console.log(r)
+			var f = 0;	
+			input.onfocus=function(){
+				input.value=""
+			}
+			btn.onclick = function() {
+				var iv = input.value
+				iv.trim()
+				console.log(f)
+				if (iv < 1 || iv > 100) {
+					alert("你输入的不是1~100的整数")
+				} else if (isNaN(iv)) {
+					alert("你输入的不是一个数字，请输入1~100的整数")
+				} else {
+					++f;
+					if (f >= 1 && f <= 5) {
+						if (iv > r) {
+							alert(`第${f}次机会，你猜大了`)
+						} else if (iv < r) {
+							alert(`第${f}次机会，你猜小了`)
+						} else if (iv == r) {
+							alert("恭喜你猜对了")
+							location.reload(); //刷新页面
+						}
+					} else {
+						alert("你输入的机会已大于五次")
+						location.reload(); //刷新页面
+					}
+				}
+			}
+		</script>
+	</body>
+</html>

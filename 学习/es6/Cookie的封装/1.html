@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button class="cn">中文</button>
+    <button class="en">英文</button>
+    <script type="module">
+        // // import {set,get,remove} from '../js/cookie.js'
+        // import { set, get, remove } from './js/cookie.js'
+
+        // set('username', '18')
+        // set('age', '15')
+        // set('张三', '13')
+        // set('sex', '张三', {
+        //     maxAge: 30 * 324 * 3600
+        // })
+        // remove('username')
+        // remove('张三')
+        // console.log(get('username'));
+        // console.log(get('age'));
+        // console.log(get('张三'));
+        // console.log(get('sex'));
+
+        // 模拟中英文切换
+
+        import { set } from './js/cookie.js'
+        const cn = document.querySelector('.cn')
+        const en = document.querySelector('.en')
+
+
+        cn.addEventListener("click", () => {
+            set('language', 'cn', {
+                maxAge: 30 * 24 * 3600
+            })
+            window.location = './1.html'
+        })
+        en.addEventListener("click", () => {
+            set('language', 'en', {
+                maxAge: 30 * 24 * 3600
+            })
+            window.location = './1.html'
+
+        })
+    </script>
+</body>
+
+</html>

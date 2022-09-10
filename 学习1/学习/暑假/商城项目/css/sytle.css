@@ -1,0 +1,28 @@
+*{margin: 0;padding: 0;}
+
+body{font: 15px "微软雅黑";}
+a{text-decoration: none;color: white;}
+.clearfix:after{content: ".";display: block;height: 0;font-size: 0;clear: both;}
+.container{width: 960px;margin: 0 auto;}
+.logo{margin: 15px 0 ;}
+.logo img{width: 193px;height: 48px;}
+.banner{width: 100%;position: relative;overflow: hidden;height: 475px;}
+.banner img{width: 1920px;position: absolute;left: 50%;margin-left:-960px ;}
+.denglu{width: 350px;background-color: white;position: absolute;top: 98px;right: 200px;}
+.denglu img{float: right;}
+
+
+.account{width: 250px;height: 20px;margin: 20px;float: left;line-height: 20px;font-size: 10px;}
+.account h2{float: left;color: red;}
+.account span a{float: right;color: #ccc;}
+.d1{width: 274px;color: #ccc;}
+.d1 img{position: absolute; width: 39px;height: 37px;left:20px;border: 2px solid #ccc;}
+.d11{top: 60px;}
+.d12{top: 131px;}
+.ACCOUNT{margin-left:60px;margin-bottom: 30px;width: 210px;height: 37px;border-left: none;border: 2px solid #ccc;}
+.PASSWORD{margin-left:60px;width: 210px;height: 37px;border-left: none;border: 2px solid #ccc;margin-bottom: 20px;}
+.pASSWORD{margin-left: 20px;}
+.d1 span{float: right;}
+.d1 span a{color: #ccc;}
+.d1 h2{text-align: center;width: 254px;height: 50px;background-color: rgb(209, 79, 79);line-height: 50px;margin: 20px 0 20px 20px;}
+.d1 h4 a{color: #ccc;margin-left: 20px;}

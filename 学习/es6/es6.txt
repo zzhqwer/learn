@@ -1,0 +1,191 @@
+# 构造函数
+
+1.   ##### 创建对象的方法
+
+   - let obj = new Object() new 一个对象
+   - let obj = {}  对象字面量
+   - 构造函数 function Star(){}  let obj = new Star()
+   - 实例成员和静态成员
+     - 实例成员就是 在构造函数内部通过this添加的成员 只能用new 实例化来访问 
+     - 静态成员就是在构造函数本身上添加的成员
+
+   
+
+##### 2.==call==方法的作用	
+
+- 可以调用函数    函数名.call()
+- 函数名.call(params1，params2,params3) 参数1可以改变this的指向，后面的参数就是正常的传参
+
+- 利用原型对象继承方法
+
+- ```javascript
+  //借用父构造函数继承属性
+  // 1.父构造函数
+  function Father(uname,age) {
+      // this 指向父构造函数的对象实例
+      this.uname = uname
+      this.age = age
+  }
+  //继承方法 
+  Father.prototype.money = function() {
+      return 1000
+  }
+  //利用new一个实例化对象
+  Son.prototype = new Father()
+  // 如果利用对象的形式修改了原型对象，别忘了利用constructor 指回原来的构造函数
+  Son.prototype.constructor = Son
+  Son.prototype.eimy = function() {
+      return '考试'
+  }
+  // 2.子构造函数
+  function Son(uname,age) {
+      //this 指向子构造函数的对象实例
+      Father.call(this,uname,age)
+  }
+  let son = new Son('刘德华',18)
+  console.log(son.money())
+  console.log(son.eimy())
+  console.log(Father.prototype);
+  console.log(Son.prototype.constructor);
+  ```
+
+##### 3.数组新增方法
+
+- ```javascript
+  //forEach 迭代（遍历)数组
+  let arr = [1,2,3]
+  let sum = 0
+  arr.forEach((value,index,arr) => {
+      console.log('每个数组元素' + value)
+      console.log('每个数组元素的索引号' +index)
+      console.log('数组本身' + arr)   
+      sum+= value
+  })
+  console.log(sum)
+  
+  //筛选数组 返回一个符合条件的新数组 filter()
+  let arr = [12,66,4,88]
+  let newArr = arr.filter((value,index,arr) => {
+      return value >=20
+  })
+  console.log(newArr) // [66,88]
+  
+  //some()方法检测数组中的元素是否满足指定条件，满足返回ture，否则false ,如果找到第一个符合条件的元素，就终止循环
+  let arr = [10,30,4]
+  let flag = arr.some((value,index,arr) => {
+      return value >= 20
+  })
+  console.log(flag) // true
+  
+  // 1.filter() 也是查找满足条件的元素，返回的是一个数组，而且把所有符合条件的元素返回过来，是一个新的数组
+  // 2.some() 也是查找满足条件的元素， 返回的是一个bool值，如果找到第一个符合条件的元素就终止循环
+  ```
+
+#### 更改函数内部的this指向
+
+1. call()方法  
+
+   - fn.call(指向对象，参数，参数)调用函数) 第一个可以调用函数，二是改变函数内部的this执向
+
+   - call 的主要作用可以实现继承
+
+   - ```javascriopt
+     function Father(uname,age,sex){
+     	this.uname = uname,
+     	this.age = age,
+     	this.sex = sex
+     }
+     function Son(uname,age,sex) {
+     	Father.call(this,uname,age,sex)
+     }
+     ```
+
+   - 
+
+2.  apply()方法  
+
+   - 也是调用函数，也可以改变函数内部的this指向
+
+   - 但是他的参数必须是数组（伪数组）
+
+   - apply的主要应用 比如说我们可以利用 apply 借助于数学内置对象求最大值
+
+   - ```javascriopt
+     let arr = [1,66,3,99,4]
+     let max = Math.max.apply(Math,arr)
+     console.log(max) //最大值
+     let arr1 = [1,66,3,99,4]
+     let min = Math.min.apply(Math,min)
+     console.log(min) //最小值
+     ```
+
+   - 
+
+3. bind()方法  绑定 捆绑的意思
+
+   - bind()不会调用函数，但是能改变函数内部的this指向 可以拷贝新的函数
+
+   - ```javascript
+     let o = {
+         name: 'andy'
+     }
+     function fn() {
+         console.log(this)
+     }
+     let f = fn.bind(o)
+     f()
+     // 1. 不会调用原来的函数 可以更改原来函数内部的this指向
+     // 2. 返回的是原函数改变this之后产生的新函数
+     ```
+
+   - 
+
+4. ==call() . apply () . bind()== 的区别
+
+   - 都可以改变函数内部的this指向
+
+   - **call()**和**apply**()都可以调用函数，但是**bind****()**不行
+   - **call()**和**bind()**的传的参数任何格式都行，但是**apply****()**必须是数组格式
+   - **bind()**是返回一个更改this后的新数组
+
+5. 使用场景
+
+   - ==call()==用于继承
+   - ==apply()==用于关于数组的
+   - ==bind()==用于不想立即调用 但是想更改this指向  比如定时器 
+
+#### 严格模式(strict mode)
+
+1. ```javascript
+   <script>
+   	// 开启严格模式   
+       'use strict'
+   	//下面的代码都按严格模式
+    	//这是给整个脚本加严格模式
+   
+   	//函数严格模式
+   	function fn() {
+           'use strict'
+       }
+   </script>
+   ```
+   
+2. 
+
+### 闭包
+
+1. 只要一个作用域访问另一个作用域的局部变量就会产生闭包
+
+
+
+### 递归
+
+1. 自己调用自己
+
+Array实例方法
+
+1. Array.from('伪数组'，handle()=>{ 处理程序})  返回转换数组
+2. ...扩展运算符  可以合并数组，也可将伪数组转换为数组 [...伪数组]
+3. Array.find(()=> {  返回符合条件的，没有则返回undefined})
+4. Array.findIndex(()=>{ 返回符合条件的索引号，没有则返回-1 })
+5. Array.includes('参数')   符合条件返回true  否则返回false  

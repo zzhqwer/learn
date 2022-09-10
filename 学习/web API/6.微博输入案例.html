@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 400px;
+            height: 400px;
+            margin: 0 auto;
+            position: relative;
+            font-size: 5px;
+        }
+        #textarea{
+            width: 400px;
+            height: 50px;
+        }
+        .btn{
+            position: absolute;
+            right: 0;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <p>请输入说点什么吧</p>
+        <textarea name="" title="123" id="textarea" style="resize: none;outline: none;" cols="30" rows="10" maxlength="200"></textarea>
+        <div class="btn"><span class="textChange">0</span><span>/</span><span style="color: red;">200</span> <button>发布</button></div>
+    </div>
+    <script>
+        let textarea = document.querySelector('#textarea')
+        let textChange = document.querySelector('.textChange')
+        textarea .addEventListener('input', function () {
+            textChange.innerHTML = textarea.value.length
+        })
+    </script>
+</body>
+</html>

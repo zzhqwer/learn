@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>添加组员</title>
+		<style>
+			.box{
+				width: 100%;
+				max-width: 800px;
+				margin:  0 auto;
+			}
+			.box .lableI{
+				margin: 10px 0;
+			}
+			.box .lableI label{
+				display: inline-block;
+				width: 100px;
+				text-align: right;
+			}
+			.box button{
+				margin: 0  20px ;
+			}
+			.box .list span{
+				display: inline-block;
+				width:100px ;
+				text-align: center;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<form action="" method="">
+				<div class="lableI">
+					<label for="in1">添加组员:</label>
+					<input type="text" name="" id="in1" value="" />
+				</div>
+				<div class="lableI">
+					<label for="in2">添加组员年龄:</label>
+					<input type="text" name="" id="in2" value="" />
+				</div>
+				<button class="btn" type="button">完成添加</button>
+				<button class="btn2" type="button">显示组员</button>
+			</form>
+			<div class="zuyuan">
+				<div class="list">
+					<span>姓名</span>
+					<span>年龄</span>
+				</div>
+			</div>
+		</div>
+		
+		<script type="text/javascript">
+			var in1 = document.querySelector('#in1');
+			var in2 = document.querySelector('#in2');
+			var btn = document.querySelector('.btn');
+			var btn2 = document.querySelector('.btn2');
+			var zuyuan = document.querySelector('.zuyuan')
+			var wu = [];
+			in1.onfocus = function (){
+				in1.value = '';
+			}
+			in2.onfocus = function (){
+				in2.value = '';
+			}
+			btn.onclick = function (){
+				var in1V = in1.value;
+				var in2V = in2.value;
+				if(in1V.trim() === ''){
+					alert('昵称不能为空')
+				}else if (in2V.trim() === ''){
+					alert('年龄不能为空')
+				}else if (isNaN(in2V)){
+					alert('年龄为阿拉伯数字')
+				}else if(in1V.indexOf('.') != -1 || in1V.indexOf(',') != -1){
+					alert('昵称不能有逗号')
+				}else{
+					for(var i in wu){
+						if(wu[i].name== in1V){
+							alert('昵称不能重复');
+							return;	
+						}
+					}
+					var obj = {};
+					obj.name = in1V;
+					obj.age = in2V;
+					wu.push(obj);
+					for(var e in wu){
+						if(wu.indexOf(zuyuan) != -1){
+							alert();
+						}
+					}
+					zuyuan.innerHTML +=`<div class="list"><span>${wu[e].name}</span><span>${wu[e].age}</span></div>` 
+				}
+				
+			
+			}
+		
+		</script>
+	</body>
+</html>

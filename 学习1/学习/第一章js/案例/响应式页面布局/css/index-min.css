@@ -1,0 +1,26 @@
+.box{
+	padding: 0 15px;
+}
+
+header{
+	position: relative;
+
+}
+header nav{
+	position: static;
+}
+header .Search{
+	right: 0;
+}
+
+main{
+	flex-wrap: wrap;
+
+}
+main .mainLeft{
+	width: 100%;
+}
+main .mainRight{
+	width: 100%;
+	margin-top: 10px;
+}

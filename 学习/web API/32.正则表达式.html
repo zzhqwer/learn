@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        //regular expression 正则表达式
+        // RegObj.test()返回boolean值
+        // RegObj.exec()返回数组，没有返回null
+        // ^以什么开头 $以什么结尾 同时出现是精准查询.
+        console.log(/哈哈/.test('哈哈'))
+        // 量词
+            // *出现零次或者多次
+        console.log((/哈*/).test('哈')) //true
+        console.log((/哈*/).test('')) //true
+        console.log((/哈*/).test('哈哈哈哈哈哈哈')) //true
+        console.log('-------------------------')
+            //+出现一次或者多次
+        console.log((/哈+/).test('哈')) //true
+        console.log((/哈+/).test('')) //false
+        console.log((/哈+/).test('哈哈哈哈')) //true
+        console.log((/哈+/).test('yi')) //false
+        console.log('-------------------------')
+            //？ 0次或1次
+        console.log((/哈?/).test('哈')) //true
+        console.log((/哈?/).test('')) //ture
+        console.log((/哈?/).test('哈哈哈哈哈哈')) //true
+            //{n} 几个
+         console.log((/哈{6}/).test('哈')) //false
+         console.log((/哈{6}/).test('哈哈哈哈哈哈')) //true
+         console.log((/哈{6}/).test('哈哈哈哈哈哈哈哈')) //true
+
+            //{n, } n开始 , 之后
+        console.log((/哈{6,}/).test('哈哈哈')) //false
+        console.log((/哈{6,}/).test('哈哈哈哈哈哈哈')) //true
+
+        
+        // 元字符（特殊字符）
+        console.log((/^[0-9]{3,5}/).test("r12346")) //false
+    </script>
+</body>
+</html>

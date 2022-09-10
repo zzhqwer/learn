@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        input {
+            outline: none;
+            border: none;
+        }
+
+        table {
+            text-align: center;
+            width: 600px;
+        }
+
+        .price {
+            width: 30px;
+            font-size: 15px;
+            text-align: right;
+        }
+
+        .count-i {
+            width: 30px;
+            height: 15px;
+            border: 1px solid #000;
+            text-align: center;
+            margin: 0 -5px;
+        }
+       
+        .total {
+            width: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .total input {
+            width: 30px;
+            font-size: 15px;
+            text-align: right;
+        }
+
+        tfoot {
+            width: 500px;
+            border: 1px solid #ccc;
+        }
+        tbody tr:hover{
+            background-color: #ccc;
+            border: 2px dashed #000;
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <thead>
+            <tr>
+                <td><input type="checkbox" id="check"><span>全选</span></td>
+                <td>商品</td>
+                <td>单价</td>
+                <td>商品数量</td>
+                <td>小计</td>
+                <td>操作</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><input type="checkbox" id="checks"></td>
+                <td><img src="image/01.jpg" alt=""></td>
+                <td><input type="text" class="price" value="5">$</td>
+                <td>
+                    <button class="reduce" disabled>-</button>
+                    <input type="text" class="count-i" value="1">
+                    <button class="add">+</button>
+                </td>
+                <td>
+                    <div class="total">
+                        <input type="text" value="5"><span>$</span>
+                    </div>
+                </td>
+                <td>
+                    <div class="del">
+                        <a href="javascript:;">删除</a>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" id="checks"></td>
+                <td><img src="image/01.jpg" alt=""></td>
+                <td><input type="text" class="price" value="5">$</td>
+                <td>
+                    <button class="reduce" disabled>-</button>
+                    <input type="text" class="count-i" value="1">
+                    <button class="add">+</button>
+                </td>
+                <td>
+                    <div class="total">
+                        <input type="text" value="5"><span>$</span>
+                    </div>
+                </td>
+                <td>
+                    <div class="del">
+                        <a href="javascript:;">删除</a>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" id="checks"></td>
+                <td><img src="image/01.jpg" alt=""></td>
+                <td><input type="text" class="price" value="5">$</td>
+                <td>
+                    <button class="reduce" disabled>-</button>
+                    <input type="text" class="count-i" value="1">
+                    <button class="add">+</button>
+                </td>
+                <td>
+                    <div class="total">
+                        <input type="text" value="5"><span>$</span>
+                    </div>
+                </td>
+                <td>
+                    <div class="del">
+                        <a href="javascript:;">删除</a>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" id="checks"></td>
+                <td><img src="image/01.jpg" alt=""></td>
+                <td><input type="text" class="price" value="20">$</td>
+                <td>
+                    <button class="reduce" disabled>-</button>
+                    <input type="text" class="count-i" value="1">
+                    <button class="add">+</button>
+                </td>
+                <td>
+                    <div class="total">
+                        <input type="text" value="20"><span>$</span>
+                    </div>
+                </td>
+                <td>
+                    <div class="del">
+                        <a href="javascript:;">删除</a>
+                    </div>
+                </td>
+            </tr>
+
+
+        </tbody>
+        <p>
+           你的数量是:<span class="priceNum"></span>总价是: <span class="price-result"></span>
+        </p>
+        <!-- <tfoot>
+            <tr>
+                <td>删除所选商品</td>
+                <td>清空购物车</td>
+                <td>已选中<span class="nums">0</span>件商品总价: <span class="totals">0</span>￥</td>
+                <td><button class="ret">去结算</button></td>
+            </tr>
+        </tfoot> -->
+    </table>
+    <script>
+        let reduces = document.querySelectorAll('.reduce')
+        let count_is = document.querySelectorAll('.count-i')
+        let adds = document.querySelectorAll('.add')
+        let dels = document.querySelectorAll('.del')
+        //单价
+        let prices = document.querySelectorAll('.price')
+
+        //小总价
+        let totals = document.querySelectorAll('.total input')
+
+        // 数量
+        let priceNum = document.querySelector('.priceNum')
+        // 价格
+        let priceResult = document.querySelector('.price-result')
+        for(let i = 0 ; i < reduces.length; i++) {
+            // 加号操作
+            adds[i].addEventListener('click', function() {
+                count_is[i].value++
+                reduces[i].disabled = false
+                totals[i].value = prices[i].value * count_is[i].value
+                getNum()
+
+            })
+            // 减号操作
+            reduces[i].addEventListener('click', function() {
+                count_is[i].value--
+                if(count_is[i].value <= 1){
+                    reduces[i].disabled = true
+                }
+                totals[i].value = prices[i].value * count_is[i].value
+                getNum()
+
+
+            })
+            dels[i].addEventListener('click', function() {
+                dels[i].parentNode.parentNode.parentNode.removeChild(dels[i].parentNode.parentNode)
+                getNum()
+            })
+            
+        }
+        //定义一个函数
+        function getNum() {
+            let num = 0
+            let sum = 0
+              //单价
+            let prices = document.querySelectorAll('.price')
+            //小总价
+            let totals = document.querySelectorAll('.total input')
+            for(let i = 0; i < totals.length;i++) {
+                num =  num + +totals[i].value 
+                sum += +count_is[i].value
+            }
+            priceResult.innerHTML = num + '$'
+            priceNum.innerHTML = sum
+
+        }
+        getNum()
+    </script>
+</body>
+
+</html>

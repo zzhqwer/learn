@@ -1,0 +1,9 @@
+.body{
+	background: linear-gradient(to bottom,#a8dded,#fff);
+}
+[class^=col]{
+	background-color: rgba(115,185,205,0.5);
+	margin: 15px 0;
+	border-radius: 10px;
+	padding: 10px;
+}

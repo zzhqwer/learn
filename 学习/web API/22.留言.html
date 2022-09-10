@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        ul,li{
+            list-style: none;
+        }
+        .box{
+            width: 300px;
+            margin: 20px auto;
+        }
+        i{
+            font-style: normal;
+
+        }
+        .box textarea{
+            width: 300px;
+            height: 50px;
+            resize: none;
+            outline: none;
+        }
+        .item{
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
+        .item span:nth-last-child(2){
+            color: red;
+        }
+        .item .btn{
+            width: 60px;
+            height: 30px;
+            margin-left: 20px;
+        }
+        .box ul li{
+            border: 1px solid #ccc;
+            padding: 15px;
+            margin-top: 10px;
+            position: relative;
+
+        }
+    
+        .the_Del{
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <p>请说点什么吧</p>
+        <textarea name="" id="" placeholder="请说点什么吧" cols="30" rows="10" maxlength = "200"></textarea>
+        <div class="item">
+            <span class="textChange">0</span>
+            <i>/</i>
+            <span>200</span>
+            <button class="btn">发布</button> 
+        </div>
+    </div>
+    <div class="box">
+        <ul class="liuyan">
+          
+        </ul>
+    </div>
+
+    <script>
+        // 第一步先获取文本框的长度
+        let textarea = document.querySelector('textarea');
+        let textChange = document.querySelector('.textChange');
+        let btn = document.querySelector('.btn')
+
+        let  liuyan = document.querySelector('.liuyan')
+        textarea.addEventListener('input', function() {
+            textChange.innerHTML = textarea.value.length
+        })
+        // 第二步判断点击发布是否为空 trim() 去掉首位空格 
+        btn.addEventListener('click', function() {
+            if(textarea.value.trim() === '') {
+                textarea.value = ''
+                textChange.innerHTML = 0
+                return alert('请输入内容')
+            }
+            // 第三步创建节点 加入节点
+            let li = document.createElement('li')
+            li.innerHTML = `
+                <p class="timer">${new Date().toLocaleTimeString()}</p>
+                <p>内容:${textarea.value}</p>
+                <span class="the_Del">×</span>
+            `
+            let the_Del = li.querySelector('.the_Del')
+            the_Del.addEventListener('click',function() {
+                liuyan.removeChild(this.parentNode)
+            })
+            liuyan.insertBefore(li,liuyan.children[0])
+            textarea.value = ''
+             textChange.innerHTML = 0
+
+
+        })
+    </script>    
+</body>
+</html>

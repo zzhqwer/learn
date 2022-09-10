@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+		
+			function getSushu(num) {
+				let sushu = 0;
+				if (1 % num == 0  && num % num == 0) {
+					sushu = num + '是素数'; 
+				}else{
+					sushu = num + '不是素数';
+				}
+				return sushu;
+			}
+			var ve = parseInt(prompt('判断一个数是不是一个素数'));
+			alert(getSushu(ve));
+		</script>
+	</body>
+</html>

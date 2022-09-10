@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        // 1. Promise.resolve()
+        // 是成功状态 Promise的一种简写形式
+        // newPromise(resolve => resolve('foo'))
+        // 简写
+        // Promise.resolve('foo')
+
+
+        // 参数
+        // 一般参数 会原封不动的向后传参 作为后续方法的参数
+        // Promise.resolve('foo').then(data => {
+        //     console.log(data)
+        // })
+
+        //Promies
+        // 当resolve 函数接收的是一个promise对象是，后面的then 会根据传递的 Promise 对象的状态变化决定执行哪一个回调
+
+
+        // Promise.reject() 是
+        // 失败状态的Promise的 一种简写形式
+        // new Promise( reject => reject('err') )
+        // 等价于
+        // Promise.reject('err')
+        
+        //参数
+        //不管什么参数， 都会原封不动地向后传递，作为后续方法的参数
+        const p = new Promise( (resolve,reject) => {
+            resolve(123)
+        }).then( data => {
+            // console.log(123)
+            // return Promise.resolve(data)
+            return Promise.reject(data)
+        }).then( data => {
+            console.log(data)
+        }).catch( err => {
+            throw err
+        })
+
+
+        </script>
+
+</body>
+</html>

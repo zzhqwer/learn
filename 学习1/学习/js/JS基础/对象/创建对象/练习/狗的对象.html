@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			// 创建一个狗的对象
+			var obj = {
+				uname : '可可' ,
+				utype : '阿拉斯加犬',
+				age : 5,
+				ucolor : '棕红色',
+				//汪的英语单词 ：bark;
+				bark : function (){
+					console.log('汪汪汪');
+				},
+				showFilm : function () {
+					console.log('演电影')
+				}
+			}
+			console.log(obj.uname);
+			console.log(obj['utype']);
+			obj.bark();
+			obj.showFilm();
+		</script>
+	</body>
+</html>

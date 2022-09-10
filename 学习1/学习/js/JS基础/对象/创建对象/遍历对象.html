@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Document</title>
+		<script type="text/javascript">
+			var obj = {
+				name : 'pink老师',
+				age : 18,
+				sex : '男',
+				fn : function() {}
+			}
+			// for in  遍历我们的对象
+				// 语法格式
+				// 	for(变量 in对象) {
+						
+				// 	}
+			for(var k in obj) {
+				console.log(k); // k 变量 输出得到的是 属性名 如果有方法也会输出；
+				console.log(obj[k]); // obj[k] 得到是 属性值；
+			}
+			// 我们使用 for in 里面的变量  我们喜欢 k 或者key
+		</script>
+	</head>
+	<body>
+	
+	</body>
+</html>

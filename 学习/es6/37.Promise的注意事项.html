@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // Promise 的注意事项
+        // 1. resolve 或 reject执行后的代码
+        // 推荐 再调用resolve()或reject()的方法的时候 前面加上return 这样后面的代码就不会运行了
+        new Promise((resolve, reject) => {
+            return resolve('45')
+        })
+
+        // 2. Promise.all//race//allSettled的参数问题
+        // 参数如果不是Promise 数组， 会将不是promise 的数组元素转变成Promise对象
+        // Promise.all([12,3,1]).then(datas => {
+        //     console.log(datas)
+        // })
+
+        // 不只是数组，任何可遍历的都可以作为参数
+        // 原生可遍历 ： 数组，字符串，Set Map Nodelist arguments
+        Promise.all(new Set([1, 2, 3])).then(datas => {
+            console.log(datas)
+        })
+        // 3. Promise.all/race/allSettled的错误处理
+    </script>
+</body>
+
+</html>

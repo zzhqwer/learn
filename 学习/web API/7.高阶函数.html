@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=sc, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 高级函数 函数的高级用法，把函数当做值来用
+        // 函数表达式 把函数当做值来用
+        let fn = function() {}
+        //回调函数
+        function fn(){
+            console.log(123)
+        }
+        setInterval(fn,1000)
+        //此时fn就是回调函数  回头去调用
+    </script>
+</body>
+</html>

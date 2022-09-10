@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<style>
+    table {
+        padding: 5px;
+        border: 1px solid #ccc;
+    }
+    
+    table thead tr {
+        background-color: aqua;
+    }
+    
+    table thead tr th {
+        width: A100px;
+        text-align: center;
+        padding: 20px 10px;
+    }
+    
+    table tbody tr td {
+        width: 100px;
+        text-align: center;
+        padding: 20px 10px;
+    }
+</style>
+
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>
+                    <input type="checkbox">
+                </th>
+                <th>手机</th>
+                <th>价钱</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <input type="checkbox">
+                </td>
+                <td>
+                    小米
+                </td>
+                <td>
+                    2000元
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="checkbox">
+                </td>
+                <td>
+                    小米
+                </td>
+                <td>
+                    2000元
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="checkbox">
+                </td>
+                <td>
+                    小米
+                </td>
+                <td>
+                    2000元
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="checkbox">
+                </td>
+                <td>
+                    小米
+                </td>
+                <td>
+                    2000元
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        var theads = document.querySelector('table thead input');
+        var tbodys = document.querySelectorAll('table tbody input');
+        var tbodytr = document.querySelectorAll('table tbody tr');
+
+        for (let i = 0; i < tbodytr.length; i++) {
+            tbodytr[i].onmouseover = function() {
+                for (let i = 0; i < tbodytr.length; i++) {
+                    tbodytr[i].style.backgroundColor = '';
+
+
+                }
+                this.style.backgroundColor = 'red';
+            }
+            tbodytr[i].onmouseout = function() {
+                this.style.backgroundColor = '';
+            }
+        }
+
+        // 全选
+        theads.onclick = function() {
+            for (let i = 0; i < tbodys.length; i++) {
+                tbodys[i].checked = this.checked;
+            }
+        }
+
+        //取消全选
+        for (let i = 0; i < tbodys.length; i++) {
+            tbodys[i].onclick = function() {
+                let falg = true;
+                for (let i = 0; i < tbodys.length; i++) {
+                    if (!tbodys[i].checked) {
+                        falg = false;
+                        break;
+                    }
+                }
+                theads.checked = falg;
+            
+            }
+        }
+    </script>
+
+
+</body>
+
+
+
+</html>

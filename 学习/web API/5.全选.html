@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            font-size: 10px;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        table{
+            margin: 0 auto;
+        }
+        th{
+            padding: 10px;
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+    <table cellspacing = "0">
+        <thead>
+            <tr >
+                <th><input type="checkbox" class="cbs" style="vertical-align: middle;"><span class="changeT">全选</span></th>
+                <th>手机</th>
+                <th>价格</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th><input type="checkbox" class="cb" style="vertical-align: middle;"></th>
+                <th>手机</th>
+                <th>价格</th>
+            </tr>
+            <tr>
+                <th><input type="checkbox" class="cb" style="vertical-align: middle;"></th>
+                <th>手机</th>
+                <th>价格</th>
+            </tr>
+            <tr>
+                <th><input type="checkbox" class="cb" style="vertical-align: middle;"></th>
+                <th>手机</th>
+                <th>价格</th>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+
+        //1.获取元素 获取的是全选框的
+        let cbs = document.querySelector('.cbs')
+        // 获取的是单选框的
+        let cb = document.querySelectorAll('.cb')
+        // 获取全选
+        let changeT = document.querySelector('.changeT')
+
+
+        // 2.点击全选给所有的框添加启用 checked
+        cbs.addEventListener('click', function() {
+            for(let i = 0; i < cb.length; i++) {
+                cb[i].checked = cbs.checked
+            }
+            this.checked ? changeT.innerHTML = '取消' : changeT.innerHTML = '全选'
+        })
+
+        //3.给所有的框添加点击事件
+        for(let i = 0; i < cb.length; i++) {
+           cb[i].addEventListener('click', function() {
+            // 只要点击一次就循环所有的小按钮 判断是不是checked 等于 false 就退出 函数
+            for(let j = 0; j < cb.length; j++) {
+                // 看一看是不是都选上了 如果一个为false 那就退出函数就不执行以下的代码
+                if(cb[j].checked === false) {
+                    cbs.checked = false
+                    changeT.innerHTML = '全选'
+                    return
+                }
+            }
+            cbs.checked = true
+            changeT.innerHTML = '取消'
+
+           })
+        }
+    </script>
+</body>
+</html>

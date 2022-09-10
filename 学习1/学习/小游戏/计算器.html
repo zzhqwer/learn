@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			button {
+				width: 80px;
+				height: 20px;
+				margin: 5px;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="text" name="" id="inq" value="0" readonly="readonly"
+			style="width: 450px; cursor: default;text-align: right;" />
+		<div class="rig">
+
+		</div>
+		<script type="text/javascript">
+			var inq = document.querySelector("#inq")
+			var rig = document.querySelector(".rig")
+			//用循环获取按键
+			var keys = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", ".", "+", "-", "*", "/", "=", "AC", "sin", "cos",
+				"tan", "asin", "acos", "atan", "ln"
+			]
+			for (var i in keys) {
+				rig.innerHTML = rig.innerHTML + `<button>${keys[i]}</button>`
+				if (i > 1 && (+i + 1) % 5 == 0) {
+					rig.innerHTML = rig.innerHTML + "</br>"
+				}
+			}
+
+			var buttons = document.querySelectorAll("button")
+			var a = "0",
+				b = "0",
+				c = "";
+			for (var i in buttons) {
+				buttons[i].onclick = function() {
+					var inner = this.innerHTML
+					if (inner == "0" || inner == "1" || inner == "2" || inner == "3" || inner == "4" || inner == "5" ||
+						inner == "6" || inner == "7" || inner == "8" || inner == "9") {
+						if (b == "0") {
+							b = inner
+						}else {
+							b += inner
+						}
+						inq.value = b
+					}else if (inner == ".") {
+						if (b.indexOf(".") == -1) {
+							b += inner;
+							console.log("aaa")
+						}
+					
+					} else if (inner == "+" || inner == "-" || inner == "*" || inner == "/") {
+						a = b;
+						b = "0";
+						c = inner;
+					} else if (inner == "sin" || inner == "cos" || inner == "tan" || inner == "asin" || inner == "acos" ||
+						inner == "atan" || inner == "ln") {
+						if (inner == "sin") {
+							var k = inq.value
+							inq.value = Math.sin(k)
+						} else if (inner == "cos") {
+							var k = inq.value
+							inq.value = Math.cos(k)
+						} else if (inner == "tan") {
+							var k = inq.value
+							inq.value = Math.tan(k)
+						} else if (inner == "asin") {
+							var k = inq.value
+							inq.value = Math.asin(k)
+						} else if (inner == "acos") {
+							var k = inq.value
+							inq.value = Math.acos(k)
+						} else if (inner == "atan") {
+							var k = inq.value
+							inq.value = Math.atan(k)
+						} else {
+							var k = inq.value
+							inq.value = Math.log(k)
+						}
+					} else if (inner == "=") {
+						a = eval(a + c + b)
+						inq.value = a
+						b = a;
+					} else {
+						a = "0";
+						b = "0";
+						c = "";
+					inq.value=a;
+					}
+				}
+			}
+		</script>
+	</body>
+</html>

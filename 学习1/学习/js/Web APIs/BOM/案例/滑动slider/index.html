@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            overflow: hidden;
+        }
+        .sliderbar{
+            width: 50px;
+            height: 50px;
+            position: absolute;
+            right: 0;
+            top: 50%;
+            text-align: center;
+            line-height: 50px;
+        }
+        .sliderbar span{
+            display: block;
+            font-size: 25px;
+            background-color: aqua;
+        }
+        .con{
+            width: 200px;
+            height: 50px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            background-color: purple;
+            text-align: left;
+          
+        }
+    </style>
+    <script src="js/animate.js"></script>
+</head>
+<body>
+    <div class="sliderbar">
+        <span>←</span>
+        <div class="con">问题反馈</div>
+    </div>
+
+    <script>
+        let sliderbar = document.querySelector('.sliderbar');
+        let con = document.querySelector('.con');
+        sliderbar.addEventListener('mouseenter',function(){
+            let conLeft = con.clientWidth - sliderbar.children[0].clientWidth;
+            animate(con,-conLeft,function(){});
+            sliderbar.children[0].innerHTML = '→';
+            
+        })
+         sliderbar.addEventListener('mouseleave',function(){
+            let conLeft = con.clientWidth - sliderbar.children[0].clientWidth;
+            
+            animate(con,0,function(){});
+            sliderbar.children[0].innerHTML = '←';
+
+        })
+    </script>
+</body>
+</html>

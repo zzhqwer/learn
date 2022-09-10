@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .fathe {
+            width: 100px;
+            height: 100px;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <div class="fathe">1
+        <div class="son">
+            ×
+        </div>
+    </div>
+    <div class="fathe">2
+        <div class="son">
+            ×
+        </div>
+    </div>
+    <div class="fathe">3
+        <div class="son">
+            ×
+        </div>
+    </div>
+    <div class="fathe">4
+        <div class="son">
+            ×
+        </div>
+    </div>
+    <div class="fathe">5
+        <div class="son">
+            ×
+        </div>
+    </div>
+    <div class="fathe">6
+        <div class="son">
+            ×
+        </div>
+    </div>
+    <div class="fathe">7
+        <div class="son">
+            ×
+        </div>
+    </div>
+    <script>
+        // 1.获取所有的儿子
+        let sonlist = document.querySelectorAll('.son')
+        // 遍历所有的儿字 注册点击事件
+        for(let i = 0; i < sonlist.length; i++) {
+            sonlist[i].addEventListener('click', function() {
+                this.parentNode.style.visibility = 'hidden'
+            })
+        }
+    </script>
+</body>
+</html>

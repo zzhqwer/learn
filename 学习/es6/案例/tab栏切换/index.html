@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        ul{
+            list-style: none;
+        }
+        main{
+            width: 800px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+        }
+        main section{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+            margin: 20px;
+            font-size: 50px;
+        }
+        .box{
+            width: 800px;
+            height: 500px;
+            border: solid 1px orange;
+            display: flex;
+            flex-direction: column;
+        }
+        .box .header{
+            width: 100%;
+            position: relative;
+        }
+        .box .header ul{
+            border-bottom: solid 1px orange;
+            width: 100%;
+            display: flex;
+            height: 50px;
+
+        }
+        .box .header ul li{
+            width: 15%;
+            padding: 15px;
+            border-right: solid 1px orange;
+            height: 50px;
+            text-align: center;
+            overflow: hidden;
+            text-overflow: clip;
+            position: relative;
+        }
+        .box .header ul li input{
+            width: 100%;
+            outline: none;
+        }
+        .box .header ul li .close{
+            position: absolute;
+            top: 0;
+            right: 0;
+            cursor: pointer;
+        }
+        .box .header ul li.active{
+            background: #fff;
+        }
+        .box .header p{
+            width: 30px;
+            height: 30px;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            right:  10px;
+            border: solid 1px skyblue;
+            cursor: pointer;
+       
+        }
+        .box .header p img{
+            width: 100%;
+            height: 100%;
+        }
+ 
+        .box .content{
+            flex: 1;
+            margin-top: 10px;
+            color: black;
+            display: flex;
+            flex-direction: column;
+        }
+        .box .content div{
+            width: 100%;
+            height: 100%;
+            display: none;
+            padding: 15px;
+        }
+        .box .content div input{
+            width: 100%;
+            height: 50%;
+        }
+        .box .content .active{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <section>
+            <p>JS动态生成tab栏</p>
+        </section>
+        <div class="box">
+            <div class="header">
+                <ul>
+                    <li class="active"><span>tab栏切换</span> <span class="close"> <img src="./images/icon-close.png" alt=""></span></li>
+                    <li ><span>tab栏切换</span> <span class="close"> <img src="./images/icon-close.png" alt=""></span></li>
+                </ul>
+                <p><img src="./images/icon-plus.png" alt=""></p>
+            </div>
+            <div class="content">
+                <div class="active">
+                    页面一
+                </div>
+                <div >
+                    页面二
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="js/index.js"></script>
+</body>
+</html>

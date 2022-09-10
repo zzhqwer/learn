@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        form label{
+            display: inline-block;
+            width: 80px;
+        }
+    </style>
+</head>
+<body>
+    <form action="">
+        <div class="form-column">
+            <label for="usename">usename</label>
+            <input type="text" id="usename">
+        </div>
+        <div class="form-column">
+            <label for="password">password</label>
+            <input type="password" id = 'password' >
+        </div>
+        <button class="btn1" type="button">提交</button>
+        <button class="btn2" type="button">重置</button>
+    </form>
+    <script>
+            let str = ('fadlkjfl');
+            let newStr = [];
+            for(let i = str.length -1 ; i >=0; i--) {
+                newStr[newStr.length] = str.charAt(i);
+            }
+            var usename = document.querySelector('#usename');
+            var password = document.querySelector('#password');
+            var btn1 = document.querySelector('.btn1');
+            var btn2 = document.querySelector('.btn2');
+            btn1.addEventListener('click',function(){
+                alert(`恭喜你提交成功账号是：${usename.value}，密码是：${password.value}${newStr.join(',')}`);
+                
+          
+            })
+            btn2.addEventListener('click',function(){
+                usename.value = '';
+                password.value = '';
+                
+                var con = confirm('你确定要退出吗');
+                if(con === true) {
+                    window.close();
+                }else{
+
+                }
+
+            })
+
+
+        
+    </script>
+
+</body>
+</html>

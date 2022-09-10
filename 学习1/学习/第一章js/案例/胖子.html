@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Document</title>
+		<style type="text/css">
+			.div1 {
+				transition: all 3s;
+				width: 300px;
+				height: 300px;
+				border-radius: 50%;
+				text-align: center;
+				line-height: 300px;
+				background-color: #00FFFF;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="music">
+			<audio src="./注册/123.mp3"  controls="controls" autoplay="autoplay" loop="loop" >
+				当前浏览器不支持audio
+			</audio>
+		</div>
+		<div class="div1">我是胖子</div>
+		<button type="button" class="btn1">变瘦</button>
+		<button type="button" class="btn2">变胖</button>
+		<script type="text/javascript">
+			var  div1=document.querySelector(".div1")
+			var  btn1=document.querySelector(".btn1")
+			var  btn2=document.querySelector(".btn2")
+			
+			btn1.onclick=function(){
+				div1.style.width="200px"
+				div1.innerHTML="我是瘦子"
+			}
+			btn2.onclick=function(){
+				div1.style.width="300px"
+				div1.innerHTML="我是胖子"
+			}
+		</script>
+	</body>
+</html>

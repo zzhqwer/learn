@@ -1,0 +1,106 @@
+body{
+	font-family: '微软雅黑';
+	background-image: url(../images/body-bg.jpg);
+	background-repeat:no-repeat ;
+	background-position: center top;
+	background-size: cover;
+	background-color: #0e1424;
+}
+
+/* 顶部 */
+header {
+	padding: 15px 0;
+}
+header .header{
+	color: #FFFFFF;
+	margin:15px 0 ;
+	line-height: 2em;
+}
+/* 导航 */
+header nav{
+	background:linear-gradient(to right,#6b6b6b,#fff) ;
+	border-radius: 6px;
+	position: relative;
+}
+header nav ul{
+	display: flex;
+	padding-left: 15px;
+}
+header nav ul li{
+	padding: 15px;
+}
+header nav ul li:hover{
+	background-color: rgba(0,0,0,0.5);
+}
+header nav ul li a{
+	color: #FFFFFF;
+}
+header .Search{
+	position: absolute;
+	top:50%;
+	right: 5%;
+	transform: translateY(-50%);
+	transition:  all 1s;
+}
+header .Search input{
+	outline: none;
+	padding: 5px;
+	border-radius: 10px;
+}
+
+/* 内容 */
+main{
+	display: flex;
+	justify-content: space-between;
+}
+main .mainLeft{
+	width: 65%;
+	background-color: #FFFFFF;
+	padding: 15px;
+	border-radius: 10px;
+}
+main .mainLeft p{
+	text-indent: 2em;
+}
+
+main .mainLeft img{
+	width: 100%;
+}
+/* 右内容 */
+main .mainRight{
+	width: 30%;
+	border-radius: 10px;
+}
+/* 右上内容 */
+main .mainRightT{
+	background-color: #FFFFFF;
+	padding: 10px 20px;
+	border-radius: 10px;
+	line-height: 2em;
+	margin-bottom: 15px;
+}
+main .mainRightT ul li{
+	border-top: 1px rgba(0,0,0,.1)  dashed;
+}
+main .mainRightT ul li span{
+	color: #00AAFF;
+}
+/* 右下内容 */
+main .mainRightB{
+	background-color: #FFFFFF;
+	padding: 10px 20px;
+	border-radius: 10px;
+	line-height: 2em;
+}
+main .mainRightB ul{
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+}
+main .mainRightB ul li{
+	width: 22%;
+	margin-top: 10px;
+}
+main .mainRightB ul li img{
+	width: 100%;
+}

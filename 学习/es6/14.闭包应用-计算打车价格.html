@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //打车起步价13（三公里内）
+        let car = (function() {
+            let start = 13
+            let total = 0
+            return {
+                
+                price: function(n) {
+                    return total = n <= 3 ? start : start + (n-3) * 5
+                },
+                yd(flag){
+                    return flag ? total + 10 : total 
+                }
+            }
+        })()
+
+        console.log(car.price(5))
+        console.log(car.yd(true))
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="btns">
+        <button>选手1</button>
+        <button>选手2</button>
+        <button>选手3</button>
+        <button>选手4</button>
+    </div>
+    <p class="texts"></p>
+    <script>
+        var btns = document.querySelectorAll('.btns button');
+        var texts = document.querySelector('.texts');
+        for (let i = 0 ; i < btns.length; i++) {
+            btns[i].onclick = function(){
+                texts.innerText = '我的编号是' + (i + 1);
+           }
+        }
+    </script>
+</body>
+</html>

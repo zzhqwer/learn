@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="search" placeholder="请输入你要搜索的商品">
+    <ul id="list"></ul>
+
+    <script type="module">
+        //导入封装好的AJAX 
+        import { getJSON } from './Ajax/index.js'
+        // 先获取要操作的DOM元素
+        const search = document.querySelector('#search')
+        const list = document.querySelector('#list')
+        const url = ' https://www.imooc.com/api/http/search/suggest?words='
+
+        const handleEvents = () => {
+            //先判断 输入框里有没有值
+            if (search.value.trim() !== '') {
+                let p = getJSON(`${url}${search.value}`)
+                let html = ''
+                p.then(response => {
+                    for (const item of response.data) {
+                        html += `<li>${item.word}</li>`
+                    }
+                    list.innerHTML = html
+                    list.style.display = ''
+
+                }).catch(err => {
+                    console.log(err)
+                })
+            } else {
+                list.innerHTML = ''
+                list.style.display = 'none'
+            }
+        }
+        let timer = null
+        //在serach中输入值(可以使用事件input)的时候 发送请求 获得数据 然后遍历(iterator) 
+        search.addEventListener('input', () => {
+            if (timer) {
+                clearTimeout(timer)
+            }
+            timer = setTimeout(handleEvents, 300);
+        }, false)
+    </script>
+</body>
+
+</html>

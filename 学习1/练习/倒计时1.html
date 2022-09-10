@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 50px;
+            height: 50px;
+            font-size: 15px;
+            background-color: black;
+            display: inline-block;
+            color: #fff;
+            text-align: center;
+            line-height: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="hours"></div>
+    <div class="minues"></div>
+    <div class="secunt"></div>
+    <script>
+            let hours = document.querySelector('.hours');
+            let minues = document.querySelector('.minues');
+            let secunt = document.querySelector('.secunt');
+            let newTimer = +new Date('2022-3-23 00:00:00');
+            Countdown();
+            function Countdown(){
+                let nowTimer = +new Date();
+                let timer = parseInt((newTimer - nowTimer) / 1000);
+                let h = parseInt(timer / 60 / 60 % 24 );
+                    hours.innerHTML = insert(h);
+                let m = parseInt(timer / 60 % 60 );
+                    minues.innerHTML = insert(m);
+
+                let s = parseInt(timer  % 60 );
+                    secunt.innerHTML = insert(s);
+            }
+
+            function insert(a){
+                return a < 10 ? '0' + a : a;
+            }
+            setInterval(Countdown,1000);
+
+    </script>
+</body>
+</html>

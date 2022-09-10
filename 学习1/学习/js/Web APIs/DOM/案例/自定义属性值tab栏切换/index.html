@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        a{
+            text-decoration: none;
+            color: #fff;
+        }
+        ul,li{
+            list-style: none;
+        }
+        .tab{
+            width: 580px;
+            margin: 30px auto;
+            
+        }
+        .tab_h{
+            width: 100%;
+            background-color: rgba(215, 215, 221, 0.466);
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+        .tab_h ul{
+            width: 100%;
+            display: flex;
+           
+        }
+        .tab_h ul li{
+            padding: 15px;
+        }
+        .tab_h a{
+            font-size: 15px;
+            color: black;
+            font-weight: bold;
+        }
+        .tab_h a:hover{
+            color: rgba(248, 90, 90, 0.685);
+        }
+        .current{
+            background-color: red;
+        }
+        .current a{
+            color: #fff;
+        }
+        .current a:hover{
+            color: #fff;
+        }
+       .tab_b .item{
+           display: none;
+       }
+    </style>
+</head>
+<body>
+    <div class="tab">
+        <div class="tab_h">
+            <ul>
+                <li class="current"><a href="#">商品介绍</a> </li>
+                <li><a href="#">规格与包装</a></li>
+                <li><a href="#">售后保障</a></li>
+                <li><a href="#">商品评价（500000）</a></li>
+                <li><a href="#">手机社区</a></li>
+            </ul>
+        </div>
+        <div class="tab_b">
+            <div class="item" style="display: block;"> 
+                商品介绍
+            </div>
+            <div class="item">
+                规格与包装
+            </div>
+            <div class="item">
+                售后保障
+            </div>
+            <div class="item">
+                商品评价（500000）
+            </div>
+            <div class="item">
+                手机社区
+            </div>
+        </div>
+    </div>
+
+    <script>
+       //  先给上面的绑定点击事件
+        //  获取
+            let tab_h_list = document.querySelectorAll('.tab_h  ul li');
+            let items = document.querySelectorAll('.item');
+            console.log(items);
+            //循环 的第一次 绑定点击事件
+            for(let i = 0 ; i < tab_h_list.length ; i++) {
+                //设置自定义 属性
+                tab_h_list[i].setAttribute('index',i);
+                tab_h_list[i].onclick = function() {
+                    // 排他思想  第二次循环  去除所有的样式
+                    for(let i = 0; i < tab_h_list.length; i++) {
+                        tab_h_list[i].className = '';
+                    }
+                    this.className = 'current';
+                    // 下面的内容 需要和上面的点击相匹配  可以自定义一个属性  0 ， 1 ，2 ，3 ，4 ，5.....
+                    let index = this.getAttribute('index');
+                    for(let  i = 0 ; i < items.length; i++) {
+                        items[i].style.display = 'none';
+                    }
+                        items[index].style.display = 'block';
+                        
+                }
+            }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        span {
+            width: 100px;
+            height: 100px;
+            background-color: aqua;
+            position: absolute;
+            left: 15px;
+            top: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <button class="btn500">点击夏雨荷才动500</button>
+    <button class="btn800">点击夏雨荷才动800</button>
+
+    <span>夏雨荷</span>
+    <script>
+        // 缓动动画原理
+        //缓动动画就是让元素运动速度有所变化，最常见的是让速度慢慢停下来
+        // 思路：
+        //    -让盒子每次移动距离慢慢变小,速度就会慢慢落下来;
+        //    -核心算法:(目标值 - 现在得到位置) / 10作为每次移动的距步长;
+        //    -停止的条件是:让当前盒子位置等于目标位置就停止定时器;
+        //    -步长值需要取整 向上取整 math.ceil
+        //动画函数多个目标值之间移动
+            // 当我们点击按钮时候，判断步长是正值还是负值
+                // --正值往上取整
+                // --负值往下取整
+        var span = document.querySelector('span');
+        var btn500 = document.querySelector('.btn500');
+        var btn800 = document.querySelector('.btn800');
+
+        //var obj = {};
+        //obj.name = 'andy';
+        // 给不同的元素指定了不同的定时器
+        function animate(obj, target, timers) {
+            // 当我们不断的点击按钮，这个元素的速度会越来越快，因为开启了太多的定时器
+            // 结局方案是就是 让我们只有一个定时器执行
+            // 先清除以前的定时器，只保留当前的一个定时器执行；
+            clearInterval(obj.timer);
+            obj.timer = setInterval(function () {
+                //把步长值写在定时器上
+                //把我们的步长值改为整数不要出现小数的问题
+                let step = (target - obj.offsetLeft) / 10;
+                step = step > 0 ? Math.ceil(step) : Math.floor(step);
+                if (obj.offsetLeft == target) {
+                    clearInterval(obj.timer);
+                }
+
+                //把每次加1这个步长值改为一个慢慢变小的值 步长公式 ：（目标值 - 现在位置）/10
+                obj.style.left = obj.offsetLeft + step + 'px';
+
+
+            }, timers);
+        }
+        btn500.addEventListener('click', function () {
+            animate(span, 500, 150)
+        })
+        btn800.addEventListener('click', function () {
+            animate(span, 800, 150)
+        })
+        //匀速动画  就是 盒子是当前的位置 + 固定的值 
+        //缓动动画  就是 盒子当前位置 + 变化的值（目标值 - 现在的位置）/ 10；
+    </script>
+</body>
+
+</html>

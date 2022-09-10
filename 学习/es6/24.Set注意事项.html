@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 1. 判断重复的方式
+        // Set对重复值的判断基本遵循严格相等（ === ）
+        // 但是 Set中的NAN等于NAN
+
+        // 2.什么时候使用Set
+        // 数组或字符串去重时
+        let arr = [1,2,3,5,63,1,2,3,5] 
+        // let s = new Set(arr)
+        // arr = [...s]
+        // console.log( arr )
+        function szqc( arr ) {
+            let num = {}
+            arr.forEach((item,index,arr) => {
+                if ( num[item] ) {
+                    num[item]++
+                } else {
+                num[item] = 1
+                }
+                return num
+            })
+            arr = []
+            for(let k in num) {
+                arr.push(k)
+            }
+            return arr
+         }
+         console.log(szqc(arr))
+        // 不需要通过下标访问，只需要遍历时
+        // 为了使用Set 提供的方法和属性时，!add，delete clear has forEach size等)
+    </script>
+</body>
+</html>

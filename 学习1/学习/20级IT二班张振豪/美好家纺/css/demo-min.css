@@ -1,0 +1,61 @@
+header ul{
+	display: none;
+}
+header span{
+	position: static;
+	width: 1021px;
+	height: 50px;
+}
+header span img{
+	width: 225px;
+	height: 42px;
+}
+
+nav ul{
+	justify-content: flex-start;
+	margin-left:20px ;
+}
+nav ul li{
+	display: none;
+}
+nav ul li:nth-child(1){
+	display: block;
+}
+nav ul li:nth-child(2){
+	display: block;
+}
+nav ul li:nth-child(3){
+	display: block;
+}
+nav ul li:nth-child(4){
+	display: block;
+}
+
+.searchs{
+	display: block;
+}
+.main{
+	padding: 0 15px;
+}
+.main .mainL{
+	display: none;
+}
+.main .mainR{
+	width: 100%;
+}
+.main .mainR li{
+	width: 48%;
+ 
+}
+.main .mainR .warp{
+	justify-content: center;
+	flex-wrap: wrap;
+}
+article{
+	display: none;
+}
+
+footer{
+	background-color: #007D6B;
+	color: #FFFFFF;
+}

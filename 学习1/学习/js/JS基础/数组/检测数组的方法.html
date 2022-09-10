@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>检测数组的方法</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			function volumeUp(arr) {
+				for (let i = 0; i< arr.length - 1; i++){
+					for(let j = 0; j < arr.length - i - 1; j++){
+						if(arr[j] > arr[j+1]){
+							var temp = arr[j];
+							arr[j] = arr[j+1];
+							arr[j+1] = temp;
+ 						}
+					}
+				}
+				return arr;
+			}
+			var arr = [1,343,43,5,3,7,5];
+			console.log(volumeUp(arr));
+		</script>
+	</body>
+</html>

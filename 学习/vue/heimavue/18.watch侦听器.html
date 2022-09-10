@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="add">
+        <input type="text" v-model = "msg" name="" id="">
+    </div>
+    <script src="js/vue.js"></script>
+    <script>
+        let vm = new Vue({
+            el: '#add',
+            data: {
+                msg : {
+                    name: '',
+                }
+            },
+            // watch侦听器
+            watch: {
+                // msg(val,oldval){
+                //     console.log(val,oldval)
+                // },
+                msg: {
+                    handler(val,oldval){
+                        console.log(val,oldval)
+                    },
+                    //立即执行
+                    immediate: true,
+                    // 可以深层侦听
+                    deep: true
+                }
+            }
+        })
+
+    </script>
+</body>
+</html>

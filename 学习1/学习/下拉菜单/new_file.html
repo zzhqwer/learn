@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			nav .ar{color: #cccccc;}
+		</style>
+	</head>
+	<body>
+		<nav>
+			<span class="ar">登录</span>
+			<span>我</span>
+			<span>1</span>
+			<span>er</span>
+		</nav>
+		<script type="text/javascript">
+			var are=document.querySelectorAll("nav span")
+			for(var i in are){
+				are[i].onclick=function(){
+					for(var ii in are){
+						are[ii].className=""
+					}
+					this.className="ar"
+				}
+			}
+		</script>
+	</body>
+</html>

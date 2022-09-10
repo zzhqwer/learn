@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        ul,li{
+            list-style: none;
+        }
+        .box ul{
+            display: flex;
+            width: 300px;
+        }
+        .box ul li{
+            width: 25%;
+            padding-top: 20px;
+        }
+        .picc{
+            display: none;
+        }
+        .pic .active{
+            display: block;
+        }
+        .box ul li.active{
+            padding-top: 10px;
+            border-top: 10px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <ul>
+            <li class="item active">第1个</li>
+            <li class="item">第2个</li>
+            <li class="item">第3个</li>
+            <li class="item">第4个</li>
+            <li class="item">第5个</li>
+        </ul>
+        <div class="pic">
+            <div class="picc active">第1个</div>
+            <div class="picc">第2个</div>
+            <div class="picc">第3个</div>
+            <div class="picc">第4个</div>
+            <div class="picc">第5个</div>
+        </div>
+    </div>
+
+    <script>
+
+        // 1.获取元素
+        let items = document.querySelectorAll('.item')
+        let piccs = document.querySelectorAll('.picc')
+        
+        for(let i = 0; i < items.length; i++) {
+            items[i].addEventListener('click', function() {
+                document.querySelector('.box ul .active').classList.remove('active')
+                this.classList.add('active')
+                document.querySelector('.pic .active').classList.remove('active')
+                piccs[i].classList.add('active')
+            })
+        }
+    </script>
+</body>
+</html>

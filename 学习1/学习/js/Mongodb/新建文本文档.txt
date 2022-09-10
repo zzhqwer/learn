@@ -1,0 +1,30 @@
+db查看当前操作的数据库
+address 地址
+save   保存
+collection : 收集，募集
+
+use 数据库名  指定要操作的数据库没有则创建
+show  dbs  显示所有的数据库
+db.dropDatabase()方法 删除当前操作的数据库
+
+db.createCollection("集合名"); 创建集合；
+db.集合名.drop()删除集合
+show collections  显示所有的集合
+使用insert()或者save（）方法向集合中插入文档
+
+db.集合名.insert()插入文档 若集合名不存在则会创建；
+
+db.集合名.find() 查看文档 
+
+条件查询
+	等于 key：value
+	大于 $gt
+	大于等于 $gte
+	小于 $lt
+	小于等于 $lte
+	不等于 $ne
+删除文档
+deleteMany（） deleteOne（）删除第一个
+
+更新文档
+updateMany（）

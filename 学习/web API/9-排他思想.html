@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .pink{
+            background-color: brown;
+        }
+    </style>
+</head>
+<body>
+    <button type="button" class="pink">第1个</button><button type="button">第2个</button><button type="button">第3个</button><button type="button">第4个</button><button type="button">第5个</button>
+    <script>
+        let btnlist = document.querySelectorAll('button')
+
+        for(let i = 0; i < btnlist.length; i++) {
+            btnlist[i].addEventListener('click', function() {
+                //干掉所有人
+                // for(let j = 0; j < btnlist.length; j++) {
+                //     btnlist[j].classList.remove('pink')
+                // }
+                // 找到唯一个pink类名
+                document.querySelector('.pink').classList.remove('pink')
+                this.classList.add('pink')
+            })
+        }
+    </script>
+</body>
+</html>

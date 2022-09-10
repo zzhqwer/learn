@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新闻列表检索</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        ul,li{
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+            color: rgb(75, 74, 74);
+        }
+
+        .seach input{
+            width: 500px;
+            padding:15px;
+            margin: 5px 0 0 5px;
+            outline: none;
+        }
+        .news{
+            width: 500px;
+            border: 1px solid #000;
+            margin: 20px 0 0 5px;
+            padding: 5px;
+        }
+        .news h2{
+            background-color: #ccc;
+            padding: 5px;
+        }
+        .news .list li{
+            border-bottom: 1px dashed #ccc;
+            padding: 5px;
+        }
+        .news .list li:last-child{
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="seach">
+        <input type="text" placeholder="请输入新闻的关键字">
+    </div>
+    <div class="news">
+        <h2>最新新闻</h2>
+        <div class="list">
+            <ul>
+                <li><a href="#">【就业故事1】上海文景信息科技有限公司面试记</a></li>
+                <li><a href="#">合作企业面试记</a></li>
+                <li><a href="#">最强就业保障团队</a></li>
+                <li><a href="#">内向如我,面试不善表达怎么破?</a></li>
+                <li><a href="#">老师带你去面试</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        // // 获取输入框里面的值
+        // var input = document.querySelector('.seach input');
+        
+
+        // // 获取 ul
+        // var list = document.querySelector('.list ul');
+
+        // // 获取li Nodelist集合
+
+        // var listLi= document.querySelectorAll('.list li');
+
+        // //监听 input的值
+        // input.oninput = function () {
+        //     let str = this.value;// 获取input的值 这里的this指向 事件源也就是input；
+        //     let arr = []; // 创建一个空数组  把匹配的值存进去；
+        //     //Array.form 把类似数组转换为数组，如querySelectorAll获取的NodeList集合，和 agrouments对象
+        //     Array.from(listLi).filter(el =>{
+        //         if(el.innerText.indexOf(str) !== -1) { //检测  listLi中 有没有 和输入的值相等  如果相等 执行下面的代码；
+        //             arr = [...arr,el.innerText];
+        //         }
+        //     })
+        //     list.innerHTML = '';//清空列表
+        //     // 遍历数组中的每一项
+        //     arr.forEach(el =>{
+        //         list.innerHTML += `
+        //         <li><a href= '#'>${el}</a></li>
+        //         `
+        //     })
+        // }
+
+        let input = document.querySelector('.seach input');
+        let listUl = document.querySelector('.list ul');
+        let listLi = document.querySelectorAll('.list li');
+
+        input.oninput = function() {
+            let str = this.value;
+            let arr = [];
+            Array.from(listLi).filter(el =>{
+                if(el.innerText.indexOf(str) !== -1){
+                    arr = [...arr,el.innerText];
+                }
+            })
+            listUl.innerHTML = '';
+            arr.forEach(el => {
+                listUl.innerHTML += `
+                <li><a href = '#'>${el}</a></li>
+                `
+            })
+        }
+    </script>
+ 
+</body>
+</html>

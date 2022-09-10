@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			function shiRunYear(year) {
+				let flag = false;
+				// 如果是闰年 输出true 不是则输出 false；
+				if (year % 4 == 0 && year % 100 != 0 || year % 400 == 0) {
+					flag = true ;
+				}
+				return flag;
+			}
+			
+			function getYearDay() {
+				var year = prompt('请输入年份');
+				let yearDay ; 
+				if (shiRunYear(year)){
+					yearDay = year + '是闰年,所以2月份有29天';
+				}else {
+					yearDay = year + '是平年,所以2月份有28天';
+				}
+				return yearDay;
+			}
+			alert(getYearDay());
+		</script>
+	</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>箭头函数</title>
+</head>
+<body>
+    <script>
+        //箭头函数语法：以参数开头，紧接箭头，再后来跟函数体；
+        // 箭头函数左 只有一个参数可以不加括号；
+        // 箭头函数右 只有一条语句可以不加花括号  不用写return;
+        //单个参数
+            let f = v => v; 
+            // 等同于
+            // function f = function(v) {
+            //     return v;
+            // }
+        // 多个参数
+            let sum = (a,b) => a + b;
+            //等同于
+            // function sum = function(a,b) {
+            //     return a+b;
+            // } 
+        //没有参数
+            let sum1 = () => 'hello';
+            //等同于
+            // function sum1 = function(){
+            //     return 'hello'
+            // }
+
+        // 代码块多余一条语句 要加大括号 且使用return语句返回
+            let sum2 = (num1,num2) => {
+                num1 ++;
+                return num1 + num2;
+            }
+
+        // 由于大括号被解释成代码块，如果箭头函数直接返回一个对象，必须在外面加一个圆括号，否则会报错；
+            let getUserName = id => ({id : id,name :'gelai'})
+            //不报错
+            // let getUserName = id => {id : id,name :'gelai'}
+            //报错
+        // 特殊情况可以运行，但是会得到错误的结果
+            // let fun = () => {a:1};
+            // console.log(fun());//undefined;
+            let fun = () => ({a:1});
+            console.log(fun());
+
+        // 箭头函数和解构赋值的结合使用    
+            const fullName = ({firstName,lastName}) =>console.log(firstName + '' + lastName);
+            //等同于
+            // function fullName(student){
+            //     console.log(student.firstName + '' + student.lastName)
+            // }
+            let name = {
+                firstName : '张',
+                lastName : 'san'
+            }
+            fullName(name);
+        // 使用普通函数对数组进行冒泡排序
+            // var result = arr.sort(function(a,b){
+            //     return a - b;
+            // })
+        // 使用箭头函数对数组进行冒泡排序
+            let arr = [231,24,45,346];
+            let result = arr.sort((a,b)=>a-b)
+            console.log(result);
+
+        //箭头函数的this绑定不受影响；
+        function Timer() {
+            this.s1 = 0;
+            this.s2 = 0;
+            // 箭头函数
+            setInterval(() =>this.s1++,1000);
+            // 普通函数
+            setInterval(function() {
+                this.s2++
+            },1000);
+        }
+        let timer = new Timer();
+        setTimeout(() =>console.log('s1:',timer.s1),3000);
+        setTimeout(() =>console.log('s2:',timer.s2),3000);
+    </script>
+</body>
+</html>

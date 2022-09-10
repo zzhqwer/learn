@@ -1,0 +1,138 @@
+1.ECMAscript 和JavaScript的关系:
+    ECMAscript 和JavaScript的关系是，前者是后者的规格，后者是前者的一种实现（另外的ECMAScript方言还有JScript和ActionScript）。日常场合，这两个词是可以互换的。
+2.let 和 const命令
+    let命令
+        ES6新增了let命令，用来声明变量。它的用法类似于var，但是所声明的变量，只在let命令所在的代码块内有效。let命令很适合for循环；
+    const命令
+        使用const声明的变量会被认为是常量（constant），所有的const声明的变量都需要在声明时进行初始化(赋值)，否则会报错。
+    对比const 与let 声明
+        const 声明与let声明一样，都是块级作用域。这意味着常量在声明它们的语句块之外是无法被访问的，并且声明也不会被提升。
+        const 声明与let声明的另一个相似点是：在同一作用域内定义一个已有变量，都会报错。
+3.块级作用域
+    块级作用域也就是让所声明的变量在指定块的作用范围外无法被访问。块级作用域（又被称为词法作用域） 在如下情况被创建：
+        （1）在一个函数内部：
+        （2）在一个有一对花括号包裹的代码块内部；
+        （3）花括号不能出现在赋值表达式的左侧；
+    在ESC6中可以多层嵌套块级作用域 关系等同于作用域链；下面的可以找到上面的，但是上面的找不到下面的；
+    PS：
+        词法作用域：词法作用域也就是在词法阶段定义的作用域。换句话说，词法作用域就是在你写代码到时候就已经决定变量的作用域。
+4.解构赋值
+	ES6允许按照一定的模式，从数组或对象中提取值，给变量进行赋值，称为结构赋值：如
+		let person = {name:'xiao',age : '20'}			let {name , age} = preson;
+		console.log(name);
+		console.log(age);
+	对象解构
+		let person = {name:'xiao',age : '20'}			let {name , age} = preson;
+		console.log(name);
+		console.log(age);
+	数组解构
+		let colors = ['blue' , 'red' , 'write'];
+		let [firstColor , secondColor] = colors;
+		console.log(firstColor);
+		console.log(secondColor);
+	字符串解构
+		字符串解构， 解构时，字符串被转换成了一个类似数组的对象；
+		const [a,b,c,d,e] = 'hello';
+		console.log(a);
+		console.log(b);
+		console.log(c);
+		console.log(d);
+		console.log(e);
+		类似数组 都有一个length属性，可以用这个进行解构.            	
+	   	非同名 {属性名：变量名}
+		let {length: len} = 'hello';
+		console.log(len);
+	使用对象或数组解构模式 替代具名参数；
+		function setCookie(name,value,{secure,path, dom,wo} = {}){
+		console.log(secure);
+		console.log(path);
+		console.log(dom);
+		console.log(wo);
+		}
+		setCookie('type','js',{
+			secure : true,
+			wo: 50000
+		})
+5.箭头函数
+	  	//箭头函数语法：以参数开头，紧接箭头，再后来跟函数体；
+        // 箭头函数左 只有一个参数可以不加括号；
+        // 箭头函数右 只有一条语句可以不加花括号  不用写return;
+        // 箭头函数
+        let f = v => v; 
+        // 等同于
+        // function f = function(v) {
+        //     return v;
+        // }
+        // 多个参数
+        let sum = (a,b) => a + b;
+        //等同于
+        // function sum = function(a,b) {
+        //     return a+b;
+        // } 
+        //没有参数
+        let sum1 = () => 'hello';
+        //等同于
+        // function sum1 = function(){
+        //     return 'hello'
+        // }
+
+        // 代码块多余一条语句 要加大括号 且使用return语句返回
+        let sum2 = (num1,num2) => {
+            num1 ++;
+            return num1 + num2;
+        }
+
+       // 由于大括号被解释成代码块，如果箭头函数直接返回一个对象，必须在外面加一个圆括号，否则会报错；
+            let getUserName = id => ({id : id,name :'gelai'})
+            //不报错
+            // let getUserName = id => {id : id,name :'gelai'}
+            //报错
+        // 特殊情况可以运行，但是会得到错误的结果
+            // let fun = () => {a:1};
+            // console.log(fun());//undefined;
+            let fun = () => ({a:1});
+            console.log(fun());
+
+        // 箭头函数和解构赋值的结合使用    
+            const fullName = ({firstName,lastName}) =>console.log(firstName + '' + lastName);
+            //等同于
+            // function fullName(student){
+            //     console.log(student.firstName + '' + student.lastName)
+            // }
+            let name = {
+                firstName : '张',
+                lastName : 'san'
+            }
+            fullName(name);
+        // 使用普通函数对数组进行冒泡排序
+            // var result = arr.sort(function(a,b){
+            //     return a - b;
+            // })
+        // 使用箭头函数对数组进行冒泡排序
+            let arr = [231,24,45,346];
+            let result = arr.sort((a,b)=>a-b)
+            console.log(result);
+
+        //箭头函数的this绑定不受影响；
+        function Timer() {
+            this.s1 = 0;
+            this.s2 = 0;
+            // 箭头函数
+            setInterval(() =>this.s1++,1000);
+            // 普通函数
+            setInterval(function() {
+                this.s2++
+            },1000);
+        }
+        let timer = new Timer();
+        setTimeout(() =>console.log('s1:',timer.s1),3000);
+        setTimeout(() =>console.log('s2:',timer.s2),3000);
+
+
+6.数组的扩展
+        (1) Array.of()方法 ：总是返回参数值组成的数组。如果没有参数，就返回一个空的数组
+
+
+7.对象的扩展
+        （1）当对象的一个属性与本地变量相同时，可以简单书写名称而省略冒号与值
+        （2）方法简写 ,可以省略冒号和function 

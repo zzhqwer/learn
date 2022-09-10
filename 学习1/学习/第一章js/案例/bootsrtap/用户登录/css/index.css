@@ -1,0 +1,11 @@
+.box{
+	width: 900px;
+	margin: 0 auto;
+}
+.box .panel-heading{
+	background-color: #A8DDED;
+}
+.box .panel-heading h4{
+	color: #FFFFFF;
+	
+}

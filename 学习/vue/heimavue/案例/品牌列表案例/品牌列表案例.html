@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>品牌列表案例</title>
+  <link rel="stylesheet" href="./lib/bootstrap.css">
+  <link rel="stylesheet" href="./css/brandlist.css">
+</head>
+
+<body>
+
+  <div id="app">
+    <!-- 卡片区域 -->
+    <div class="card">
+      <div class="card-header">
+        添加品牌
+      </div>
+      <div class="card-body">
+        <!-- 添加品牌的表单区域 -->
+        <!-- form 表单元素有 submit 事件 阻止默认-->
+        <form @submit.prevent = "app">
+          <div class="form-row align-items-center">
+            <div class="col-auto">
+              <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                  <div class="input-group-text">品牌名称</div>
+                </div>
+                <!---双向绑定 使用修饰符去掉空白符--->
+                <input type="text" class="form-control" placeholder="请输入品牌名称" v-model = 'msg'>
+              </div>
+            </div>
+            <div class="col-auto">
+              <button type="submit" class="btn btn-primary mb-2">添加</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- 表格区域 -->
+    <table class="table table-bordered table-hover table-striped">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">品牌名称</th>
+          <th scope="col">状态</th>
+          <th scope="col">创建时间</th>
+          <th scope="col">操作</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!---循环list数组-->
+        <tr v-for = "(item,index) in list" :key = "item.id">
+          <td>{{ item.id }}</td>
+          <td>{{ item.name }}</td>
+          <td>
+            <div class="custom-control custom-switch">
+              <!-- 使用v-model双向绑定 来控制显示 由于循环生成的id是一样的 需要生成不一样的id-->
+              <input type="checkbox" class="custom-control-input" :id="'cs'+ index" v-model = "item.status">
+              <!---使用v-if来决定渲染-->
+              <label class="custom-control-label" :for="'cs'+ index" v-if="item.status">已启用</label>
+              <label class="custom-control-label" :for="'cs'+ index" v-else>已禁用</label>
+
+            </div>
+          </td>
+          <td>{{ item.tiemr }}</td>
+          <td>
+            <!---v-on 来删除 id具有唯一性 来决定删除哪一个-->
+            <a href="javascript:;" @click="remove(item.id)">删除</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <script src="./lib/vue-2.6.12.js"></script>
+  <script>
+    //创建vue实例化对象
+    const vm = new Vue({
+      //指定操作数据的区域 view
+      el: '#app',
+      // model数据
+      data: {
+        //v-for循环的数组
+        list: [
+          {
+            id: 1,
+            name: '宝马',
+            status: true,
+            tiemr: new Date().toLocaleString(),
+          },
+          {
+            id: 2,
+            name: '奔驰',
+            status: true,
+            tiemr: new Date().toLocaleString(),
+          },
+          {
+            id: 3,
+            name: '大众',
+            status: false,
+            tiemr: new Date().toLocaleString(),
+          },
+        ],
+        msg : ''
+      
+      },
+      //方法
+      methods: {
+        remove(id){
+          if(this.list.length === 1) {
+            alert('不能删除了')
+            return 
+          }
+          //使用 Array.filter筛选 符合判断的输出出来
+          this.list = this.list.filter(item => item.id !== id)
+          
+          },
+          app(){
+            //判断输入的是不是空值 如果是空值则退出
+            if(this.msg === '') return alert('请输入值')
+            this.list.push(
+              {
+                id: this.list[this.list.length-1].id + 1 ,
+                name: this.msg,
+                status: true,
+                tiemr: new Date().toLocaleString,
+              }
+            )
+            this.msg = ''
+          }
+      }
+
+
+    })
+  </script>
+</body>
+
+</html>

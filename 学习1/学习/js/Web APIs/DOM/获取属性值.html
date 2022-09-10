@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>获取属性值</title>
+    <style> 
+
+    </style>
+</head>
+<body>
+    <div class="123">
+
+    </div>
+    <script>
+        let div = document.querySelector('div');
+        // 获取属性值
+            // （1）.element.属性      自身有的属性值 使用element.属性
+            //  (2).element.getAttribute('属性');  主要针对与自定义的属性值 使用element.getAttribute('属性');
+        console.log(div.className);
+        console.log(div.getAttribute('class'));
+        // 设置元素属性值
+            // （1）.element.属性   = '设置的值'
+            div.className = '456';
+            //  (2) .element.setAttribute('属性',属性值);
+            div.setAttribute('index',678);
+        // 移除属性值
+            //(1) element.rmoveAttribute(属性);
+            div.removeAttribute('index');
+
+        // H5自定义属性
+            // 自定义属性：是为了保存并使用数据，有些数据可以保存到页面中而不用保存到数据库中。
+            // 自定义属性获取是通过getAttribute('属性')获取的
+            // 但是有些属性不知道是不是自定义属性还是内置属性；
+            // 设置H5自定义属性 规定了新规范 要以data-开头作为属性名并且赋值
+            div.setAttribute('data-index',1);
+            // 2.获取H5新增的自定义属性的方法 element.dataset.属性 或者  elment.dataset['属性'];
+            //   dataset  是一个集合里面存放了所有以data-开头的自定义属性；
+            console.log(div.dataset.index);
+   </script>
+</body>
+</html>

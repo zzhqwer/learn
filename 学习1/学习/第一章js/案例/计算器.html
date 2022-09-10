@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text" id="wu" value="0" readonly="readonly"
+			style="width: 400px;text-align: right;display: block;" />
+
+
+		<div class="t">
+
+		</div>
+		<script type="text/javascript">
+			var keys = ["1", "2", "3", "4", "5", "6", "7", "8", "9", ".", "-", "+", "*", "/", "sin", "cos", "tan", "asin",
+				"acos", "atan", "AC"
+			]
+
+			function wa() {
+				console.log(keys.length)
+				for (var i = 0; i < keys.length; i++) {
+					
+					document.write(
+						`<input type="button" class="btn1" value="${keys[i]}" onclick="myfunction(this.value)"  style="width: 100px;">`)
+					if ((i + 1) % 4 == 0) {
+						document.write("</br>")
+					}
+
+				}
+
+				function myfunction(scct) {
+					var wu = document.querySelector("#wu")
+					console.log(wu.value)
+				}
+				myfunction()
+			}
+			wa()
+		</script>
+	</body>
+</html>

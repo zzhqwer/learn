@@ -1,0 +1,10 @@
+*{padding: 0;margin: 0}
+li{list-style: none}
+body{font:14px/1.5 "microsoft Yahei"}
+.person {transition: all 400ms ease;width: 400px;height: 180px;background: #fcfcfc url(../img/logo.png) no-repeat 285px 30px;padding: 10px;margin: 10px;color: #000;border-radius: 7px;box-shadow: 0 8px 10px 0 rgba(0, 0, 0, 0.2);cursor: pointer;float: left;overflow: hidden}
+.person h3 {font-size: 24px;margin:10px 0;}
+.person small {margin: 5px 0;font-size: 12px;}
+small span{margin: 0 5px}
+.person p {margin: 10px 0;}
+.highlight {background: #001c39 url(../img/logo.png) no-repeat 285px 30px;color: #fff;transition: all 400ms ease;}
+.person .selected-candidate {border: dashed 1px #919191;color: #919191;text-align: center;padding: 5px;margin-top: 30px;}

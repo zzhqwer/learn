@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/animate.js"></script>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        ul,li{
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+            
+        }
+        .c_nav{
+            width: 1021px;
+            margin: 0 auto;
+            background-color:rgba(0, 0, 0, .5)  ;
+            position: relative;
+        }
+        .c_nav ul {
+            display: flex;
+            justify-content: space-between; 
+          
+        }
+        .c_nav li {
+            width: 102px;
+            height: 43px;
+            text-align: center;
+            line-height: 43px;
+        }
+        .c_nav li a{
+            color: black;
+        }
+        .c_nav li a:hover {
+           color: aliceblue;
+        }
+        .c_nav  .current a{
+            color: aquamarine ;
+        }
+        .cloud{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 102px;
+            height: 43px;
+            background: url(iconfonts/5-信息.png) no-repeat center center ;
+            background-size: contain;
+            z-index: -1;
+        }
+    </style>
+</head>
+<body>
+    <div id="c_nav" class="c_nav">
+        <span class="cloud"></span>
+        <ul>
+            <li class="current"><a href="#">首页新闻</a></li>
+            <li><a href="#">首页新闻</a></li>
+            <li><a href="#">首页新闻</a></li>
+            <li><a href="#">首页新闻</a></li>
+            <li><a href="#">首页新闻</a></li>
+            <li><a href="#">首页新闻</a></li>
+            <li><a href="#">首页新闻</a></li>
+            <li><a href="#">首页新闻</a></li>
+            <li><a href="#">首页新闻</a></li>
+            <li><a href="#">首页新闻</a></li>
+        </ul>
+    </div>
+    <script>
+        var cloud = document.querySelector('.cloud');
+        var c_nav = document.querySelector('.c_nav');
+        var  lis = c_nav.querySelectorAll('li');
+        var  move = 0;
+        for(let i = 0 ; i < lis.length; i++) {
+            lis[i].addEventListener('mouseenter', function(){
+                // animate(cloud,this.offsetLeft );
+              
+                animate(cloud,this.offsetLeft)       
+                console.log(move);         
+            })
+            lis[i].addEventListener('mouseleave', function(){
+                // animate(cloud,this.offsetLeft );
+                animate(cloud,move)              
+            })
+            lis[i].addEventListener('click', function(){
+                // animate(cloud,this.offsetLeft );
+                move = this.offsetLeft;
+                for(let i = 0 ; i < lis.length;i++){
+                    lis[i].className = '';
+                }
+                this.className = 'current';
+                
+            })
+
+          }
+    
+
+    </script>
+</body>
+</html>

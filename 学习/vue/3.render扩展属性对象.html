@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <my-title ></my-title>
+    </div>
+    <script>
+        //创建组件 component
+        Vue.component('my-title',{
+          data(){
+                  return {
+                      myColor : 'red'
+                  }
+                  
+              },
+        methods:{
+            re:function(){
+                this.myColor = 'pink'
+            }
+        },
+        // 获取真实的DOM 可以代替template  remder函数
+          render: function(createElement) {
+               //只有一个参数createElement('节点标签'，属性，'子节点内容')
+             return createElement(
+                 // 标签 必选
+                 // 属性 节选
+                 // 子节点内容 节选
+                'div',
+                {
+                    class:'box',
+                    style:'width:300px;height:300px; backgroundColor:myColor;',
+                    attrs:{
+
+                    },
+                    on:{
+                        onclick:{
+                            re
+                        }
+                    },
+                    domProps:{
+                        innerHTML : '这是一段内容'
+                    }
+                    
+                }
+             )
+           }
+        
+        })
+        let vm = new Vue({
+            el: '#app'
+        })
+    </script>
+</body>
+</html>

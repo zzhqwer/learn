@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport"
+			content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>小格的博客</title>
+		<link rel="stylesheet" type="text/css" href="../bootstrap-3.3.7-dist/css/bootstrap.css" />
+		<link rel="stylesheet" type="text/css" href="css/index.css" />
+	</head>
+	<body class="body">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-3 col-xs-12 ">
+					<p class="h3">小格的博客</p>
+				</div>
+			</div>
+			<nav>
+				<ul class="list-inline">
+					<li>首页</li>
+					<li>博客列表</li>
+					<li>案例</li>
+				</ul>
+			</nav>
+
+			<div class="row">
+				<div class="col-md-3  hidden-sm hidden-xs mainL">
+					<div class="gr">
+						<h5 class="text-primary">个人资料</h5>
+						<img src="img(1)/touxiang.jpg " class="img-responsive">
+						<p class="h5">姓名：<small>小格</small></p>
+						<p class="h5">职业：<small>学生</small></p>
+						<p class="h5">年龄：<small>18</small></p>
+						<p class="h5">专业：<small>前端开发</small></p>
+						<p class="h5">爱好：<small>电脑、运动、唱歌</small></p>
+					</div>
+					<div class="gr">
+						<h5 class="text-primary">博客列表</h5>
+						<p>jquery中的动画如何使用</p>
+						<p>jquery中的动画如何使用</p>
+						<p>jquery中的动画如何使用</p>
+						<p>jquery中的动画如何使用</p>
+						<p>jquery中的动画如何使用</p>
+					</div>
+					<div class="gr">
+						<h5 class="text-primary">案例</h5>
+						<p>jquery中的动画如何使用</p>
+						<p>jquery中的动画如何使用</p>
+						<p>jquery中的动画如何使用</p>
+						<p>jquery中的动画如何使用</p>
+						<p>jquery中的动画如何使用</p>
+					</div>
+				</div>
+				<div class="col-md-9 col-xs-12 mainR">
+					<h5 class="text-primary">正文</h5>
+					<span class="xuexi">javaScript基础学习 <small>javaScript中的键盘事件</small></span>
+					<h5>-2017年11月5日</h5>
+					<ul class="list-unstyled list-inline">
+						<li>标签：</li>
+						<li>前端</li>
+						<li>javaScript</li>
+						<li>代码</li>
+					</ul>
+					<img src="img(1)/Steven.jpg" class="img-responsive center-block">
+					<blockquote class="blockquote-reverse">
+						<p>佛教中有一句话：初学者的心态；拥有初学者的心态是件了不起的事情。</p>
+						<footer>出自 <cite title="Source Title">乔布斯</cite></footer>
+					</blockquote>
+					<p>在网页开发中,经常要捕捉键盘的事件，例如按下<kbd>Enter</kbd>完成表单提交，按下<kbd>Backspace</kbd>，按下<kbd>Esc</kbd>关闭项目，使用javsSctipt中的键盘艰苦龙事件就可以完成这些功能，语法如下：
+					</p>
+					<p>一下是通过监控Enter键，提交表单的事例：</p>
+					<pre class="pre-scrollable">
+	window.onload=function() {
+		//执行键盘按键命令
+		document.body.onkeydown=function keyDown(e) {
+			var keycode=0；
+		//IE浏览器
+		if(Check Browser Is IE() ) {
+			keycode=event， keyCode；
+		} else{
+		//火狐浏览器
+			keycode=e.which；
+		if(keycode==13) //回车键是键位码13
+			document.getElementById(“login form") .submit() ；
+			}
+		//判断访问者的浏览器是否是IE
+		function Check Bro user Is I EOL
+		window.onload=function() {
+		    //执行键盘按键命令
+		document.body.onkeydown=function keyDown(e) {
+		    var keycode=0；
+		//IE浏览器
+		if(Check Browser Is IE() ) {
+		    keycode=event， keyCode；
+		} else{
+		//火狐浏览器
+		    keycode=e.which；
+		if(keycode==13) //回车键是键位码13
+		    document.getElementById(“login form") .submit() ；
+		    }
+		//判断访问者的浏览器是否是IE
+		function Check Bro user Is I EOL
+
+
+						</pre>
+					<p>keydown事件和键位码的解释如下所示：</p>
+					<dl class="dl-horizontal">
+						<dt>keydown事件</dt>
+						<dd>当访客用鼠标选中了某个节点，按下键盘即会触发事件</dd>
+						<dt>键盘键位码</dt>
+						<dd>当访客用鼠标选中了某个节点，按下键盘即会触发事件</dd>
+					</dl>
+				</div>
+			</div>
+		</div>
+		<footer class="container">
+			<address class="text-center">
+				<p> <strong>联系方式</strong></p>
+				<p>地址：武汉市XX区XX路XXXX号电话：1234567890 QQ:1000</p>
+			</address>
+		</footer>
+	</body>
+</html>

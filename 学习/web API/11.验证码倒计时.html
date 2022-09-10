@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>获取验证码</button>
+    <script>
+        let btn = document.querySelector('button')
+        let timer = null;
+
+        btn.addEventListener('click',function() {
+            let num = 5;
+            
+            timer = setInterval(() => {
+                num--
+                btn.innerHTML = `${num}秒之后重新获取`
+                btn.disabled = true
+                console.log(num)
+
+                if(num <= 0) {
+                    clearInterval(timer)
+                    btn.innerHTML = `获取验证码`
+                    btn.disabled = false
+                }
+            },1000)
+        })
+    </script>
+</body>
+</html>

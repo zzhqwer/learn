@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div v-for="po in list">
+            <Codr :po = 'po'></Codr>
+        </div>
+    </div>
+
+    <script>
+        let person = [
+            {"name":"小格","post":"经理","email":"http://123.com"},
+            {"name":"小小格","post":"经理","email":"http://123.com"},
+            {"name":"小来","post":"经理","email":"http://123.com"}
+
+        ]
+        Vue.component('Codr',{
+            props: '[po]',
+            template: `
+                <h2>{{po.name}}({{po.post}})</h2>
+                <p>{{po.post}}</p>
+                <p>{{po.email}}</p>
+            `
+        })
+        let vm = new Vue({
+            el: '#app',
+            data: {
+                list: person
+            }
+        })
+    </script>
+</body>
+</html>

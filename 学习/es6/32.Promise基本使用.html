@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 1.实例化构造函数生成实例对象
+        // const p = new Promise(() => {})
+
+        // 2.Promise 的状态 resolve,reject 参数
+        // const p = new Promise((resolve,reject) => {
+        //     //Promise 有3种状态 一开始是 pending（未完成）时，执行 resolve,变成fulfilled（resolved），已成功
+        //     // 执行reject，变成了rejected， 已失败
+
+        //     // Promise 的状态一旦变化， 就不会再改变了
+
+        //     // pending ->fulfilled
+        //     resolve()
+
+        //     // pending ->rejected
+        //     reject()
+        // })
+
+        // // 3.then()方法
+        // p.then(() => {
+        //     console.log('success')
+        // },() => {
+        //     console.log('error')
+        // })
+        
+        // 4.resolve和reject可以传参
+
+        const p = new Promise((resolve,reject) => {
+            //Promise 有3种状态 一开始是 pending（未完成）时，执行 resolve,变成fulfilled（resolved），已成功
+            // 执行reject，变成了rejected， 已失败
+
+            // Promise 的状态一旦变化， 就不会再改变了
+
+            // pending ->fulfilled
+            resolve({"username": '张三'})
+
+            // pending ->rejected
+            // reject(new Error('resop'))
+        })
+        p.then((data) => {
+            console.log('success',data)
+        } , (err) => {
+            console.log('error',err)
+        })
+    </script>
+</body>
+</html>

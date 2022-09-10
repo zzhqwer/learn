@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>传统注册方式</button>
+    <button>方法监听注册方式</button>
+    <button>attachEvent监听注册方式</button>
+
+    <script>
+        // 注册事件
+        // 给元素添加事件，称为注册事件或者绑定时间；
+        // 注册事件有两种方式：传统方式和方法监听注册事件
+        // 传统注册方式
+            // 利用on开头的事件onclick
+            // 特点：注册事件的唯一性
+            // 同一个元素同一个事件只能设置一个处理函数，最后注册的处理函数将会覆盖前面注册的处理函数
+        // 方法监听注册方式
+            //w3c标准推荐方式
+            //addEventListener()它是一个方法
+            //IE9之前的IE不支持此方法，可使用attachEvent（）代替； 
+            //特点：同一个元素同一个事件可以注册多个处理函数
+            //按注册的顺序依次注册
+        // var btns = document.querySelectorAll('button');
+        // //1.传统方式注册事件
+        // btns[0].onclick  = function() {
+        //     alert('hi');
+        // }
+        // btns[0].onclick  = function() {
+        //     alert('hao a u');
+        // }
+        //2.事件监听注册事件 addEventListener 里面的方法带引号 不要带on
+            // btns[1].addEventListener('click',function(){
+            //     alert(22);
+            // });
+            // btns[1].addEventListener('click',function(){
+            //     alert(33);
+            // });
+
+        //删除事件
+            //  1.传统方式
+            var btns = document.querySelectorAll('button');
+            btns[0].onclick = function() {
+                alert(123);
+                btns[0].onclick = null;
+            }
+            //  2.事件监听方式
+            // btns[1].addEventListener('click',fn);//这里的处理函数不需要加括号 不是匿名函数 是具名函数
+            // function fn() {
+            //     alert(123);
+            //     btns[1].removeEventListener('click',fn);
+            // }
+            // 3.attachEvents事件监听方式 只支持IE9之前的版本
+            btns[2].attachEvent('onclick',fn1);
+            function fn1(){
+                alert(123);
+                btns[2].detachEvent('onclick',fn1);
+            }
+    </script>
+</body>
+</html>

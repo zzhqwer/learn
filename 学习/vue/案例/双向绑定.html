@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul,li{
+            list-style: none;
+        }
+        ul{
+            width: 200px;
+            text-align: center;
+            border: 1px solid red;
+            border-bottom: none;
+        }
+        ul li{
+            width: 200px;
+            background-color: aqua;
+            padding: 10px 0;
+            border-bottom: 1px solid red;
+        }
+        ul li:hover{
+            background-color: beige;
+        }
+        #app div{
+            width: 200px;
+            padding: 10px 0;
+            text-align: center;
+            border: 1px solid red;
+            background-color: rgb(255, 255, 255);
+        }
+    </style>
+</head>
+<body>
+    <!-- vue  绑定--->
+    <div id="app">
+        <div @click = 'setDispaly'>{{msg}}</div>
+         <ul  v-show = "flag" @click = "setShow">
+             <!--使用组件  v-for 循环下面数组  使用自定义事件-->
+             <my-component   @send-msg = "reset" v-for = "item in msgList" :item = "item"></my-component>
+         </ul>
+    </div>
+    <script>
+         //自定义去全局组件  vue.component('组件名'，组件值)
+         Vue.component('my-component',{
+             // props 获取值 item 来自与:item
+             props:['item'],
+            // 模块 item的值来自于 props
+            template:`
+                <li @click = "send" >{{item}}</li>
+            `,
+            methods: {
+                send:function(){
+                    // 自定义事件 $emit('事件名',返回的参数)
+                    this.$emit('send-msg',this.item)
+                },
+               
+                
+            }
+            
+        })
+        let vm = new Vue({
+
+            // 和上边的Id app 绑定
+            el: '#app',
+            // data 存放数据
+            data: {
+                msg: '请选择',
+                // 创建数组 根据数组中的值来决定渲染
+                msgList : ['C#','javascript','web','h5c3'],
+                flag : true,
+                num : 0
+            },
+            methods: {
+                reset: function(val) {
+                    this.msg = val
+                },
+                setShow(){
+                    this.flag = false
+                },
+                setDispaly(){
+                    this.flag = true
+                }
+            }
+        })
+    </script>
+</body>
+</html>

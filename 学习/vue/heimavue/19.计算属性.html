@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 200px;
+            height: 200px;
+            background-color: #000;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <input type="text" v-model = 'r' maxlength="3"><br>
+        <input type="text" v-model = 'g' maxlength="3"><br>
+        <input type="text" v-model = 'b' maxlength="3">
+        <p style="border: 1px solid #ccc;"></p> 
+        <div class="box" :style="{backgroundColor : rgb,}">
+            {{rgb}}
+        </div>
+    </div>
+    <script src="js/vue.js"></script>
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                r: 0,
+                g: 0,
+                b: 0
+            },
+            //计算属性 computed
+            computed: {
+                rgb() {
+                    return `rgb(${this.r},${this.g},${this.b})`
+                }
+            }
+        })
+        console.log(vm);
+    </script>
+</body>
+</html>

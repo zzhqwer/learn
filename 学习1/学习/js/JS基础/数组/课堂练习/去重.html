@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function unique(arr){
+            // 创建一个新数组  储存  旧数组的值
+            let newArr = [];
+            //遍历旧数组
+            for(let i = 0; i < arr.length ; i++) {
+            // 判断新数组中的值 有没有旧数组的值  用indexOf 
+                if(newArr.indexOf(arr[i]) === -1) {
+                    // newArr[newArr.length] = arr[i];
+                    newArr.push(arr[i]);
+                }
+            }
+            return newArr;
+        }
+        console.log(unique([1,1,221,1,12,12,'123','123']));
+    </script>
+</body>
+</html>

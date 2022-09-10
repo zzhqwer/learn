@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        // 函数作用域
+        function test() {
+            var a = 12;
+            console.log(a);
+
+        }
+        test();
+        // console.log(a);  // a is a not defined
+        // {
+        //     var  b = 4;
+        //     let  c = 5;
+        // }
+        // console.log(b);
+        // console.log(c);  // 报错
+        for (var i = 1 ; i <= 3; i++) {
+            var i = 'gelai';
+            console.log(i);  // 只循环一次
+        }
+        for (let i = 1 ; i <= 3 ; i++) {
+            let i = 'gelai';
+            console.log(i); // 循环三次
+        }
+        // const 声明常量 要进行初始化 不然会报错
+        const age = 12;
+        const name //报错
+
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        ul,li{
+            list-style: none;
+        }
+        a{
+            text-decoration:  none;
+            color: rgb(223, 134, 17);
+        }
+        .nav{
+            width: 300px;
+            margin: 0 auto;
+            background-color: aqua;
+        }
+        .nav>ul{
+            display: flex;
+        }
+        .nav>ul>li>a{
+            display: block;
+            padding: 15px 34px;
+        }
+        .nav>ul>li{
+            position: relative;
+        }
+        .nav>ul>li:hover{
+            background-color: blanchedalmond;
+        }
+        .nav>ul>li>ul{
+            position: absolute;
+            display: none;
+        }
+        .nav>ul>li>ul>li{
+            padding: 15px 32px;
+            background-color: rgb(151, 92, 14);
+            border: 2px solid rgb(172, 47, 47);
+        }
+        .nav>ul>li>ul>li:hover{
+            background-color: aliceblue;
+        }
+    </style>
+</head>
+<body>
+    <div class="nav">
+        <ul>
+            <li>
+                <a href="#">微博</a>
+                <ul>
+                    <li>博客</li>
+                    <li>博客</li>
+                    <li>博客</li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">微博</a>
+                <ul>
+                    <li>博客</li>
+                    <li>博客</li>
+                    <li>博客</li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">微博</a>
+                <ul>
+                    <li>博客</li>
+                    <li>博客</li>
+                    <li>博客</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium obcaecati eveniet rerum iste iure atque qui? Dolor, nemo autem sint alias quidem totam. Minus quidem soluta mollitia sunt reiciendis molestiae.
+    </div>
+    <script>
+        var navUl = document.querySelector('.nav ul');
+        var list = navUl.children;
+        for(let i = 0; i < list.length;i++) {
+            list[i].onmouseover = function() {
+              this.children[1].style.display = 'block';
+            }
+            list[i].onmouseout = function() {
+              this.children[1].style.display = 'none';
+            }
+        }
+    </script>
+
+</body>
+</html>

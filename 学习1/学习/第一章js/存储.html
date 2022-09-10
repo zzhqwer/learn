@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			.box{
+				width: 200px;
+				height: 200px;
+				border: 1px #000 dashed;
+				margin: 0 auto;
+				text-align: center;
+				line-height: 40px;
+				padding-top:100px ;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<div class="local">
+				你总共点击<span>0</span>次
+			</div>
+			<div class="session">
+				你共点击<span>0</span>次
+			</div>
+			<button type="button" class="btn">点击</button>
+		</div>
+		
+		<script type="text/javascript">
+			window.onload =function(){
+				var local = document.querySelector(".local span")
+				var session = document.querySelector(".session span")
+				var btn = document.querySelector(".btn")
+				
+				if(localStorage.getItem("num")==null){
+					local.innerHTML = 0
+				}else{
+					local.innerHTML = localStorage.getItem("num");
+				}
+				if(sessionStorage.getItem("num") == null){
+					session.innerHTML = 0
+				}else{
+						session.innerHTML = sessionStorage.getItem("num");
+				}
+				btn.onclick = function(){
+					var a = localStorage.getItem("num")
+					a++;
+					localStorage.setItem("num",a);
+					local.innerHTML = localStorage.getItem("num");
+					
+					var b = sessionStorage.getItem("num");
+					b++;
+					sessionStorage.setItem("num",b);
+					session.innerHTML =sessionStorage.getItem("num");
+				}
+			}
+		</script>
+	</body>
+</html>

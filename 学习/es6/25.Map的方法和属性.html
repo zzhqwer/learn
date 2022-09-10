@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 和 Set 一样没有字面量形式  只能用 new Map() 
+        // 1、方法
+        //    -set()添加 添加必须以键值对的方式 键名可以是任何形式
+        let m = new Map()
+        m.set('name','set').set('age','14')
+        console.log(m)
+        //    -get()获取
+        console.log(m.get('age'))
+        // 没有这个键返回的是 undefined
+        console.log(m.get('uname'))
+        //    -has 判断有没有这个值 返回的是boolean
+        console.log(m.has('age'))
+
+        //    -delete()// 删除一个值
+        console.log(m.delete('age'))
+
+        //    -clear()// 清除所有
+        // m.clear()
+        console.log(m)
+        let c = new Object()
+        //   -forEach() 遍历  
+        m.forEach( (value,key,mop) => {
+            console.log(value,key,mop)
+        })
+
+        // 2. 属性
+        // size 查询几个元素
+        console.log(m.size)
+
+
+        // 构造函数的方式添加元素  数组元素（必须是二维数组）
+    </script>
+</body>
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>购物系统</title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+
+			body {
+				font-size: 15px;
+				font-family: "微软雅黑";
+			}
+
+			h2 {
+				border-bottom: 3px #00FFFF solid;
+				height: 40px;
+				line-height: 40px;
+				position: relative;
+			}
+
+			h2 span {
+				display: inline-block;
+				border-bottom: 6px #00aaff solid;
+				position: absolute;
+				top: -1.5px;
+				left: 20px;
+			}
+
+			.form-grde {
+				margin-left: 20px;
+				font-size: 20px;
+				margin-top: 20px;
+			}
+
+			.form-grde label {
+				display: inline-block;
+				width: 100px;
+			}
+
+			.form-grde input {
+				outline: none;
+				padding: 5px;
+			}
+
+			.form-grde select {
+				border: none;
+				outline: none;
+				background-color: #ffffff;
+			}
+
+			.form-grde .btn {
+				width: 100px;
+				height: 50px;
+				background-color: #0000FF;
+				color: #FFFFFF;
+			}
+
+			.form-grde .btn:hover {
+				cursor: pointer;
+			}
+		</style>
+	</head>
+	<body>
+
+		<h2><span>购物信息</span></h2>
+		<form autocomplete="off">
+			<div class="form-grde">
+				<label>账号</label>
+				<input type="text" value="" class="account" placeholder="请输入你的账号" />
+			</div>
+			<div class="form-grde">
+				<label>选择商品</label>
+				<select class="goods">
+					<option value="请选择">请选择</option>
+					<option value="火腿肠">火腿肠</option>
+					<option value="鸭肠">鸭肠</option>
+					<option value="可乐">可乐</option>
+				</select>
+			</div>
+			<div class="form-grde">
+				<label>单价</label>
+				<input type="text" value="0.00" class="price" />
+
+			</div>
+			<div class="form-grde">
+					<label>数量</label>
+					<input type="text" value="0" class="num" />
+
+			</div>
+			<div class="form-grde">
+				<label>总价</label>
+				<input type="text" value="0.00" class="tobal" />
+			</div>
+			<div class="form-grde">
+					<label></label>
+					<button type="button" class="btn">确认</button>
+				</div>
+		</form>
+
+		<script type="text/javascript">
+			var account = document.querySelector(".account")
+			var goods = document.querySelector(".goods")
+			var price = document.querySelector(".price")
+			var num = document.querySelector(".num")
+			var tobal = document.querySelector(".tobal")
+			var btn = document.querySelector(".btn")
+
+			account.onfocus = function() {
+				account.value = ""
+			}
+
+			goods.onchange = function() {
+				var gv = goods.value
+				console.log(gv)
+				if (gv == "请选择") {
+					price.value = "0.00"
+				} else if (gv == "火腿肠") {
+					price.value = "5.00"
+				} else if (gv == "鸭肠") {
+					price.value = "15.00"
+				} else {
+					price.value = "3.00"
+				}
+			}
+			
+			num.onfocus=function(){
+				num.value=""
+			}
+			
+			num.oninput=function(){
+				var tobalv=price.value*num.value
+				tobal.value=tobalv.toFixed(2)
+			}
+			
+			btn.onclick=function(){
+				var tobalv=tobal.value
+				if(account.value==""){
+					alert("请输入你的账号")
+				}else if(num.value=="0"){
+					alert("请输入你要购买的数量")
+				}else{
+					alert(`${account.value}购买了${tobalv}￥的商品`)
+				}
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table{
+            border-top: solid 1px #ccc;
+            border-left: solid 1px #ccc;
+            text-align: center;
+        }   
+        tr th{
+            border-right: solid 1px #ccc;
+            border-bottom: solid 1px #ccc;
+        
+        }
+        tr td{
+            border-right: solid 1px #ccc;
+            border-bottom: solid 1px #ccc;
+            width: 200px;
+        }
+    </style>
+</head>
+<body>
+    按照价格查询 <input type="text" class="start">- <input type="text" class="end"><button class="btn1">搜索</button>按照商品名称查询：<input type="text" class="pruduct"><button class="btn2">查询</button>
+
+
+    <table cellspacing = "0">
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>产品名称</th>
+                <th>价格</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+        </tbody>
+    </table>
+
+    <script>
+        let data = [
+            {id: 1, num: '小米', price: '3999'},
+            {id: 2, num: 'oppo', price: '999'},
+            {id: 3, num: '荣耀', price: '1299'},
+            {id: 4, num: '华为', price: '1999'},
+        ]
+        let tbody = document.querySelector('table tbody')
+        let start = document.querySelector('.start')
+        let end = document.querySelector('.end')
+        let pruduct = document.querySelector('.pruduct')
+        
+        let btn1 = document.querySelector('.btn1')
+        let btn2 = document.querySelector('.btn2')
+        // 渲染数据 使用forEach
+        setData(data)
+        //多次渲染可以封装成一个函数
+        function setData(data){
+            // 先清空tbody之前的数据
+            tbody.innerHTML = ''
+            data.forEach((value,index,goods) => {
+                let tr = `<tr>
+                            <td>${value.id}</td>
+                            <td>${value.num}</td>
+                            <td>${value.price}</td>
+                        </tr>`
+                tbody.insertAdjacentHTML('beforeend',tr)
+            })
+        }
+    
+        btn1.addEventListener('click', function() {
+           let newGoods =  data.filter(function(value) {
+            return +value.price >= +start.value && +value.price <= +end.value
+           })
+           setData(newGoods)
+        })
+        btn2.addEventListener('click',function() {
+            let arr = []
+            data.some(function(value) {
+                if(value.num === pruduct.value) {
+                    arr.push(value)
+                    return true
+                }
+            })
+            setData(arr)
+        })
+    </script>
+</body>
+</html>

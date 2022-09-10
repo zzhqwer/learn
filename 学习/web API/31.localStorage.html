@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- local 本地  storage存储 -->
+    <script>
+        /// localStorage值是键对值的形式
+        // 设置localStorage.setitem('key','value')
+        localStorage.setItem('key','value')
+        // 获取localStorage.getitem('key')
+        console.log(localStorage.getItem('data'))
+        // 简单数据类型 可以直接存储但是 复杂数据类型需要转换为JSON格式 获取的时候需要转回来
+        let arr = [
+            1,2,3,4,5
+        ]
+        localStorage.setItem('arrkey',JSON.stringify(arr))
+        //不把JSON格式转换为普通格式，获取的值 是字符串格式 JSON.parse()
+        console.log( JSON.parse(localStorage.getItem('arrkey')))
+        
+        let obj = {"name":"小侯", "age": "15"}
+        // 不转换为JSON格式 值显示的是[object Object]
+        localStorage.setItem('objkey',JSON.stringify(obj))
+        //不把JSON格式转换为普通格式，获取的值 是字符串格式
+        console.log(JSON.parse(localStorage.getItem('objkey')))
+
+    </script>
+</body>
+</html>

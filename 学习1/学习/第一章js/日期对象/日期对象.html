@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var d1 = new Date("2021-10-10 10:20:59 ")
+
+
+			var year = d1.getFullYear() //年
+			var mouth = d1.getMonth() //月
+			var date = d1.getDate() //日
+			var hours = d1.getHours() //时
+			var min = d1.getMinutes() //分
+			var sec = d1.getSeconds() //秒
+			var day = d1.getDay() //周
+			switch (day) {
+
+				case 1: {
+					day = "一"
+					break
+				}
+
+				case 2: {
+					day = "二"
+					break
+				}
+
+				case 3: {
+					day = "三"
+					break
+				}
+
+				case 4: {
+					day = "四"
+					break
+				}
+
+				case 5: {
+					day = "五"
+					break
+				}
+
+				case 6: {
+					day = "六"
+					break
+				}
+
+				default: {
+					day = "日"
+					break
+				}
+
+			}
+
+			console.log(`今天是${year}年${(mouth+1)}月${date}号，${hours}点${min}分${sec}秒，周${day}`)
+		</script>
+	</body>
+</html>

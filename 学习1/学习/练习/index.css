@@ -1,0 +1,158 @@
+
+*{margin: 0;padding: 0;}
+ul,li{list-style: none;}
+body{background-color:rgba(c, 0, 0, 1.5);font-family: "微软雅黑";}
+
+
+/*公共区域*/
+.clearfix:after{height: 0;clear: both;display: block;visibility: hidden;content: "";}
+.contanter{width: 1024px;margin: 0 auto;}
+.hd{text-align: center;margin: 50px 0;}
+.hd h4{text-transform: uppercase;margin: 10px 0; }
+
+/*登录注册 logo*/
+.qu{color: rgba(100, 149, 237, 1.0);}
+.qua{color: rgba(100, 149, 237, 1.0);}
+
+header{height: 50px;line-height: 50px;text-align: center;}
+header img{float: left;width: 50px;height: 50px;}
+header ul{float: right;}
+header ul li{float: left;margin: 0 10px;cursor: default;}
+/*登录*/
+.cuo{display: block;text-align: right;padding: 5px;font-size: 30px;}
+
+.wrap{position: fixed;left: 0;top: 0px;width: 100%;height: 100%;z-index: 999; background: rgba(0, 0, 0, 0.8);
+display: none;text-align: center;
+}
+.wrap .dialog{
+	width: 500px;
+	margin: 20px auto;
+	height: 400px;
+	background-color: white;
+	border-radius: 25px;
+	-webkit-border-radius: 25px;
+	-moz-border-radius: 25px;
+
+}
+.login,.register{cursor: default;}
+.dialog label{display: block;height: 60px;line-height: 50px;text-align: center;}
+.dialog h2{border-bottom: 2px #000 solid ;margin: 10px 0;padding: 10px;}
+.dialog button{width: 200px;height: 50px;border-radius: 25px;background-color: rgba(100, 149,237, 1.0);}
+/*注册*/
+
+.wrapa{position: fixed;left: 0;top: 0px;width: 100%;height: 100%;z-index: 999; background: rgba(0, 0, 0, 0.8);
+display: none;text-align: center;
+}
+.wrapa .dialoga{
+	width: 500px;
+	margin: 20px auto;
+	height: 500px;
+	background-color: white;
+	border-radius: 25px;
+	-webkit-border-radius: 25px;
+	-moz-border-radius: 25px;
+
+}
+.dialoga label{display: block;height: 60px;line-height: 50px;}
+.dialoga h2{border-bottom: 2px #000 solid ;margin: 10px 0;padding: 10px;}
+.dialoga button{width: 200px;height: 50px;border-radius: 25px;background-color: rgba(100, 149,237, 1.0);}
+.dialoga input{border: none;padding: 5px 10px;outline-color: rgba(100, 149, 237, 1.0);}
+/*导航*/
+nav{
+	width: 100%;
+	background: #ccc;
+	position: fixed;
+	z-index: 999;
+}
+nav.scroll{
+	top: 0;
+	background-color: rgba(0,0,0,0.5);
+}
+
+nav ul{width: 1024px;margin: 0 auto;}
+
+nav ul li{float: left;margin-left: 130px;padding: 20px;color: #fff;}
+nav ul li:hover{background: #000;}
+nav .aa{background-color: rgba(0, 0, 0, 1.0);}
+/*banner*/
+
+.banner{
+	width: 100%;
+	overflow: hidden;
+
+}
+.banner ul{
+	width:300%;
+	position: relative;
+	top: 0;
+	left: 0;
+	animation: uu 10s infinite;
+}
+.banner ul li{
+	width: 33%;
+	float: left;
+}
+.banner li img{
+	width: 100%;
+	height: 700px;
+}
+@keyframes uu{
+	0%{
+		left:0;
+	}
+	20%{
+		left: -100%;
+	}
+	40%{
+		left: -200%;
+	}
+	60%{
+		left: -200%;
+	}
+	80%{
+		left: -100%;
+	}
+	100%{
+		left: 0%;
+	}
+}
+/*河南戏曲*/
+    /*左边图片*/
+.xiqu{width:1024px;margin: 0 auto;}
+.xiqu ul{float: left;width:500px;line-height: 40px;}
+.xiqu ul li{width: 200px;height: 200px; overflow: hidden;margin:15px 0 ;}
+.xiqu li:first-child{margin-left:200px ;}
+.xiqu li:last-child{margin-left:200px ;}
+.xiqu img{width: 100%;height: 100%;}
+.xiqu li:hover img{transform: scale(1.5);}
+	/*右边*/
+
+.xiquR{
+	width: 400px;
+	float: right;
+	border: 1px #d1d1e1 solid;
+	background-color: #f2f2f2;
+	padding:20px;
+	border-radius:25px ;
+	-webkit-border-radius: 25px;
+	-moz-border-radius: 25px;
+}
+.xiquR h2{text-align: left;}
+.xiquR p{text-indent: 2em;margin: 15px;}
+
+/*河南景点*/
+.jingdian{width:1024px ;margin: 0 auto;}
+.jingdian li{width: 250px;height: 250px;float: left;margin: 20px 3px;text-align: center;}
+
+.jingdian img{width: 100%;height: 100%;}
+
+
+/*河南文化*/
+.wenhuamain{width: 300px;background-color: #f2f2f2;border: 1px #d1d1e1 solid;float: left;margin-left:10px ;padding: 10px;border-radius: 25px;-webkit-border-radius: 25px;-moz-border-radius: 25px;}
+.wenhuamain:nth-child(2){margin-top:80px ;}
+.wenhuamain p{text-indent:24px;line-height: 2em;}
+
+/*版权*/
+footer{background-color: rgba(13,84,193, 1.0);height:200px;width: 100%;margin-top:40px ;}
+
+footer p{text-align: center;line-height: 200px;color: #fff;}

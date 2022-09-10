@@ -1,0 +1,6 @@
+E:\C#作品\for\for\bin\Debug\@for.exe.config
+E:\C#作品\for\for\bin\Debug\@for.exe
+E:\C#作品\for\for\bin\Debug\@for.pdb
+E:\C#作品\for\for\obj\Debug\@for.exe
+E:\C#作品\for\for\obj\Debug\@for.pdb
+E:\C#作品\for\for\obj\Debug\for.csprojResolveAssemblyReference.cache

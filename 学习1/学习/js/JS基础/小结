@@ -1,0 +1,67 @@
+new关键字执行过程
+		1.new构造函数可以在内存中创建了一个空的对象；
+		2.this 就会指向刚才创建的空对象；
+		3.执行构造函数里面的代码  给这个空对象添加属性和方法；
+		4.返回这个对象；(所以构造函数里面不需要return);
+对象小结
+	1.对象可以让代码结构更清晰
+	2.对象复杂数据类型object
+	3.本质：对象就是一组无序的相关属性和方法的集合；
+	4.构造函数泛指某一大类，比如苹果，不管是红色苹果还是绿色苹果，都成为苹果；
+	5.对象实例特指一个事物，比如这个苹果、正在给你们讲课的pink老师等。
+	6.for..in 语句用于对对象的属性进行循环操作；
+
+内置对象：
+	Javascript中的对象分为3种：自定义对象、内置对象、浏览器对象
+	前两种对象时js基础内容，属于ECMScript；第三个浏览器对象属于我们JS独有的；
+	内置对象就是指JS语言自带的一些对象，这些对象供开发者使用，并提供了一些常用的或是最基本而必要的功能（属性和方法）
+	内置对象最大的优点就是帮助我们快速开发；
+	JavaScript 提供了多个内置对象：Math。Date。Array。String等
+	
+	1.Math 数学对象 不是一个构造函数，所以我们不需要new 来调用 而是直接使用里面的属性和方法即可：
+		-Math.PI //属性  圆周率；
+		-Math.max(value1,value2,value3, ....) // 方法  最大值；
+		-Math.min(value1,value2,value3, ....);// 方法  最小值；
+		-Math.abs(value);// 方法 绝对值；
+		-Math.floor(); floor 地板// 方法 向下取整  往最小了取值
+		-Math.ceil(); ceil 天花板 // 方法 向上取整 往最大了取值
+		-Math.round();四舍五入 其他的数字都是四舍五入 但是.5 特殊 它往大了取；
+		-Math.random(); random 随机；//方法 返回一个随机的小数  0 <= x < 1 这个方法里面不跟参数   我们想要得到两个数之间的随机整数 并且 包含这两个整数 ：公式如下：Math.floor(Math.random()*(max- min - 1 ) + min);
+		
+	2.Date() 日期对象 是一个构造函数 必须使用new 来调用创建我们的日期对象，所以我们需要实例化后才能使用；Date 实例用来处理日期和时间；
+		1.使用Date 如果没有参数 返回当前系统的当前时间；
+		var date = new Date();
+		2. 参数常用的写法  数字型 2019,10,01 或者是 字符串型 '2019—10-1 8:8:8';
+		var date1 = new Date(2019,10,01);
+		console.log(date1);// 返回的是11月 不是 10月；
+		var date1 = new Date('2019-10-01 8:8:8');
+		console.log(date1);字符串形式；
+		
+		方法：
+			1. .getFullYear()  获取当年
+			2. .getMonth()     月份  返回的月份小一个月；
+			3. .getDate()	   几号
+			4. .getDay()		周几 周一返回的是1 周六返回的是6 但是周日返回的是 0
+			5. .getHours()    小时
+			6. .getMinutes()    分钟
+			7. .getSeconds()	  秒
+			获得Date总的毫秒数(时间戳) 不是当前时间的毫秒数 而是距离1970年1月1号过了多少毫秒数；
+			-通过  valueof()  getTime()
+			var date = new Date();
+			console.log(date.valueOf());
+			console.log(date.getTime());
+			-简单写法（最常用的写法）
+			var date1 = +new Date();
+			console.log(date1);
+			-H5新增的方法 now()；
+			console.log(Date.now());
+			
+	3.new Araay();
+		创建方法
+			1.字面量方法：var arr = [];
+			2.new Array(): 
+				var arr = new Array(2);一个值的时候 是它的长度是2;
+				var arr = new Array(2,3);多个值的时候 它的长度是2 值分别是2,3
+		检测是否为数组
+			(1) instanceof 运算符 用来检测是否为数组
+			(2) Array.isArray() 方法  检测是否为数组

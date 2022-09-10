@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+        //Array.from('参数'，'返回处理后的参数')
+        let arr = {
+            "0" : "张三",
+            "1" : "李四",
+            "length" : 2
+        }
+        let arr1 =  Array.from(arr,item => item + 2)
+        arr1.push(1)
+        console.log(arr1);
+
+        //Array.find(()=> {})  返回查找到的数据  如果没有则返回undefined
+        let arr2 = [
+            {
+                id: 1,
+                name: '张三'
+            },
+            {
+                id: 2,
+                name: '李四'
+            }
+        ]
+            console.log(arr2.find(item => item.id === 2));  // {id：2, name: '李四'}
+
+
+        //Array.findIndex() 返回查找到的数据的索引 如果没有则返回 -1
+        console.log(arr2.findIndex(item => item.id === 3 ))  //-1
+</script>
+</body>
+</html>

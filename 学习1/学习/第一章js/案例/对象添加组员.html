@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			.lists span {
+				display: inline-block;
+				width: 80px;
+				text-align: center;
+			}
+		</style>
+	</head>
+	<body>
+		<form autocomplete="off">
+			<div id="">
+				<span>你输入的组员的昵称：</span><input type="text" name="" id="" value="" />
+			</div>
+			<div id="">
+				<span>你输入的组员的昵称：</span><input type="text" name="" id="" value="" />
+			</div>
+			<div id="">
+				<button type="button">完成添加</button>
+			</div>
+
+			<div class="lists">
+				<div class="list">
+					<span>姓名</span>
+					
+					<span>年龄</span>
+				</div>
+			</div>
+			<script type="text/javascript">
+				var name_input = document.querySelectorAll("input")[0]
+				var age_input = document.querySelectorAll("input")[1]
+				var btn = document.querySelector("button")
+				var lists = document.querySelector(".lists")
+				var s = []
+				btn.onclick = function() {
+					var name = name_input.value
+					var age = age_input.value
+
+					if (name.trim() == "") {
+						alert("昵称不能为空")
+					}
+
+	
+					else if (age.trim() == "") {
+						alert("年龄不能为空")
+					} else {
+						for (var i in s) {
+							if (s[i].name == name) {
+								alert("昵称不能重复")
+								return
+							}
+						}
+						var obj = {};
+						obj.name = name;
+						obj.age = age;
+						s.push(obj)
+
+
+						for (var e in s) {
+							if (s.indexOf(lists) != -1) {
+								alert()
+							}
+							
+						}
+						lists.innerHTML = lists.innerHTML +
+							`<div><span>${s[e].name}</span><span>${s[e].age}</span></div>`
+					}
+
+				}
+			</script>
+		</form>
+	</body>
+</html>

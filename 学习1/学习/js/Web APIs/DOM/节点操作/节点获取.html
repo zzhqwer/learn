@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <div class="box">
+        <span class="erweima">×</span>
+    </div>
+    <ul>
+        <li>我是li</li>
+        <li>我是li</li>
+        <li>我是li</li>
+        <li>我是li</li>
+        <li>我是li</li>
+        <li>我是li</li>
+    </ul> -->
+    <!-- <script> -->
+        <!-- //节点层级
+            // 元素节点  1
+            // 属性节点  2
+            // 文本节点  3
+
+        // 利用DOM树可以把节点划分为不同的层级关系，常见的是父子兄层级关系 
+        // 1.父节点 parentNode
+            var erweima = document.querySelector('.erweima');
+            // var box = documnet.querySelector('.box');
+            // parentNode返回的是某节点的父节点，注意是最近的一个父节点
+            // 如果指的的节点没有父节点则返回null 
+             console.log(erweima.parentNode);
+        // 2.子节点  parentNode.childNodes  标准  不常有; 所有的节点 包含 元素节点，文本节点等等；
+            //DOM 提供的方法（API）获取
+            var ul = document.querySelector('ul');
+            var li = document.querySelectorAll(li);
+            console.log(ul.childNodes);
+            console.log(ul.childNodes[0].nodeType);
+            console.log(ul.childNodes[1].nodeType);
+            // 2.子节点第二个方法patentNode.children（非标准  重点掌握 只返回元素节点  实际开发常用的）
+            console.log(ul.children);
+
+        // 3.第一个子节点或者最后一个子节点   这里可以获取文本节点或者元素节点；
+            // 第一个子节点  parentNode.firstChild;
+            console.log(ul.firstChild);
+            // 最后一个子节点 parentNode.lastChild;
+            console.log(ul.lastChild);
+            // parentNode.firstElementChild;  parentNode.lastElementChild; （兼容性差）
+            console.log(ul.firstElementChild);
+            console.log(ul.lastElementChild);
+            // parentNode.children[1];parentNode.children[Nodelist.length - 1];
+            console.log(ul.children[0]);
+            console.log(ul.children[ul.children.length - 1]);
+
+</script> -->
+    <div>我是div</div>
+    <span>我是span</span>
+    <script>
+        //<!-- 兄弟节点 -->
+        //nextSibling 返回当前元素的下一个兄弟节点，找不到则返回null，同样，也是包含所有的节点。 -->
+        var div = document.querySelector('div');
+        console.log(div.nextSibling);
+        //previousSibling 返回当前元素的下一个兄弟节点，
+        console.log(div.previousSibling);
+        //2.nextElementSibling;得到下一个兄弟节点；previousElementSibing; 得到上一个兄弟节点；（兼容问题）
+        // 返回当前元素的下一个兄弟节点，
+
+    </script>
+</body>
+</html>

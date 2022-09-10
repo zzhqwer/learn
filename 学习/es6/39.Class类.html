@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 声明方式
+        // 函数方式
+        // class Params {
+        //     constructor(name, age) {
+        //         // 实例对象
+        //         this.name = name,
+        //             this.age = age
+        //     }
+        //     //实例方法
+        //     speak() {
+        //         console.log('人类会说话')
+        //     }
+        //     //静态方法
+        //     static say() {
+        //         console.log('唱歌')
+        //     }
+        // }
+        // const zs = new Params('zs', 14)
+        // console.log(zs.name)
+        // console.log(zs.age)
+
+        // zs.speak()
+        // Params.say()
+        // // 表达式方式
+        // const c = class {
+        //     constructor(name, age) {
+        //         // 实例对象
+        //         this.name = name,
+        //             this.age = age
+        //     }
+        // }
+        // const cs = new c('li', 13)
+        // console.log(cs.name)
+        // console.log(cs.age)
+
+
+
+        // 使用extends 继承
+        class Father {
+            constructor(name, age) {
+                this.name = name,
+                    this.age = age
+            }
+            speak() {
+                console.log(this.name)
+
+            }
+            static say() {
+                console.log('123')
+            }
+        }
+
+        class Son extends Father {
+            constructor(name, age) {
+                // super在实例化对象内是函数形式super()
+                super(name, age)
+            }
+        }
+        const son = new Son('zs', 15)
+        console.log(son.name)
+        console.log(son.age)
+        son.speak()
+        Father.say()
+        Son.say()
+
+    </script>
+</body>
+
+</html>

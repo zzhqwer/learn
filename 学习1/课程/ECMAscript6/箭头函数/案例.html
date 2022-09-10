@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        .box{
+            width: 200px;
+            transition: all .2s ease-in;
+        }
+        .box img{
+            width: 100%;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <img src="d12.png" alt="">
+    </div>
+    <script>
+        var box = document.querySelector('.box');
+        box.onmouseover =function(){
+            setTimeout(() => {
+                this.style.width = '400px';
+                this.style.padding =  '20px'
+                this.style.backgroundColor = '#000000';
+                this.style.borderRidus = '40px';
+            },500)
+        }
+        box.onmouseleave= function(){
+            setTimeout(() => {
+                this.style.width = '200px';
+              
+                this.style.backgroundColor = '0';
+                this.style.padding =  '0'
+
+                this.style.borderRidus = '0'
+
+            },500)
+        }
+    </script>
+</body>
+</html>

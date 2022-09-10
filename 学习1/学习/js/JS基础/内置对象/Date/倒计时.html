@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div class="div1">
+			
+		</div>
+		<script type="text/javascript">
+				
+			function countDown(time) {
+				// countDown 倒计时
+				var  nowTime = +new Date();
+				var  inputTime = +new Date(time);
+				var  times = (inputTime - nowTime) / 1000;
+				
+				// 天
+				var d =  +new Date(times/ 60 / 60 / 24);
+					d = d < 10 ? '0'+ d : d;
+				
+				//小时
+				var h =  +new Date(times/ 60 / 60 %24);
+					h = h < 10 ? '0'+ h : h;
+				// 分
+				var m = +new Date(times/ 60 % 60);
+					m = m < 10 ? '0'+ m : m;
+				//秒
+				var s = +new Date(times % 60);
+					s = s < 10 ? '0'+ s : s;
+				return d + ":" + h + ':' + m + ':'+ s;
+			}
+			console.log(countDown('2022-1-25 04:00:00'));
+		</script>
+	</body>
+</html>

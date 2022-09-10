@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .active{
+            width: 200px;
+            height: 200px;
+            border: 1px solid red;
+        }
+        .error{
+            background-color: orange;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+
+        <!--  对象的形式  acive: ture 显示|| false 隐藏 多个类名用,号隔开-->
+        <div :class="{active: isActive,error: isError}">123</div>
+        <button @click = "handle"></button>
+        <input type="text" name="" id="" :value = 'msg'>
+    </div>
+    <script src="../js/vue.js"></script>
+    <script>
+
+        //事件修饰符
+        // v-on:click.stop 阻止冒泡
+        // v-on:click.prevent 阻止默认事件
+        
+        let vm = new Vue({
+            el: '#app',
+            data: {
+                isActive: true,
+                isError: true,
+                msg : 123
+
+            },
+            methods: {
+                handle(){
+
+                    //!this.isActive 取反 
+                    this.isActive  = !this.isActive
+                    this.isError  = !this.isError
+
+                }
+            }
+        })
+
+    </script>
+</body>
+</html>

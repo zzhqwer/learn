@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 当对象的一个属性名与本地变量相同时，可以简单书写名称而省略冒号与值
+            function creatPerson(name,age) {
+                return {
+                    name,
+                    age
+                }
+            }
+            console.log(creatPerson('张',12));
+
+        //方法简写 ,可以省略冒号和function 
+            var Person = {
+                name : 'zhangsan',
+                sayName(){
+                    console.log(this.name);
+                }
+            }
+            Person.sayName();
+
+        //动态属性名 对象实例能使用‘动态属性名’，只要用方括号表示法来代替小数点表示法，方括号表示法允许任何字符串作为属性名；
+
+            let personObj = {};
+            let wx = 'includes copyWithin'
+            personObj['gelai'] = 'gelai';
+            personObj[wx] = 'kdljf';
+            console.log(personObj['gelai']);//'gelai'
+            console.log(personObj[wx]);//'kdljf'
+            console.log(personObj);//gelai:'gelai', inclucdex copyWithin : 'kdljf';
+        
+        // Object.is()方法弥补了严格相等运算符残留的怪异缺陷。 此方法接受两个参数，并会在两者类型相同并且值也相等时返回true.大部分结果与 === 是相同的 例外 它认为+0，-0不相等  NaN等于NaN 
+
+            console.log(+0 === -0);//true
+            console.log(Object.is(+0,-0));//false
+            console.log(NaN === NaN);//fale
+            console.log(Object.is(NaN ,NaN));//true
+            console.log(5 == '5');//true
+            console.log(5 === '5');//false
+            console.log(Object.is(5,5));//true
+            console.log(Object.is(5,'5'));//false
+        
+        // Object.assign()方法，用于将所有可枚举属性的值 从一个或多个源对象分配到目标对象。他将返回目标对象。第一个参数是目标对象，第二个参数是源对象，单个或多个相同属性 会覆盖。如果只有一个参数，Object.is()直接返回该参数，如果不是对象，回将其转换为对象。
+            const  target = {a:1,b:2};
+            const  source = {b:2,c:6};
+            const  result = Object.assign(target,source);
+            console.log(result);
+            console.log(target);
+        
+
+        //super 关键字；指向当前对象的原型对象；
+            const xiaolai = {
+                str :'hello'
+            }
+            const gelai = {
+                str:'world',
+                show(){
+                    return super.str;
+                }
+            }
+            Object.setPrototypeOf(gelai,xiaolai);
+            console.log(gelai.show());
+    </script>
+</body>
+</html>

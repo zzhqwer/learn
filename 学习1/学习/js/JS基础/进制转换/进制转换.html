@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>进制转换</title>
+		<style type="text/css">
+			.box {
+				width: 500px;
+				margin:  0 auto;
+			}
+			.box form select{
+				padding: 10px 0;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<form action="" autocomplete="off" method="">
+				<select id="select1">
+					<option value="1">二进制转八进制</option>
+					<option value="2">二进制转十进制</option>
+					<option value="3">二进制转十六进制</option>
+					<option value="4">八进制二进制</option>
+					<option value="5">八进制转十进制</option>
+					<option value="6">八进制转十六进制</option>
+					<option value="7">十进制转二进制</option>
+					<option value="8">十进制转八进制</option>
+					<option value="9">十进制转十六进制</option>
+					<option value="10">十六进制转二进制</option>
+					<option value="11">十六进制转十进制</option>
+					<option value="12">十六进制转十六进制</option>
+				</select>
+				<div>
+					<input type="text"  name="" id="input1" value="" />
+					<label>请输入你需要进制转换的数字</label>
+				</div>
+				<div>
+					<input type="text" readonly="readonly" name="" id="input2" value="" />
+					<label>转换完成的结果</label>
+				</div>
+				<button type="button" class="btn1">change</button>
+			</form>
+		</div>
+		<script type="text/javascript">
+			var btn1 = document.querySelector('.btn1');
+			btn1.onclick = function () {
+				let input1 = document.querySelector('#input1');
+				let input2 = document.querySelector('#input2');
+				let select1 = document.querySelector('#select1');
+				let input1V = input1.value;
+				let selectV = parseInt(select1.value);
+				let to;
+			
+				
+				switch (selectV){
+					case  1:to = parseInt(input1V,2).toString(8); break;
+					case  2:to = parseInt(input1V,2).toString(10); break;
+					case  3:to = parseInt(input1V,2).toString(16); break;
+					case  4:to = parseInt(input1V,8).toString(2); break;
+					case  5:to = parseInt(input1V,8).toString(10); break;
+					case  6:to = parseInt(input1V,8).toString(16); break;
+					case  7:to = parseInt(input1V,10).toString(2); break;
+					case  8:to = parseInt(input1V,10).toString(8); break;
+					case  9:to = parseInt(input1V,10).toString(16); break;
+					case  10:to = parseInt(input1V,16).toString(2); break;
+					case  11:to = parseInt(input1V,16).toString(8); break;
+					case  12:to = parseInt(input1V,16).toString(10); break;
+				}
+				if(isNaN(to)){
+					to = '你输入了非法数字';
+				}
+				input2.value = to ;
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>1个</li>
+        <li>2个</li>
+        <li>3个</li>
+        <li>4个</li>
+        <li>5个</li>
+    </ul>
+    <script>
+        let lis = document.querySelectorAll('li')
+
+        //闭包
+        for(var i = 0; i < lis.length; i++) {
+            // lis[i].addEventListener('click', function() {
+            //     console.log(i) // 都是五
+        // })
+            // 立即执行函数也成为了一个小闭包因为立即执行函数里面的任何一个函数都可以使用它的i这变量
+            (function(i){
+                setTimeout(()=>{
+                    console.log(lis[i].innerHTML)
+                },3000)
+            })(i)
+        }
+        // 相等于 
+    //     for(let i = 0; i < lis.length; i++) {
+    //         lis[i].addEventListener('click', function() {
+    //             console.log(i) // 都是五
+    //         })
+    //    }
+    </script>
+</body>
+</html>

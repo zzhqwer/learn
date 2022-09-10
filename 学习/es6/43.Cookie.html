@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cokie</title>
+</head>
+
+<body>
+    <script>
+        // 1.写入Cookie
+        document.cookie = 'username=zs'
+        document.cookie = 'age=16'
+
+
+        // 不能一起设置，只能一个一个设置
+
+
+
+        // 2.读取Cookie
+        console.log(document.cookie)
+        // 读取的一个由名值对构成的字符串，每个名值对之间由：';' (一个分号和一个空格)隔开
+        // username=zs; age=18
+    </script>
+</body>
+
+</html>

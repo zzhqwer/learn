@@ -1,0 +1,491 @@
+body{
+	position: relative;
+}
+
+/* 回到顶部 */
+.returnTop{
+	display: none;
+	position: fixed;
+	top: 50%;
+	right: 15px;
+	
+}
+.returnTop a{
+	font-size: 30px;
+	color: #00ffff;
+	text-decoration: none;
+}
+/* 导航栏 */
+.navbar-default{
+	margin-bottom: 0;
+}
+.nav > li > a{
+	padding: 15px 10px;
+}
+.navbar-default .navbar-nav > li > a:hover{
+	background-color: rgba(0,0,0,0.2);
+}
+.xs-navbar-brand{
+	display: flex;
+	align-items: center;
+}
+.xs-navbar-brand img{
+	width: 160px;
+}
+.lg-navbar-brand{
+	padding: 0 15px ;
+}
+.lg-navbar-brand ul{
+	background: linear-gradient(to right,#001a39,#005493);
+	font-size: 20px;
+	color: #FFFFFF;
+}
+
+.lg-navbar-brand ul li:first-child{
+	background-color: #fff;
+	border-radius: 0 0 50% 0;
+	height: 80px;
+	padding: 30px 15px;
+}
+.lg-navbar-brand ul li:first-child img{
+	width: 160px;
+}
+.lg-navbar-brand ul li:nth-child(2){
+	height: 0;
+	line-height: 50px;
+	overflow: hidden;
+	transition: all 0.5s ;
+	padding-left: 15px;
+}
+.lg-navbar-brand ul:hover li:nth-child(2){
+	height: 50px;
+}
+.lg-navbar-brand ul li:last-child{
+	padding: 15px;
+	
+}
+/* 背景*/
+/* 第一张 */
+.demo1{
+	background: url(../img/ultrasound-l.jpg) no-repeat ;
+	background-position: center center; 
+	background-size: cover;
+	padding: 12% 0;
+}
+.demo-1 .container-fluid{
+	padding: 0;
+}
+.demo1-text{
+	padding: 10px;
+}
+.demo1-text h1{
+	font-weight: bold;
+	font-size: 50px;
+	
+}
+.demo1 p{
+	margin: 15px 0;
+	letter-spacing: 0.2em;
+}
+.demo1-text button{
+	background-color: #43b1a2;
+}
+.demo-1 img{
+	width: 100%;
+}
+/* 第二张 */
+.demo2{
+	background-image: url(../img/li-l.jpg);
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size:cover ;
+	padding: 12% 0;
+}
+.demo2-text{
+	color: #FFFFFF;
+}
+.demo2-text h1{
+	font-size: 50px;
+}
+.demo2-text button{
+	background-color: #43b1a2;
+}
+
+.demo-2 .demo2-Text{
+	padding: 10px;
+}
+.demo-2 .container-fluid{
+	padding: 0;
+}
+.demo-2 img{
+	width: 100%;
+}
+.demo-2 .demo2-Text h1{
+	font-weight: bold;
+}
+.demo-2 .demo2-Text button{
+	background-color: #43b1a2;
+}
+
+/* 第三张 */
+.demo3{
+	background-image: url(../img/philips-watch-left-l.jpg);
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: cover;
+	padding: 12% 0;
+}
+.demo3 .demo3-text h1{
+	color: #FFFFFF;
+	font-size: 45px;
+	margin-bottom: 15px;
+}
+
+.demo3 .demo3-text button{
+	background-color: #43b1a2;
+}
+.demo-3 .container-fluid{
+	padding: 0;
+}
+.demo-3 img{
+	width: 100%;
+}
+.demo-3 .demo3-text{
+	padding: 15px;
+}
+.demo-3 .demo3-text h1{
+	margin-bottom: 15px;
+}
+.demo-3 .demo3-text button{
+	background-color: #43b1a2;
+}
+
+/* 第四张 */
+
+.demo4{
+	width: 100%;
+	font-size: 16px;
+	background-color: #efefef;
+	transition: all 1s;
+}
+.demo4 h1{
+	font-weight: bold;
+	margin: 15px 0;
+}
+.demo4 p{
+	margin: 0;
+}
+.demo4 img{
+	width: 100%;
+}
+.demo4 button{
+	margin-bottom: 25px ;
+}
+.demo4 form{
+	padding: 15px 0;
+}
+.demo4 form .form-group{
+	margin: 0 15px 15px 0;
+}
+.demo4 #demo4-text{
+	padding: 15px;
+}
+.demo4 .container .row [class^=col]{
+	padding: 0;
+}
+/* 第五张 */
+.demo5{
+	width: 100%;
+	padding: 5% 0;
+	background: linear-gradient(to bottom,#8dc7db,#fff);
+	color: #066082;
+}
+.demo5 h1{
+	font-weight: bold;
+}
+.demo5 h3{
+	font-size: 28px;
+	font-weight: bold;
+}
+/* 产品介绍 */
+main{
+	background-color:#092f53 ;
+	padding: 8% 0%;
+	color: #fff;
+}
+main a{
+	color: #fff;
+}
+main dt{
+	font-size: 30px;
+	cursor: default;
+}
+main dd{
+	font-size: 16px;
+	line-height: 2em;
+}
+/* 版权*/
+footer{
+	background:linear-gradient(to bottom, #044f7d,#0174b7);
+	padding: 8%;
+}
+footer .container .row{
+	margin-bottom:30px ;
+	
+}
+footer .column1{
+	padding-top:60px ;
+}
+
+footer .column1 ul li{
+	border: none;
+}
+footer .column1 img{
+	width: 10%;
+}
+footer .column2 img{
+	margin: 0 auto;
+}
+footer .column3{
+	padding-top:60px ;
+	overflow: hidden;
+}
+footer .column3 select{
+	width: 220px;
+	float: right;
+}
+@media  all and (max-width:992px) {
+	footer .column1{
+		padding-top:0;
+		text-align: center;
+	}
+	footer .column2{
+		margin: 10px 0;
+	}
+	footer .column3{
+		padding-top:0px ;
+	}
+	footer .column3 select{
+		margin: 0 auto;
+		float: none;
+	}
+}
+footer ul li{
+	border-right: 1px #fff solid;
+}
+footer ul li:last-child{
+	border-right: none;
+}
+footer ul li a{
+	color: #fff;
+	font-size: 16px;
+}
+footer p{
+	color: #e1e1e1;
+}
+/* 详情页 */
+.warp{
+	background-image: url(../img/ultrasound-l.jpg);
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: cover;
+	padding: 14% 0;
+}
+@media all and (max-width:768px) {
+	.warp{
+		padding: 5% 0;
+	}
+	.warp .row .warp-text h1{
+		font-size: 3em;
+	}
+	.warp .row .warp-text p{
+		font-size: 1.5em;
+	}
+}
+.warp .warp-text h1{
+	font-size: 4em;
+	text-shadow: -5px 5px 5px #000000;
+}
+.warp .warp-text p{
+	font-size: 25px;
+	text-shadow: -5px 5px 5px #000000;
+}
+.newsList h2{
+	color: #105de8;
+}
+.newsList h2 span{
+	padding:0 10px ;
+	vertical-align:top;
+}
+.newsList-left{
+	display: flex;
+	border: 1px #CCCCCC solid;
+	padding: 15px;
+	box-shadow: 0 5px 5px 0 #000000;
+	margin: 15px 0;
+}
+.newsList-left h3{
+	width: 50%;
+	margin: 0 15px 0 0;
+}
+.newsList-left h3 img{
+	width: 100%;
+	height: 100%;
+}
+.newsList-left dl{
+	width: 50%;
+	padding-top:15px ;
+}
+.newsList-left dl dt{
+	font-size: 25px;
+}
+.newsList-left dl dd{
+	line-height: 2.5em;
+	color: #C0C0C0;
+}
+@media screen and (max-width:768px) {
+	.newsList-left h3{
+		width: 320px;
+		height: 200px;
+	}
+	.newsList-left dl{
+		width: 40%;
+		padding-top:15px ;
+	}
+	.newsList-left dl dd{
+		overflow: hidden;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+	}
+}
+/* 新闻列表 */
+.newsList-right{
+	display: flex;
+	border: 1px #CCCCCC solid;
+	padding: 10px;
+	box-shadow: 0 5px 5px 0 #000000;
+	margin-top: 15px;
+}
+.newsList-right h3{
+	width: 30%;
+	margin: 0 15px 0 0;
+}
+.newsList-right h3 img{
+	width: 100%;
+	height: 100%;
+}
+.newsList-right dl{
+	padding-top:10px ;
+}
+.newsList-right dl dt{
+	font-size: 20px;
+	width: 74%;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.newsList-right dl dd{
+	line-height: 2.5em;
+	color: #C0C0C0;
+}
+
+/* 新闻动态 */
+.trends{
+	padding: 15px 0;
+}
+.trends h3{
+	color: #82a7cb;
+}
+.trends h3 span{
+	text-transform: capitalize;
+	color: #c6c6c6;
+}
+@media screen and (max-width:992px) {
+	.trends h1{
+		font-size: 25px;
+	}
+}
+.trends .trendsNews{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	border-bottom:1px #CCCCCC solid ;
+	padding: 15px 0;
+}
+.trends .trendsNews p{
+	font-size: 18px;
+	margin: 0;
+}
+.trends .trendsNews ul{
+	margin: 0;
+}
+.trends .trendsNews ul li{
+	width: 40px;
+}
+.trends .trendsNews ul li img{
+	width: 100%;
+	height: 100%;
+}
+.trends .trendsImg{
+	width:80%;
+	padding: 15px;
+}
+.trends .trendsImg img{
+	width: 100%;
+	height: 100%;
+}
+.trends .trendsText{
+	padding-left: 30px;
+	padding-bottom: 30px;
+	border-bottom: 1px #CCCCCC solid;
+}
+.trends .btn1 a{
+	color: #FFFFFF;
+}
+/* 大中屏 */
+@media all and (min-width:992px){
+	.navbar-nav > li > a{ 
+		line-height: 40px;
+		font-size: 20px;
+	}
+
+}
+/* 小屏 */
+@media all and (max-width:992px) and (min-width:750px) {
+	nav .container{
+		width: 100%;
+	}
+	.navbar-nav > li > a{
+		line-height: 20px;
+	}
+	.navbar-nav {
+	    float: left;
+	    margin: 0;
+	    font-size: 15px;
+	}
+	.demo4 .container{
+		width: 100%;
+	}
+	.demo5 .container{
+		width: 100%;
+	}
+	
+	main{
+		background-color: #092f53;
+		padding: 15px;
+	}
+	main dl dt{
+		color: #fff;
+	}
+
+}
+/* 超小屏 */
+@media  all and (max-width:750px) {
+	.demo4 .container{
+		width: 100%;
+	}
+	.demo5 .container{
+		width: 100%;
+	}
+	
+}

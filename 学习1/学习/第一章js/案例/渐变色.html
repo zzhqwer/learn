@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				height: 500px;
+				width: 500px;
+			}
+			.demo{
+				/* 线性渐变：
+					1、标准语法与兼容语法不一样
+					2、方向问题
+					3、颜色个数
+					4、调整颜色占比
+				*/
+		/* 		background:linear-gradient(to left top,red,yellow) ;基础语法  */
+				background: -webkit-linear-gradient(left bottom,red,blue 50%);/* 兼容语法 */
+			}
+			.demo1{
+				/* 径向渐变：
+					 1、语法
+					 2、颜色个数
+					 3、颜色占比
+					 */
+				border-radius: 50%;
+				background: radial-gradient(red,yellow);
+			}
+		</style>
+	</head>
+	<body>
+		
+		<div class="demo">
+			
+		</div>
+		<div class="demo1">
+			
+		</div>
+	</body>
+	
+</html>

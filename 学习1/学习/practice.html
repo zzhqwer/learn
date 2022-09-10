@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>科学计算器</title>
+		<style>
+			* {
+				font-size: 12px;
+			}
+
+			body {
+				background-color: buttonface;
+			}
+
+			button {
+				width: 75px;
+				margin: 9px;
+				height: 30px;
+			}
+
+			#txt_display {
+				width: 400px;
+				cursor: default;
+				text-align: right
+			}
+		</style>
+	</head>
+	<body style="overflow:auto;">
+		<input id="txt_display" value="0" readonly
+			style="width:450px; height: 30px; cursor:default;text-align: right" />
+		<div class="keys">
+
+		</div>
+		<script>
+			var keys = document.querySelector(".keys")
+			var m=[]
+			var calc_btns = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, ".", "=", "+", "-", "*", "/", "AC", "sin", "cos", "tan", "asin",
+				"acos", "atan", "ln"
+			];
+			for (var i in calc_btns) {
+				keys.innerHTML = keys.innerHTML + `<button >${calc_btns[i]}</button>`
+				if (i > 0 && (+i + 1) % 5 == 0) {
+					keys.innerHTML = keys.innerHTML + "</br>"
+				}
+			}
+			var buttons = document.querySelectorAll("button");
+			var a=0;
+				b = "0",
+				c = "";
+			for (var i in buttons) {	
+				var k = document.querySelector("#txt_display")
+				buttons[i].onclick = function() {
+					var inner = this.innerHTML
+					if (inner == "0" || inner == "1" || inner == "2" || inner == "3" || inner == "4" || inner == "5" ||inner == "6" || inner == "7" || inner == "8" || inner == "9") {
+						if (b == "0") {
+							b = inner;	
+							
+						} else {
+							b += inner;	
+						  
+						}
+						k.value=b
+					} else if (inner == ".") {
+						if (b.indexOf(".") == -1) {
+							b += inner;
+							k.value=b
+						}
+					} else if (inner == "+" || inner == "-" || inner == "*" || inner == "/") {
+						a=b;
+						b="0";
+						c = inner;
+
+					} else if (inner == "sin" || inner == "cos" || inner == "tan" || inner == "asin" || inner ==
+						"acos" || inner == "atan" || inner == "ln") {
+						switch (inner) {
+							case "sin":
+								k.value = Math.sin(Math.PI / b);
+								break;
+							case "cos":
+								k.value = Math.cos(Math.PI / b);
+								break;
+							case "tan":
+								k.value = Math.tan(Math.PI / b);
+								break;
+							case "asin":
+								k.value = Math.asin(Math.PI / b);
+								break;
+							case "acos":
+								k.value = Math.acos(Math.PI / b);
+								break;
+							case "atan":
+								k.value = Math.atan(Math.PI / b);
+								break;
+							case "ln":
+								k.value = Math.log(b);
+								break;
+						}
+					}else if(inner=="="){   
+						a=eval(a+c+b);
+						k.value=a;
+						b=a;
+					}else if(inner=="AC"){
+						a=0;
+						b="0";
+						c="";
+						k.value=0;
+					}
+				}
+			}
+		</script>
+	</body>
+</html>

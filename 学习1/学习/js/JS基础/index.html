@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<button type="button">点击</button>
+		<script type="text/javascript">
+			var btn = document.querySelector("button");
+			var apple1 = "青苹果";
+			var apple2 = "红苹果";
+			var temp ;
+			btn.onclick = ()=>{
+				if(apple1 == "青苹果"){
+					temp = apple1;
+					apple1 = apple2;
+					apple2 = temp;
+					console.log(apple1);
+					console.log(apple2);
+				}else {
+					temp = apple1;
+					apple1 = apple2;
+					apple2 = temp;
+					console.log(apple1);
+					console.log(apple2);
+				}
+			}
+		</script>
+	</body>
+</html>

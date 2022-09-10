@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>添加组员</title>
+</head>
+<body>
+    <input type="text">
+    <button class="btn1">添加组员</button>
+    <button class="btn2">完成添加</button>
+    <div>
+
+    </div>
+    <script>
+        let inp = document.querySelector('input');
+        let btn1 = document.querySelector('.btn1');
+        let btn2 = document.querySelector('.btn2');
+        let div = document.querySelector('div');
+        let arr = [];
+        btn1.addEventListener('click',function() {
+            if(arr.indexOf(inp.value) === -1){
+            arr.push(inp.value);
+            console.log(arr)
+            }else{
+                alert('请不要输入重复值');
+            }
+        })
+        btn2.addEventListener('click',function() {
+           for(let i = 0 ; i < arr.length; i++) {
+               let span = document.createElement('span');
+                span.innerHTML = arr[i] + '</br>';
+               div.appendChild(span);
+           }
+           arr = [];
+        })
+       
+
+    </script>
+</body>
+</html>

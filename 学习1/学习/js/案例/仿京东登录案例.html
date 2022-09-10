@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 500px;
+            margin: 20px auto;
+            border-bottom: 1px solid red;
+            position: relative;
+            display: none;
+        }
+        .box input{
+            width: 400px;
+            height: 35px;
+            border: none;
+            outline: none;
+        }
+        .box label {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            right:  20px;
+        }
+        .box .btn1{
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            right: 60px;
+            display: none;
+            cursor: pointer;
+        }
+        .box .btn2{
+            position: absolute;
+            top:-10px;
+            left: -10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <button class="btn">登录</button>
+    <div class="box">
+        <i class="btn1">×</i>
+        <span class="btn2">x</span>
+        <label for="">eye</label>
+        <input type="password" id="psw">
+    </div>
+    <script>
+    function delu() {
+        let btn = document.querySelector('.btn');
+        let box = document.querySelector('.box');
+        let btn2 = document.querySelector('.btn2');
+        btn.onclick = function(){
+           box.style.display = 'block';
+        }
+        btn2.onclick = function(){
+            box.style.display = 'none';
+        }
+    }
+    delu();
+    function pasw(){
+        let psw = document.getElementById('psw');
+        let la = document.querySelector('.box label');
+        let btn1 = document.querySelector('.btn1');
+        let flag = 0;
+        la.onclick = function() {
+            if(flag == 0) {
+                psw.type = 'text';
+                la.innerHTML = 'e';
+                flag = 1;
+            }else{
+                psw.type = 'password';
+                la.innerHTML = 'eye';
+                flag = 0;
+
+            }
+        }
+        psw.onfocus = function(){
+            btn1.style.display = 'block';
+           btn1.addEventListener('click',function(){
+               psw.value = '';
+           })
+         
+        }
+        psw.onblur = function(){
+            setTimeout(() => {
+                btn1.style.display = 'none';
+            }, 500);
+        }
+        
+      
+
+    }
+    pasw();
+    </script>
+</body>
+</html>

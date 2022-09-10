@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button disabled>用户同意</button>
+    <script>
+        var count = 10;
+        var btn = document.querySelector('button');
+        function countDown() {
+            count--;
+            if(count == 0){
+                btn.innerHTML = '用户同意'
+                btn.disabled = null;
+                clearInterval(timer)
+            }else{
+                btn.innerHTML = '用户同意('+count+')';
+            }
+            console.log(count);
+        }
+        let timer=setInterval(countDown,1000);
+    </script>
+</body>
+</html>

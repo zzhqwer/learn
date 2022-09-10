@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 30px;
+            height: 30px;
+            background-color: black;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <div style="left: 0px;"> 
+        
+    </div>
+    <script>
+        var div = document.querySelector('div');
+        function translateXe( ) {
+            var left = parseInt(div.style.left);
+            if(left > 600){
+                div.style.left = 0+'px' ;
+            }else{
+                div.style.left = left  + 1 +'px'
+                return;
+            }
+        }
+        setInterval(translateXe,10);
+    </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //浅拷贝只能拷贝简单数据类型 复杂数据类型只是拷贝一个地址
+        let obj1 = {
+            id: 1,
+            name: 'zs',
+            method: {
+                age: 15
+            }
+        }
+        let obj2 = {}
+        // for(let k in obj1) {
+        //     //obj1[k]是属性值  
+        //     obj2[k] = obj1[k]
+        // }
+        // obj2.method.age = 16
+        // console.log(obj1)
+        // console.log(obj2)
+        console.log('------------------------------------------')
+        
+        // Object.assign(目标对象，源对象)   返回值是目标对象
+        Object.assign(obj2,obj1)
+        obj2.method.age = 17
+        console.log(obj1)
+        console.log(obj2)
+    </script>
+</body>
+</html>

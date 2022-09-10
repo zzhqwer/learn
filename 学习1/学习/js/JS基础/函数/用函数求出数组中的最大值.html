@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			function getMax(arr){
+				let Max = arr[0];
+				for (let i = 1;i<arr.length;i++){
+					if (arr[i] > Max) {
+						Max = arr[i];
+					}
+				}
+				return Max ;
+			}
+			// getMax([5,3,55,6,6,6,66,33]);实参是一个数组送给了形参；
+			// 在我们实际开发里面，我们经常用一个变量来接收，函数的返回结果，使用更简单； 
+			let arr = [5,2,100,667,77,1.6,155,1,62655,21,2.21515151];
+			console.log(getMax(arr));
+		</script>
+	</body>
+</html>

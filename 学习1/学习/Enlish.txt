@@ -1,0 +1,79 @@
+
+button：按钮
+by：靠近，在，，，旁边
+bubble ： 泡泡
+
+cancel ： 取消；
+create:  创造；
+confirm：确认；
+
+document：文件;
+
+element：元素
+
+tag：标签; 标牌; 称呼; 诨名;
+total：总价
+target：[ˈtɑːɡɪt] 目标；
+transparent: 透明的
+
+
+Object：对象
+alert：警惕
+
+marry：结婚
+type：类型
+defined：定义
+infinite：极大
+lean：前俯
+false：错误的
+void：空类型
+exponential：指数幂
+precision：精确的
+product：产品 英[ˈprɒdʌkt]；
+propagation :  （prɒpə'ɡeɪʃ(ə)n）传播
+parentNode：父节点；
+
+word：单词
+model：模型
+node：节点
+module:模块
+menu: [ˈmenjuː] 菜单
+mouse:鼠标；
+move： 移动；
+
+
+next:  下一个；
+
+enter：进来  进去  进入
+leave：离开
+move：移动
+label：是form表单中专用标签
+
+
+goods：商品
+
+down [daʊn] 向下; 朝下; 在下面; 
+price  英[praɪs]  ：单价
+press英[pres]	:按  压
+previous： 上一个；
+
+user：用户
+member：成员
+
+
+strict：严格的
+shadow：阴影
+sibling:兄弟姐妹
+select ： 选择；挑选
+start: 【stɑːt】 开始'启动
+screen：【skriːn】 屏幕
+
+use：使用
+
+remove：去掉
+
+
+origin：起源
+
+instanceof : 运算符；
+important：权重 ；

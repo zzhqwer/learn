@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>学生成绩</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var num = prompt('请输入班级总人数');
+			var sum = 0;
+			var average = 0;
+			for(var i = 1 ; i <= num ; i++ ){
+				var score = prompt('第'+i+'位同学请输入成绩');
+				sum += parseFloat(score);
+			}
+			average = sum/num;
+			alert(`班级总成绩为${sum}`);
+			alert(`平均成绩为${average}`);
+		</script>
+	</body>
+</html>

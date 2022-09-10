@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			body,div,ul,li,h1,h2,h3,h4,h5{padding: 0;margin: 0;}
+			body{font-size: 10px;}
+			ul,li{list-style: none;}
+			a{text-decoration: none;color: black ;text-transform: capitalize;}
+			.nav{margin: 0 auto; width: 1003px;background-color: aqua;height: 60px;line-height: 60px;}
+			.nav>ul>li{float:left;}
+			.nav>ul>li>a{display: block;padding: 0 50px;height: 60px;}
+			.nav>ul>li>a:hover{background-color: azure;}
+			.nav>ul>li:hover ul{display: block;}
+			.nav>ul>li>ul{display: none;position: absolute;}
+			.nav>ul>li>ul>li{background-color:aquamarine;height: 60px;}
+			.nav>ul>li>ul>li>a{display: block;width:148px;height: 60px;text-align: center;}
+			.nav>ul>li>ul>li>a:hover{background-color: azure;}
+
+			</style>
+	</head>
+	<body>
+		<div class="nav">
+			<ul>
+				<li><a href="#">wode</a></li>
+				<li><a href="#">鼠标事件</a>
+					<ul>
+						<li> <a href="#">total</a></li><!-- 总价 -->
+						<li> <a href="#">price</a></li><!-- 单价 -->
+						<li> <a href="#">onclick</a></li><!-- 单击 -->
+						<li> <a href="#">ondblclick</a></li><!-- 双击 -->
+						<li> <a href="#">onmouseenter</a></li><!-- 移动到元素上时 -->   <!-- 不包括子元素 -->
+						<li> <a href="#">onmouseleave</a></li><!-- 移出元素上时 -->
+						<li> <a href="#">onmousemove</a></li><!-- 移动到指定的对象时 -->
+						<li> <a href="#">onmousedown</a></li><!-- 鼠标按钮在元素上被按下时 -->
+						<li> <a href="#">onmouseover</a></li><!-- 移动到元素上时  包括子元素 -->
+						<li> <a href="#">onmouseout</a></li><!-- 从元素上移开时 -->
+						<li> <a href="#">onmouseup</a></li><!-- 元素上被松开 -->
+					</ul>
+				</li>
+				<li><a href="#">键盘事件</a>
+					<ul>
+						<li><a href="#" target="_top">onkeydown</a> </li><!-- 按下 -->
+						<li><a href="#" target="_top">onkeyup</a> </li><!-- 松开 -->
+						<li><a href="#" target="_top">onkeypress</a> </li><!-- 按下并松开 -->
+					</ul>
+					
+					
+				</li>
+				<li><a href="#">表单事件</a>
+				  <ul>
+				  	<li><a href="#">onblur</a> </li><!-- 失去光标 -->
+					<li><a href="#">onfocus</a> </li><!-- 获取光标 -->
+					<li><a href="#">onchange</a> </li><!-- 内容改变 --><!-- + --><!-- 失去光标 -->
+					<li><a href="#">oninput</a> </li><!-- 内容改变 -->
+					<li><a href="#">onsubmit</a> </li><!-- 提交时触发 -->
+				  </ul>
+				</li>
+				<li><a href="#">wode</a></li>
+				<li><a href="#">wode</a></li>
+				<li><a href="#">wode</a></li>
+			</ul>
+		</div>
+	</body>
+</html>

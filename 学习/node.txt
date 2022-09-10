@@ -1,0 +1,7 @@
+# 指令
+
+1. -S 是 --save的简写	在开发中，上线了 也在使用放在这个里面  dependencies
+2. -D 是 --save-dev的简写  只在开发中使用的包放在这个里面devdependencies
+3. npm init -y 创建一个package.json 项目配置文件
+
+ 

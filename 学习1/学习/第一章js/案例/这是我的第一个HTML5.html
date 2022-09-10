@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			*{margin: 0;padding: 0;}
+			.box{width: 1024px;margin: 10px auto;color: #fff;}
+			ul,li{list-style: none;}
+			@keyframes myfirst
+			{
+			    from {background: red;}
+			    to {background: yellow;}
+			}
+			 
+			@-webkit-keyframes myfirst /* Safari 与 Chrome */
+			{
+			    from {background: red;}
+			    to {background: yellow;}
+			}
+
+			h2{border:1px #000 solid;   height: 50px;line-height: 50px;background-color: #ccc;text-align: center;animation: myfirst 5s linear;
+    -webkit-animation: myfirst 5s; /* Safari 与 Chrome */}
+			.nav{border:1px #000 solid;height: 50px;background-color: #ccc;margin: 10px 0;}
+			.nav li{float: left;width: 200px;text-align: center;height: 20px;line-height:20px ;margin-top:15px ;border-right: 1px #000000 solid;}
+			.nav li:last-child{border: none;}
+			.nav li:first-child{color: #00AAFF;}
+			.news{border:1px #000 solid;height: 50px;background-color: #ccc;margin: 10px 0;}
+			.news li{float: left;width: 500px;text-align: center;height: 20px;line-height:20px ;margin-top:15px ;border-right: 1px #000000 solid;}
+			.news li:last-child{border: none;}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<h2>这是我的第一个HTML5页面</h2>
+			<div class="nav">
+				<ul>
+					<li>语义化</li>
+					<li>表单</li>
+					<li>媒体</li>
+					<li>绘图</li>
+					<li>储存</li>
+				</ul>
+			</div>
+			<div class="news">
+				<ul>
+					<li>HTMl5语言是现在最流行的开发语言之一</li>
+					<li>HTML5和CSS3更配哟</li>
+				</ul>
+			</div>
+			<h2>版权：格莱科技</h2>
+		</div>
+	</body>
+</html>

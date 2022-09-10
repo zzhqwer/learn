@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countdown</title>
+</head>
+<body>
+    <p></p>
+    <script>
+        let p = document.querySelector('p');
+        function s(a){
+            return a < 10 ? '0' + a : a; 
+        }
+        function Countdown(timer) {
+            let newTimer = +new Date();
+            let nowTimer = +new Date(timer);
+            let time = parseInt((nowTimer - newTimer) / 1000);
+            let d = parseInt(time / 60 / 60  / 24  )
+            d = s(d);
+            let h = parseInt(time / 60 / 60 % 24);
+            h = s(h);
+            let m = parseInt(time / 60 % 60);
+            m = s(m);
+            let S = parseInt(time % 60);
+            S = s(S);
+            return `${d}:${h}:${m}:${S}`
+        }
+       setInterval(() => {
+           p.innerHTML = Countdown('2022-3-21 00:00:00');
+       },1000);
+        
+    </script>
+</body>
+</html>

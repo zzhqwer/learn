@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>检测名字</title>
+</head>
+<body>
+    <div class="box">
+        <select name="" id="add">
+            <option value="name">名字</option>
+            <option value="age">年龄</option>
+            <option value="tel">电话</option>
+            <option value="E-mail">邮箱</option>
+            <option value="job">职业</option>
+            <option value="address">地址</option>
+        </select>
+        <input type="text" placeholder="请输出">
+        <button class="done">确定</button>
+    </div>
+    <div class="list">
+        <ul>
+
+        </ul>
+    </div>
+    <script>
+        
+        //获取值 
+        let add = document.querySelector('#add');
+        let input = document.querySelector('.box input');
+        let btn = document.querySelector('.done');
+        let ul = document.querySelector('.list ul');
+    //初始化对象（存放值）
+            let obj = {};
+        //点击事件
+        btn.onclick = function() {
+            //把select的值转换为JSON字符串 并获取键；
+            let key = JSON.stringify(add.value);
+            //把input的值转换为JSON字符串 并获取键；
+            let value = JSON.stringify(input.value);
+            let newObj =`{${key}:${value}}`
+            let newO = JSON.parse(newObj);
+            obj = Object.assign(obj,newO);
+            ul.innerHTML = '';
+            input.innerHTML = '';
+            for(let key in obj){
+                if(obj.hasOwnProperty(key)) {
+                    ul.innerHTML += `
+                    <li>${key}:${obj[key]}</li>
+                    `
+                }
+            }
+        }
+
+               
+ 
+    </script>
+</body>
+</html>

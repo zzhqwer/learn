@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        .box{
+            width: 500px;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .box span{
+            width: 33%;
+            text-align: center;
+            padding: 15px;
+            background-color: rgb(146, 55, 55);
+            color: #fff;
+        }
+        .box span:nth-of-type(2n){
+            background-color: rgb(105, 69, 69);
+
+        }
+    </style>
+</head>
+<body>
+    <h2>你输入的成绩是:""</h2>
+    <div class="box"></div>
+    <script>
+        let result = [66,55,88,77,55,80,50,90,60];
+        function into() {
+            let box = document.querySelector('.box');
+            box.innerHTML = '';
+            result.forEach(el =>{
+              box.innerHTML += `<span>${el}</span>`
+            })
+            let spans = document.querySelectorAll('.box span');
+            // for(let i = 0; i < spans.length; i++){
+            //     spans[i].addEventListener('click',function(){
+            //        clickblock(el,indenx),false;
+            //     })
+            spans.forEach((el,indenx) =>{
+               el.addEventListener('click',function(){
+               clickblock(el,indenx),false;
+            
+               })
+           })
+            function clickblock(el, indenx) {
+                // 根据数组中的数值大小，填充对应的项
+                if (el.innerText < 60) {
+                    result.fill('不及格',indenx,indenx+1)
+                }
+                if (el.innerText >= 60 && el.innerText < 80) {
+                    result.fill('良好',indenx,indenx+1)
+                }
+                if (el.innerText >= 80) {
+                    result.fill('优秀',indenx,indenx+1)
+                }
+                // 每次点击事件结束后，初始化DOM
+            into()
+
+            }
+
+        } 
+  
+
+        into();
+    </script>
+</body>
+</html>

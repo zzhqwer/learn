@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<!-- 1.Math数学对象 不是一个构造函数，所以我们不需要new 来调用 而是直接使用里面的属性和方法即可 -->
+		<script type="text/javascript">
+			console.log(Math.PI);// 一个属性 圆周率；
+			console.log(Math.max(5,6,13,64,)); // 一个方法 求最大值； 
+			// 1.绝对值方法
+				// （1）Math.abs(); 绝对值
+				console.log(Math.abs(1));//1 
+				console.log(Math.abs(9));
+				console.log(Math.abs('-1'));// 隐式转换  会把字符串型 -1 转换为数字型；
+				console.log(Math.abs('pink'));// NaN  Not  a  number;
+			// 2.三个取整方法
+				// (1) Math.floor(); 往下取整数 往最小值取；
+				console.log(Math.floor(11.9));//11
+				// (2) Math.celi(); 往上取整数 往最大值取；
+				console.log(Math.ceil(11.9));//12
+				// (3) Math.round(); 四舍五入；  其他数字都是四舍五入，但是.5特殊 它往大了取； 
+				console.log(Math.round(12.5))//13;
+				console.log(Math.round(12.1))//12;
+				console.log(Math.round(-12.5))//12
+				console.log(Math.round(-12.6))//13
+				// (4) Math.random(); 方法返回一个随机小数 0 =< x <1 里面不跟参数
+					// 我们想要得到两个数之间的随机整数 并且 包含这两个整数 ：公式如下：
+					// Math.floor(Math.random()*(max- min - 1 ) + min);
+					function getRandom(min,max) {
+						return Math.floor(Math.random()*(max-min+1) + min);
+					}
+					console.log(getRandom(1,10))
+					// 随机点名
+					let arr = ['张二','张三','张臭一','张一个','张屁一'];
+					console.log(arr[getRandom(0,arr.length - 1)]);
+		</script>
+	</body>
+</html>

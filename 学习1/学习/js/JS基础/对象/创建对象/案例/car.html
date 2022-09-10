@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			function Car(weight,color,brank) {
+				this.weight = weight;
+				this.color = color;
+				this.brank = brank;
+				this.behavior = function(){
+					console.log('载人，拉货，耕田');
+				}
+			}
+			var lbjn = new Car('200kg','red','兰博基尼');
+			console.log(lbjn.weight);
+			console.log(lbjn.color);
+		</script>
+	</body>
+</html>

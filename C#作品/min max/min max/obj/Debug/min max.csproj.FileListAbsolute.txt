@@ -1,0 +1,6 @@
+E:\C#作品\min max\min max\bin\Debug\min max.exe.config
+E:\C#作品\min max\min max\bin\Debug\min max.exe
+E:\C#作品\min max\min max\bin\Debug\min max.pdb
+E:\C#作品\min max\min max\obj\Debug\min max.csprojResolveAssemblyReference.cache
+E:\C#作品\min max\min max\obj\Debug\min max.exe
+E:\C#作品\min max\min max\obj\Debug\min max.pdb

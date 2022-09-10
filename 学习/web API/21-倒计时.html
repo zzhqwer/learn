@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        i{
+            font-style: normal;
+        }
+        *{
+            margin: 0;
+            padding: 0;
+
+        }
+        .box{
+            width: 200px;
+            height: 200px;
+            background-color: #fff;
+            box-shadow: blue 0px 0px 0px 2px inset, rgb(255, 255, 255) 10px -10px 0px -3px, rgb(31, 193, 27) 10px -10px, rgb(255, 255, 255) 20px -20px 0px -3px, rgb(255, 217, 19) 20px -20px, rgb(255, 255, 255) 30px -30px 0px -3px, rgb(255, 156, 85) 30px -30px, rgb(255, 255, 255) 40px -40px 0px -3px, rgb(255, 85, 85) 40px -40px;
+            color: #000;
+            text-align: center;
+            line-height: 60px;
+            margin: 50px;
+        }
+       
+        .count-down span{
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            vertical-align: middle;
+            background-color: black;
+            box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;
+            color: #fff;
+            text-align: center;
+            line-height: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <p class="newTime">上课倒计时</p>
+        <div class="count-down">
+            <span class="hour">00</span>
+            <i>:</i>
+            <span class="minutes">00</span>
+            <i>:</i>
+            <span class="seconds">00</span>
+        </div>
+        <p class="nowTime">现在时间</p>
+    </div>
+
+    <script>
+        let nowTime = document.querySelector('.nowTime')
+        let newTime = document.querySelector('.newTime')
+        
+        let hour = document.querySelector('.hour')
+        let minutes = document.querySelector('.minutes')
+        let seconds = document.querySelector('.seconds')
+        countDown()
+        setInterval(countDown,1000)
+        function countDown() {
+            nowTime.innerHTML = `现在时间：${new Date().toLocaleTimeString()}`
+            newTime.innerHTML = `上课时间：${new Date('2022-4-11 14:30:00').toLocaleTimeString()}`
+            let timer = +new Date();
+            let newTimer = +new Date('2022-4-11 14:30:00')
+            let milli = (newTimer - timer) / 1000 
+            let h = parseInt(milli / 60 / 60 % 24)
+            h = getZero(h)
+            let m = parseInt(milli / 60 % 60)
+            m = getZero(m)
+            let s = parseInt(milli % 60)
+            s = getZero(s)
+            hour.innerHTML = h
+            minutes.innerHTML = m
+            seconds.innerHTML = s
+
+        }
+        countDown()
+        function getZero(t) {
+            return t < 10 ? '0' + t : t
+        }
+   </script>
+</body>
+</html>

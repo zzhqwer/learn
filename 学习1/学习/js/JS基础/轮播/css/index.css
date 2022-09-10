@@ -1,0 +1,36 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+img{
+	vertical-align: middle;
+}
+ul,li{
+	list-style: none;
+}
+
+.box{
+	width: 900px;
+	position: relative;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+.wrap{
+	width: 300px;
+	overflow: hidden;
+}
+.wrap ul{
+	width: 3000px;
+	display: flex;
+	position: relative;
+	top: 0;
+	left: 0;
+}
+.wrap ul li{
+	width: 300px;
+}
+.wrap ul li a img{
+	width: 100%;
+}

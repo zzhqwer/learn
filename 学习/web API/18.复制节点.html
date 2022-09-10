@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>我是内容</li>
+    </ul>
+    <script>
+        //  元素.cloneNode(布尔值)克隆 若为true，则带着后代 ，false，则不带着。 默认为false
+        let ul = document.querySelector('ul')
+        let newUl = ul.cloneNode()
+        let newU2 = ul.cloneNode(true)
+        document.body.appendChild(newUl)
+        document.body.appendChild(newU2)
+
+    </script>
+</body>
+</html>

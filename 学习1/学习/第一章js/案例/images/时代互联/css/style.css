@@ -1,0 +1,32 @@
+/* 全局 */
+*{padding: 0;margin: 0;}
+body{font:14px/1.5 "microsoft yahei";color: #333;background: #efefef}
+ul,li{list-style: none}
+a{text-decoration: none;color: #333}
+/* 头部 */
+.wrapper{width: 975px;padding: 10px;margin: 10px auto;background: #fff;margin-bottom: 0}
+header{height: 108px;background: #ff7300;display:flex;justify-content:space-around;}
+.logo{width: 115px;height: 92px;margin-left: 15px;padding-top: 5px;flex: 1}
+.search{width: 220px;margin-top: 40px;}
+.search input{padding:5px 7px;border-radius: 20px;outline: none;border:1px solid #b5853f;}
+/* 导航栏 */
+nav{height: 50px;background:-webkit-linear-gradient(top,#fdfdfd,#e5e5e5);border:1px solid #ccc;margin-top: 5px;display: flex; flex-flow:row nowrap;justify-content:flex-start;align-items:center;}
+nav li{display: inline-block;text-align: center;margin: 0 10px}
+nav li a{font-weight: bold;font-size: 15px;display:inline-block;padding:3px 20px;}
+nav li a:hover{background: #000;color: #fff;border-radius: 20px;}
+nav li:first-child a{background: #000;color:#fff;border-radius: 20px;letter-spacing: 10px;text-indent: 5px}
+/* 正文容器 */
+.main{display: flex;margin-top: 20px;}
+.main section{flex: 5;margin-right: 20px;}
+.main aside{flex: 2}
+.hd{height: 50px;background: #efefef;padding:0 10px;border-top-left-radius: 6px;border-top-right-radius: 6px}
+.hd em{font-style: normal;line-height: 50px;font-weight: bold;font-size: 16px}
+/* 正文左侧 */
+article{display: flex;flex-flow:row wrap;justify-content:space-around;}
+.news{width: 300px;margin: 20px 0}
+.news h3{font-size: 16px;margin-bottom: 10px;}
+/* 右侧 */
+.case{display:flex;justify-content:space-around;}
+.case li{margin: 10px 0}
+/* 版权 */
+footer{width:995px;height: 100px;background: #383838;margin: 0 auto;text-align: center;line-height: 100px;color:#fff;}

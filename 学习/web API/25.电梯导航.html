@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0 ;
+        }
+        ul,li{
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+        }
+        body{
+            height: 3000px;
+        }
+        .box ul{
+            position: fixed;
+            top: 50%;
+            left: 0;
+        }
+        .box ul li{
+            width: 200px;
+            text-align: center;
+            background-color: aquamarine;
+            padding: 15px;
+        }
+        .box ul li a{
+            color: rgb(3, 132, 245);
+        }
+        .box .active{
+            background-color: brown;
+        }
+        .main{
+            width: 800px;
+            margin: 0 auto;
+        }
+        .neirong{
+            width: 800px;
+            height: 500px;
+            margin: 15px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <ul>
+            <li class="active"><a href="javascript:;">电梯1</a></li>
+            <li><a href="javascript:;">电梯2</a></li>
+            <li><a href="javascript:;">电梯3</a></li>
+            <li><a href="javascript:;">电梯4</a></li>
+            <li><a href="javascript:;">电梯5</a></li>
+        </ul>
+        <div class="main">
+            <div class="neirong" style="background-color: rgb(20, 59, 59);"> 电梯1</div>
+            <div class="neirong" style="background-color: rgb(154, 166, 166);"> 电梯2</div>
+            <div class="neirong" style="background-color: rgb(8, 13, 13);"> 电梯3</div>+-
+            <div class="neirong" style="background-color: rgb(12, 182, 182);"> 电梯4</div>
+            <div class="neirong" style="background-color: rgb(104, 11, 99);"> 电梯5</div>
+
+        </div>
+    </div>
+    <script>
+        let lis = document.querySelectorAll('ul li')
+        let neirongs = document.querySelectorAll('.neirong')
+        for(let i = 0; i < lis.length; i++) {
+            lis[i].addEventListener('click',function(e) {
+                document.querySelector('.active').classList.remove('active')
+                this.classList.add('active')
+                console.log(neirongs[i].offsetTop )
+                document.documentElement.scrollTop = neirongs[i].offsetTop 
+            })
+        }
+    </script>
+</body>
+</html>

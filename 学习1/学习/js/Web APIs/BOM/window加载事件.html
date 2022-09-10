@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>点击</button>
+    <a href="history.html">413</a>
+    <button>后退</button>
+    <script>
+        var btn =document.querySelector('button');
+        btn.addEventListener('click',function(){
+            history.back();
+        })
+    </script>
+    <script>
+        // window.onload 加载事件;当文档内容完全加载完成后才会触发的事件；
+        var btn = document.querySelector('button');
+        btn.addEventListener('click',function(){
+            alert('点击我');
+        })
+        // DOMContentLoaded 加载事件 ，
+        // load 等页面内容全部加载完毕，包含页面dom元素 图片 flash css等等
+        // DOMcontentLoaded 是DOM 加载完毕，不包含图片 flash css等就可以执行  加载速度比load 快一点;
+    </script>
+</body>
+</html>

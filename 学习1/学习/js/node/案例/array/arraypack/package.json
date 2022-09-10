@@ -1,0 +1,4 @@
+{
+    "name" : "arraypack",
+    "main" : "./lib/arrays.js"
+}

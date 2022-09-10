@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>添加组员昵称</title>
+		<style type="text/css">
+			input {
+				outline-color: royalblue;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload = function() {
+				var member = document.querySelector("#member")
+				var mycontinue = document.querySelector("#continue")
+				var complete = document.querySelector("#complete")
+				var msg = document.querySelector("#msg")
+				var arr = [];
+
+				member.onfocus = function() {
+					member.value = ""
+				}
+				//点击继续添加
+				mycontinue.onclick = function() {
+					var inp = member.value
+
+					//要把字符串的两端的空格去掉
+					inp = inp.trim()
+					if (inp == "") {
+						alert("昵称不能为空")
+					} else if (inp.indexOf(",") != -1 || inp.indexOf("，") != -1) {
+						alert("昵称不能包含逗号")
+					} else if (arr.indexOf(inp) != -1) { //!=-1  存在这个值
+						alert("昵称不能重复")
+					} else {
+						arr.push(inp)
+					}
+				}
+				//点击完成添加显示添加的组员
+				complete.onclick = function() {
+					arr.sort()
+					msg.innerHTML = "你添加的组员昵称如下<br/>"
+					for (var i in arr) {
+
+						msg.innerHTML = msg.innerHTML + arr[i].italics() + "<br/>"
+
+					}
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<label for="member">请输入组员昵称：</label>
+		<input type="text" name="txtMember" id="member" autocomplete="off">
+		<button id="continue">继续添加</button>
+		<button id="complete">完成添加</button>
+		<div id="msg"></div>
+	</body>
+</html>

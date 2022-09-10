@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // let str = 'abc'
+        // console.log(str.includes('a'))
+        let url = 'www.baidu.com?'
+        const  getUrl = (url,name,value) => {
+            if(url.indexOf('?') !== -1) {
+                url+= `${name} = ${value}`
+            } else {
+                url += url.includes('?')? '&' : '?'
+                url+= `${name} = ${value}`
+            }
+            return url
+        }
+        url = getUrl(url,"name",2)
+        console.log(url)
+        // trimStart() , trimEnd()
+        // padStart(目标长度,[要填充的字符串 = 空格])： 最终字符串 padEnd() 
+    </script>
+</body>
+</html>

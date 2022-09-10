@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img{
+            width: 720px;
+            height: 1000px;
+        }
+    </style>
+</head>
+<body>
+    <img src="" alt="">
+    <button>点击</button>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+      
+        let img = document.querySelector('img')
+        let button = document.querySelector('button')
+        button.addEventListener('click', async function() {
+            //如果调入某个方法的返回值是Promise 实例 ， 则前面可以添加await
+            //await 只能用在 async '修饰'的方法中
+          const {data} =  await axios({
+               method: 'POST',
+               url: 'http://www.liulongbin.top:3006/api/post',
+               data: {
+                   name: 'zs',
+                   age: 12
+               }
+              
+           })
+
+           console.log(data)
+        })
+       
+    </script>
+</body>
+</html>

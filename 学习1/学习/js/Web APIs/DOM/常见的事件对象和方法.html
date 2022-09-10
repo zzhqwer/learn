@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        123
+    </div>
+    <ul>
+        <li>abc</li>
+        <li>abc</li>
+        <li>abc</li>
+        <li>abc</li>
+        <li>abc</li>
+    </ul>
+    <a href="http://baidu.com">百度</a>
+    <script>
+        // 常见的事件对象的属性和方法';
+        // 1.e.target 返回的是触发事件的对象（元素），this返回的是绑定事件的对象（元素）；
+            // 区别 ：e.target 点击了那个元素  就返回那个元素，this 谁绑定了这个事件 就返回这个元素
+            // var div = document.querySelector('div');
+            // div.addEventListener('click',function(e){
+            //     console.log(e.target);
+            //     console.log(this);
+            // })
+            // var ul = document.querySelector('ul');
+            // ul.addEventListener('click',function(e){
+            //     // 我们给ul 绑定了事件 那么this就指向ul
+            //     console.log(this);
+            //     //e.target 指向我们点击的那个对象 谁触发这个事件 就返回谁
+            //     console.log(e.target);
+            // })
+        //2.返回事件类型 type
+            // var div = document.querySelector('div');
+            // div.addEventListener('click',fn);
+            // div.addEventListener('mouseover',fn);
+            // div.addEventListener('mouseout',fn);
+
+            // function fn(e){
+            //     console.log(e.type);
+            // }
+        //3.阻止默认行为（事件）preventDefault()方法 让连接不跳转。 或者让提交按钮不提交；
+            // var a = document.querySelector('a');
+            //     a.addEventListener('click',function(e){
+            //         e.preventDefault();// dom 标准写法
+            //     })
+            //     //  传统的注册方式
+            //     a.onclick =function(e){
+            //         //普通浏览器 e.preventDefault();方法
+            //         e.preventDefault();
+            //         //低版本浏览器 ie678 returnValue 属性
+            //         e.returnValue;
+            //         // 我们可以利用return false ，也能阻止默认行为 没有兼容性问题 特点： return 后面的代码不执行 而且只限于传统的注册方式
+            //         return false;
+            //     }
+
+        // 4.阻止事件冒泡
+                // e.stopPropagation()//stop 停止  Propagation传播
+                // iE678  cancelBubble = true  方法//  cancel 取消   bubble 泡泡
+        
+        // 5.事件委托（代理.委托)
+                // 原理 不是每个子节点单独设置事件监听器，而且事件监听器设置在其父节点上，然后利用 冒泡原理影响设置每个子节点；
+                // var ul  = document.querySelector('ul');
+                // ul.addEventListener('click',function(e){
+                //     for(var i = 0; i < ul.children.length; i++){
+                //         ul.children[i].style.backgroundColor = '';
+                //     }
+                //     e.target.style.backgroundColor = 'pink';
+                // })
+        
+    </script>
+</body>
+</html>

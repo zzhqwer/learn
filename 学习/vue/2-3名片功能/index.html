@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/css.css">
+    <script src="js/vue.js"></script>
+    <title>Vue</title>
+</head>
+
+<body>
+<div id="app">
+<div v-for="person in list">
+    <Card :person="person"></Card>
+</div>
+</div>
+<script>
+var personList = [{
+        "name": "小格",
+        "post":"总监",
+        "date": "01/20/18",
+        "email": "xiaoge@glkjjt.com",
+        "company": "武汉格莱信息科技有限公司"
+    },
+    {
+        "name": "小莱",
+        "post": "督导部长",
+        "date": "10/09/18",
+        "email": "lailai@glkjjt.com",
+        "company": "河南格莱信息科技有限公司"
+    },
+    {
+        "name": "小小莱",
+        "post": "部长",
+        "date": "04/06/18",
+        "email": "xiaoxiaolai@glkjjt.com",
+        "company": "武汉领格信息科技有限公司"
+    }
+];
+Vue.component('Card', {
+    props: ['person'],
+    template: "<div v-bind:class='[highlight]' class='person' v-on:click='togglePerson'>" +
+        "<h3>{{person.name}}（{{person.post}}）</h3>" +
+        "<p>{{person.company}}</p>" +
+        "<small>{{person.email}}<span>|</span>{{person.date}}</small>" +
+        "<p class='selected-candidate' v-show='selectionNotify'>你选择了{{person.name}}{{person.post}}</p>" +
+        "</div>",
+    data() {
+        return {
+            highlight: '',
+            selectionNotify: false,
+        }
+    },
+    methods: {
+        togglePerson: function () {
+            if (this.highlight === '') {
+                this.highlight = 'highlight';
+                this.selectionNotify = true;
+            } else {
+                this.highlight = '';
+                this.selectionNotify = false;
+            }
+        },
+    }
+});
+var vm = new Vue({
+    el: '#app',
+    data: {
+        list: personList
+    }
+})
+</script>
+</body>
+
+</html>

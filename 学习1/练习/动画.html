@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: aqua;
+            position: absolute;
+            top: 15px;
+            left: 15px;
+        }
+
+    </style>
+</head>
+<body>
+    <button type="button">点击</button>
+    <div></div>
+
+    <script>
+        let btn = document.querySelector('button');
+        let div = document.querySelector('div');
+        // 封装动画
+        function animate(obj,target,callback) {
+            //点击多次赋多个定时器  速度会变快 所以我们要清除上一次的 定时器
+            clearInterval(obj.timer);
+            // var 会开辟很多空间影响性能 可以使用 对象的属性赋值方法
+          obj.timer =  setInterval(()=>{
+                //停止条件
+                if(obj.offsetLeft === target){
+                    clearInterval(obj.timer);
+                    callback()
+                }else{
+                    obj.style.left = obj.offsetLeft + 1 + 'px';
+                }
+            },10)
+        }
+
+        btn.addEventListener('click',function() {
+            //回调函数就是把函数当参数赋给另外一个函数  另一个函数执行完毕在执行这个函数;
+            animate(div,500,function(){
+                div.style.backgroundColor = 'red';
+            })
+        })
+    </script>
+</body>
+</html>

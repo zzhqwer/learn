@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img{
+            vertical-align: middle;
+            width: 500px;
+            height: 500px;
+        }
+        a{
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <img src="img/123.jpg" alt="">
+    <p>上午好</p>
+    <script>
+        // 获取时间
+        let timer = new Date('2022-3-8 24:20:00');
+        // 获取小时
+        let h = timer.getHours();
+        let img = document.querySelector('img');
+        let p = document.querySelector('p');
+        
+        if(h < 12) {
+            img.src = 'img/123.jpg';
+            p.innerHTML = '上午好';
+        }else if(h < 18) {
+            img.src = 'img/456.webp';
+            p.innerHTML = '下午好';
+        }else{
+            img.src = 'img/789.webp';
+            p.innerHTML = '晚上好';
+        }
+        p.onclick = function(){
+            let v = confirm('确认关闭吗');
+            console.log(v);
+            if(v === true) {
+                window.close();
+            }else{
+
+            }
+        }
+    </script>
+</body>
+</html>

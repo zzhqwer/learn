@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .box{
+            width: 800px;
+        }
+        .form-column{
+            line-height: 50px;
+            text-align: center;
+        }
+        .form-column label{  
+            display: inline-block; 
+            width: 100px;
+            text-align: right;
+        }
+        .form-column select{
+            width: 300px;
+            outline: none;
+            padding: 10px;
+        }
+        .form-column input{
+            outline: none;
+            border: 1px skyblue solid;
+            padding: 5px;
+            width: 300px;
+        }
+         #submits{
+            width: 50px;
+            display: block;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <form action="" autocapitalize="none">
+            <div class="form-column">
+                <label for="username">
+                    账号:
+                </label>
+                <input type="search" id="username">
+            </div>
+            <div class="form-column">
+                <label for="goods">
+                    商品:
+                </label>
+                <select name="" id="goods">
+                    <option value="0.00">选择商品</option>
+                    <option value="3.00">可乐</option>
+                    <option value="3.00">雪碧</option>
+                    <option value="3.00">冰红茶</option>
+                    <option value="5.00">大瓶冰红茶</option>
+                    <option value="8.00">乐虎</option>
+                </select>
+            </div>
+           
+            <div class="form-column">
+                <label for="price" >
+                    单价:
+                </label>
+                <input type="text" id="price" value="0.00" disabled>
+            </div>
+            <div class="form-column">
+                <label for="nums">
+                    数量:
+                </label>
+                <input type="text" id="nums" value="0">
+            </div>
+            <div class="form-column">
+                <label for="total">
+                    总价:
+                </label>
+                <input type="search" id="total" value="0.00">
+            </div>
+            <input type="button" value="提交" id="submits">
+        </form>
+    </div>
+    <script>
+        var goods = document.querySelector('#goods');
+        var price = document.querySelector('#price');
+        var nums = document.querySelector('#nums');
+        var total = document.querySelector('#total');
+
+        goods.addEventListener('change',function() {
+            price.value = goods.value;
+        })
+        nums.addEventListener('input',function(){
+            total.value = parseInt(price.value * nums.value).toFixed(2);
+            // total.value = .toFixed(2);
+        })
+    </script>
+</body>
+</html>

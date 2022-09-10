@@ -1,0 +1,6 @@
+E:\C#作品\CRS系统\CRS系统\bin\Debug\CRS系统.exe.config
+E:\C#作品\CRS系统\CRS系统\bin\Debug\CRS系统.exe
+E:\C#作品\CRS系统\CRS系统\bin\Debug\CRS系统.pdb
+E:\C#作品\CRS系统\CRS系统\obj\Debug\CRS系统.csprojResolveAssemblyReference.cache
+E:\C#作品\CRS系统\CRS系统\obj\Debug\CRS系统.exe
+E:\C#作品\CRS系统\CRS系统\obj\Debug\CRS系统.pdb

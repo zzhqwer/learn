@@ -1,0 +1,6 @@
+E:\C#案例\CRS二\CRS二\bin\Debug\CRS二.exe.config
+E:\C#案例\CRS二\CRS二\bin\Debug\CRS二.exe
+E:\C#案例\CRS二\CRS二\bin\Debug\CRS二.pdb
+E:\C#案例\CRS二\CRS二\obj\Debug\CRS二.csprojResolveAssemblyReference.cache
+E:\C#案例\CRS二\CRS二\obj\Debug\CRS二.exe
+E:\C#案例\CRS二\CRS二\obj\Debug\CRS二.pdb

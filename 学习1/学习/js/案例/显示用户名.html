@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>显示用户名</title>
+</head>
+<body>
+    <input type="text" value="世纪佳缘">
+    <p>请输入6~16位的账号</p>
+    <script>
+        var ipt = document.querySelector('input');
+        var pt = document.querySelector('p');
+        ipt.onfocus = function() {
+            if(ipt.value === '世纪佳缘'){
+                this.value = '';
+                ipt.style.outlineColor = 'pink';
+            }
+            
+        }
+        ipt.onblur = function(){
+            if(ipt.value === ''){
+                this.value = '世纪佳缘';
+
+            }else if(this.value.length<6 || this.value.length > 16) {
+                pt.innerHTML = '请输入6~16的账号';
+
+            }else{
+                pt.innerHTML = '输入正确';
+            }
+            this.style.color = '#333';
+        }
+    </script>
+</body>
+</html>

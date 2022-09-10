@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const dshs = ms => {
+            // 只考虑成功状态
+            return new Promise( resolve => {
+                setTimeout( resolve , ms )
+            })
+        }
+
+        const p1 = dshs(1000).then( () => {
+            
+            console.log('p1 完成了')
+            return Promise.reject(new Error())
+        })
+        const p2 = dshs(2000).then( () => {
+            
+            console.log('p2 完成了')
+            return Promise.reject('reson')
+        })
+
+        
+        // Promise.race() 的状态取决于一个完成的Promise 实例对象，
+        // 如果第一个完成的成功了，那最终就成功了，如果第一个完成的失败了，那最终的就失败了
+        // const racePromise = Promise.race([p1,p2])
+        // racePromise.then(
+        // data => {
+        //     console.log(data)
+        // }, err => {
+        //     console.log(err)
+        // })
+      
+        // 2.Promise.allSettled()
+        //  Promise.allSettled()的状态与传入的Promise 状态无关
+        /// 只是个忠实的记录者
+        
+        const allSettledPromise = Promise.allSettled([p1,p2])
+        allSettledPromise.then( (data) => {
+            console.log(data)
+        })
+    
+    
+    
+    </script>
+</body>
+</html>

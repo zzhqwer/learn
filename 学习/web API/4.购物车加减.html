@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .box{
+            width: 50px;
+            height: 50px;
+            position: relative;
+        }
+        .box input{
+            width: 30px;
+            height: 50px;
+            outline: none;
+            text-align: center;
+        }
+        .jia{
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 20px;
+            height: 25px;
+            border: 1px solid #ccc;
+            text-align: center;
+        }
+        .jian{
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 20px;
+            height: 25px;
+            border: 1px solid #ccc;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <input type="text" value="1" readonly>
+        <button class="jia">+</button>
+        <button class="jian" disabled>-</button>
+
+    </div>
+    <script>
+        //1.获取元素
+        let inp = document.querySelector('input')
+        let btn1 = document.querySelector('.jia')
+        let btn2 = document.querySelector('.jian')
+        btn1.addEventListener('click', function() {
+            // ++有隐式转换
+            inp.value++
+            btn2.disabled = false
+
+        })
+        btn2.addEventListener('click', function() {
+            inp.value--
+            if(inp.value === '1') {
+                btn2.disabled = true
+            }
+        })
+   </script>
+</body>
+</html>

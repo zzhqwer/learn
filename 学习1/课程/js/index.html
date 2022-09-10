@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+
+        }
+        .box{
+            width: 500px;
+        }
+        ul,li{list-style: none;
+        }
+        .box>ul>li{
+            background-color: aquamarine;
+         
+        }
+        .box>ul>li>ul{
+            display: none;
+        }
+        .box>ul>li>ul>li{
+            background-color: aliceblue;
+        }
+        .box>ul>li:hover ul{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <!-- <div class="box">
+        <input type="text" id="num1">
+        <span>+</span>
+        <input type="text" id="num2">
+        <button class="btn">计算</button>
+    </div>  
+    <script>
+        var num1 = document.querySelector('#num1');
+        var num2 = document.querySelector('#num2');
+        var btn = document.querySelector('.btn');
+        btn.onclick = function() {
+            let nV1 = num1.value;
+            let nV2 = num2.value;
+            alert(parseFloat( nV1) + parseFloat( nV2)); 
+            
+        } -->
+
+        
+    <!-- </script> -->
+
+    <!-- <input type="text" id="year"> 
+    <button id="result">确认</button>
+    <script>
+        var year = document.querySelector('#year');
+        var result = document.querySelector('#result');
+        result.onclick = function(){
+            let yearValue = parseInt(year.value);
+            
+            if(yearValue % 4 === 0 && yearValue % 100 !== 0 || yearValue % 400 ===0){
+                alert(`${yearValue}年是一个闰年`);
+            }else{
+                alert(`${yearValue}年是一个平年`);
+
+            }
+        }
+    </script> -->
+
+    <!-- <script>
+        function volumnUp(arr) {
+            for(var i = 0 ; i <= arr.length -1 ;i++) {
+                for(var j = 0; j <= arr.length - i - 1;j++ ){
+                    if(arr[j]>arr[j+1]){
+                        var temp = arr[j];
+                        arr[j] = arr[j+1];
+                        arr[j+1] = temp;
+                    }
+                }
+            }
+            return arr;
+        }
+       
+        console.log(volumnUp([2,1,4,11,59,21,60]))
+    </script> -->
+    <div class="box">
+        <ul>
+            <li>前端开发
+                <ul>
+                    <li>web标准布局</li>
+                </ul>
+            </li>
+            <li>前端开发</li>
+            <li>前端开发</li>
+        </ul>
+    </div>
+    <script>
+
+    </script>
+</body>
+</html>

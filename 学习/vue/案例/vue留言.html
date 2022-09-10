@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #app{
+            width: 800px;
+            margin: 10px auto;
+            border: 1px solid #ccc;
+            padding: 20px;
+        }
+        .box form{
+            display: flex;
+            justify-content: space-between;
+            justify-items: center;
+        }
+        .from-group{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .from-group label{
+            display: inline-block;
+            width: 100px;
+            text-align: right;
+        }
+        .from-group input{
+            width: 100px;
+            height: 20px;
+        }
+        .box textarea{
+            outline: linen;
+            width: 800px;
+            font-size: 20px;
+            height: 100px;
+            margin: 10px 0;
+        }
+        .box p{
+            text-align: right;
+
+        }
+        .doe{
+            border: 1px solid #ccc;
+            padding: 15px;
+            margin: 10px 0;
+
+        }
+        .do{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 10px 0;
+        }
+    </style>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div v-for = "arr in arr" class="doe">
+            <div class="do">
+               <p> 用户:{{arr.name}}</p>
+               <p> 类型:{{arr.selected}}</p>
+            </div>
+            <p>{{arr.texta}}</p>
+        </div>
+
+        <div class="box">       
+                <form action="" autocomplete="off">
+                    <div class="from-group">
+                        <label for="">用户名:</label>
+                        <input type="text" name="" id="username" v-model.lazy = "user.name">
+                    </div>
+                    <div class="from-group">
+                        <label for="">匿名:</label>
+                        <input type="checkbox" name="" id="" value="匿名" v-model.lazy = "user.pseudonym">
+                    </div>
+                    <div class="from-group" >
+                        <select name="" id="" v-model = "user.selected">
+                            <option value="专业">专业</option>
+                            <option value="专业">专业</option>
+                            <option value="专业">专业</option>
+                            <option value="专业">专业</option>
+                        </select>
+                    </div>
+                </form>
+            <textarea name="" id="" cols="30" rows="10" style="resize: none;" v-model.lazy= "user.texta"></textarea>
+            <p><button type="button" @click = "createobj"> 留言</button></p>
+        </div>
+    </div>
+    <script>
+        let Vm = new Vue({
+            el : '#app',
+            data : {
+                arr : [
+                    {
+                        name : '张三',
+                        pseudonym : '',
+                        texta : '你好',
+                        selected : '专业'
+                    }
+                ],
+                user : {
+                    name :'',
+                    pseudonym : '',
+                    texta : '',
+                    selected : '',      
+
+                }
+            },
+            methods:{
+                createobj (){
+                    this.arr.unshift(this.user)
+                }
+            }
+        })
+    </script>
+</body>
+</html>

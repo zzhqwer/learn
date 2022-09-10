@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        table{
+            width: 300px;
+            margin: 10px auto;
+        }
+        thead{
+            background-color: aqua;
+        }
+        thead tr th{
+            border: 1px solid #000;
+            padding: 5px;
+        }    
+        tbody tr td{
+            border: 1px solid #000;
+            padding: 5px;
+            text-align: center;
+        }
+
+</style>
+</head>
+<body>
+    <table cellspacing = '0'>
+         <thead>
+             <tr>
+                 <th>姓名</th>
+                 <th>科目</th>
+                 <th>成绩</th>
+                 <th>操作</th>
+             </tr>
+         </thead>
+         <tbody>
+            
+         </tbody>
+    </table>
+    <script>
+        var datas = [
+            {
+                name : '魏璎珞',
+                subject : 'JavaScript',
+                score : 100
+            },
+            {
+                name : '魏璎珞',
+                subject : 'JavaScript',
+                score : 100
+            },
+            {
+                name : '魏璎珞',
+                subject : 'JavaScript',
+                score : 100
+            },
+            {
+                name : '魏璎珞',
+                subject : 'JavaScript',
+                score : 100
+            }, {
+                name : '魏璎珞',
+                subject : 'JavaScript',
+                score : 100
+            }
+        ]
+        var tbody = document.querySelector('tbody');
+        for(let i = 0; i < datas.length; i++) {
+            let tr = document.createElement('tr');
+            tbody.appendChild(tr);
+            for(let k in datas[i]) {
+                let td = document.createElement('td');
+                td.innerHTML = datas[i][k];
+                tr.appendChild(td);
+            }
+            let td = document.createElement('td');
+            td.innerHTML = '<a href = "javascript:;">删除</a>'
+            tr.appendChild(td);
+        }
+        let as = document.querySelectorAll('a');
+        for(let i = 0; i<as.length; i++) {
+            as[i].onclick = function () {
+                //删除的是a标签的父亲的父亲
+                tbody.removeChild(this.parentNode.parentNode);
+            }
+        }
+
+    </script>
+</body>
+</html>

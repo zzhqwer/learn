@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>电影</title>
+</head>
+<body>
+    <div class="movie-list"></div>
+    <script>
+        let Movielist = {
+            MovieID : 9,
+            Name :'三傻大闹宝莱坞',
+            Rate :9.1,
+            Type : '喜剧,剧情'
+        }
+        function se (no,{MovieID,Name,Rate,Type}){
+            let list = document.querySelector('.movie-list');
+            list.innerHTML = `
+                <dl>
+                    <dt>电影名：${Name}</dt>
+                    <dd>评分：${Rate}</dd>
+                    <dd>类型：${Type}</dd>    
+                </dl>
+            `
+        }
+        console.log(se(9,Movielist));
+    </script>
+</body>
+</html>

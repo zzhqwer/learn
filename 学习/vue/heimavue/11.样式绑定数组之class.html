@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .active{
+            width: 200px;
+            height: 200px;
+            border: 1px solid red;
+        }
+        .error{
+            background-color: orange;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <!--- 数组  -->>
+        <div :class = "[activeClass,errorClass]">测试样式</div>
+        <button @click = "handle"></button>
+    </div>
+    <script src="../js/vue.js"></script>
+    <script>
+        
+        let vm = new Vue({
+            el: '#app',
+            data: {
+                activeClass: 'active',
+                errorClass: 'error'
+            },
+            methods: {
+                handle(){
+                    this.activeClass = ''
+                    this.errorClass = ''
+                }
+            }
+        })
+
+    </script>
+</body>
+</body>
+</html>

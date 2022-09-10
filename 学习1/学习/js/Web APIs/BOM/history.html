@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- window.history对象与浏览器历史记录进行交互，该对象包含用户（在浏览器窗口中）访问过的URL;
+    history.back() 可以后退功能；
+    history.forward() 前进功能；
+    history.go(参数)  前进后退功能 参数如果是1 前进1个页面，如果是-1后 -->
+    <a href="window加载事件.html">123</a>
+    <button>前进</button>
+    <script>
+        var btn =document.querySelector('button');
+        btn.addEventListener('click',function(){
+            history.forward();
+        })
+    </script>
+</body>
+</html>

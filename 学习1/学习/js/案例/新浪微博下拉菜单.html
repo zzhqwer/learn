@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>下拉菜单</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        ul,li{
+            list-style: none;
+        }
+        .box{
+            width: 200px;
+            height: 200px;
+            margin: 0 auto;
+        }
+        .box>ul>li{
+            width: 60px;
+            padding: 5px;
+            background-color: antiquewhite;
+            text-align: center;
+            transition: all 1s;
+
+        }
+        .btxx{
+            display: none;
+        }
+        .btxx li {
+            padding: 5px;
+            border-bottom: 1px solid #ccc;
+            text-align: center;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <ul>
+            <li class="btx">年后<span class="span1">^</span>
+                 <ul class="btxx">
+                <li>sjdfkl</li>
+               <li>sjdfkl</li>
+                <li>sjdfkl</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <script>
+        let btx = document.querySelector('.btx');
+        let btxx = document.querySelector('.btxx');
+        let span1 = document.querySelector('.span1');
+        let btlis = document.querySelectorAll('.btxx li');
+        btx.onmouseover = function(){
+            btxx.style.display = 'block';
+            span1.innerHTML = '>';
+        }
+        btx.onmouseout = function(){
+            btxx.style.display = 'none';
+            span1.innerHTML = '^';
+        }
+        for(let i = 0;i<btlis.length;i++){
+            btlis[i].onmouseover = function(){
+                for(let i = 0;i<btlis.length; i++){
+                    btlis[i].style.backgroundColor = '';
+                }
+                this.style.backgroundColor = 'red';
+            }
+            btlis[i].onmouseout = function(){
+                for(let i = 0;i<btlis.length; i++){
+                    btlis[i].style.backgroundColor = '';
+                }
+            }
+        }
+    </script>
+</body>
+</html>

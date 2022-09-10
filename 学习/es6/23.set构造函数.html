@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <p>1</p>
+    <p>2</p>
+    <p>3</p>
+    <script>
+        // 1. 数组作为参数
+        // const s = new Set([1,2,34])
+        // console.log(s);
+
+        // 2. 字符串、arguments.NodeList Set 等
+        console.log(new Set('hi'))
+        // arguments
+        function func(){
+            console.log(new Set(arguments))
+        }
+        func(1,2,2)
+        // NodeList
+        let list = document.querySelectorAll('p')
+        console.log(new Set(list))
+
+        // Set
+        const s = new Set([1,2])
+        console.log(new Set(s)) 
+        console.log(s)
+    </script>
+</body>
+</html>

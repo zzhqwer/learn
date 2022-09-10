@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        a{
+            text-decoration: none;
+            color: aquamarine;
+        }
+        ul,li{
+            list-style: none;
+        }
+        .box{
+            width: 500px;
+            margin: 10px auto;
+        }
+        .box ul{
+            display: flex;
+            background-color: black;
+        }  
+        .box ul li{
+            padding: 15px 33.5px;
+            border-left: 1px solid #fff;
+        }
+        .box ul li a:hover{
+            color: #fff;
+        }
+        .box_h_b{
+            background-color: red;
+        }
+        .box_h_b a{
+            color: #fff;   
+        }
+        .box_h_b a:hover{
+            color: #fff;
+        }
+        .item {
+            display: none;
+        }
+
+        .tab{
+            margin-top:10px ;
+            width: 100%;
+            border: 1px solid #ddd;
+        }
+        .tab thead tr th{
+            border: 1px solid #ddd;
+            background-color: beige;
+            padding: 10px;
+        }
+        .tab tbody tr td{
+            border: 1px solid #ddd;
+            background-color: rgb(82, 82, 7);
+            padding: 10px;
+            text-align: center;
+        }
+        /* img{
+            position: absolute;
+            width: 50px;
+            height: 50px;
+        } */
+    </style>
+</head>
+<body>
+    <!-- <img src="./123.jpg" alt=""> -->
+    <div class="box">
+        <div class="box_h">
+            <ul>
+                <li class="box_h_b"><a href="javascript:;">你好</a></li>
+                <li><a href="javascript:;">你好</a></li>
+                <li><a href="javascript:;">你好</a></li>
+                <li><a href="javascript:;">你好</a></li>
+                <li><a href="javascript:;">你好</a></li>
+            </ul>
+        </div>
+        <div class="box_b">
+            <div class="item" style="display: block;">
+                唐业
+            </div>
+            <div class="item">
+                唐业往
+            </div>
+            <div class="item">
+                唐业往
+            </div>
+            <div class="item">
+                唐业往
+            </div>
+            <div class="item">
+                <table cellspceing ='0' class="tab">
+                    <thead>
+                        <tr>
+                            <th>姓名</th>
+                            <th>年龄</th>
+                            <th>爱好</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                    </tbody>
+                </table>
+            </div>
+           
+        </div>
+    </div>
+    <script>
+        var ul = document.querySelector('.box_h ul');
+        var box_b = document.querySelector('.box_b');
+        var lis = ul.children;
+        var items = document.querySelectorAll('.item');
+        for(let i = 0; i < lis.length; i++){
+            lis[i].setAttribute('data-index',i);
+            lis[i].onclick = function() {
+                for(let i = 0; i< lis.length; i++) {
+                    lis[i].className = '';
+                }
+                this.className = 'box_h_b'
+                let index = this.getAttribute('data-index');
+                for(let i = 0; i<items.length;i++){
+                    items[i].style.display = 'none';
+                }
+                items[index].style.display = 'block';
+            }
+            
+        }
+
+        
+    
+        var tab_b = document.querySelector('.tab tbody');
+        var datas = [
+            {
+                name : "邵恒",
+                age : 20,
+                aihao1 : "屎" 
+            },
+            {
+                name : "邵恒",
+                age : 20,
+                aihao1 : "屎" 
+            },
+            {
+                name : "邵恒",
+                age : 20,
+                aihao1 : "屎" 
+            }
+        ];
+        for(let i = 0; i<datas.length; i++) {
+            let tr = document.createElement('tr');
+            tab_b.appendChild(tr);
+            for(let k in datas[i]) {
+                let td = document.createElement('td');
+                td.innerHTML = datas[i][k];
+                tr.appendChild(td);
+            }
+            let td = document.createElement('td');
+            td.innerHTML = '<a href = "javascript:;">删除</a>'
+            tr.appendChild(td);
+        }
+        let as = document.querySelectorAll('.tab tbody tr a') ;
+        for(let i = 0 ; i<as.length ; i++) {
+            as[i].onclick = function() {
+                tab_b.removeChild(this.parentNode.parentNode); 
+
+            }
+        }
+        // var img = document.querySelector('img');
+        // document.addEventListener('mousemove',function(e){
+        //     let x = e.pageX;
+        //     let y = e.pageY;
+        //     img.style.left = x - 25 + 'px';
+        //     img.style.top = y - 25 + 'px';
+
+        // })
+    </script>
+</body>
+</html>

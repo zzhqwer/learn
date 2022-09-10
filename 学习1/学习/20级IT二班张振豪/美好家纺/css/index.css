@@ -1,0 +1,156 @@
+
+/* 顶部 */
+header{
+	display: flex;
+	justify-content: flex-end;
+	position: relative;
+}
+header ul{
+	display: flex;
+}
+header li{
+	padding: 15px;
+}
+header li:nth-child(1){
+	background: url(../images/list_03-11_03.png);
+	background-repeat: no-repeat;
+	background-position: 0% -50%;
+}
+header li:nth-child(2){
+	background: url(../images/list_03-11_03.png);
+	background-repeat: no-repeat;
+	background-position: 0% 50%;
+}
+header li:nth-child(3){
+	background: url(../images/list_03-11_03.png);
+	background-repeat: no-repeat;
+	background-position: 0% 150%;
+}
+header span{
+	width: 250px;
+	height:72px;
+	padding: 5px 20px 5px 20px;
+	background-color: #FFFFFF;
+	position: absolute;
+	top: 60%;
+	left: 0;
+}
+header span img{
+	width: 100%;
+	height: 70%;
+	transition: all 1s; 
+}
+
+/* 导航 */
+nav{
+	width: 100%;
+	background-color:rgba(0,125,107,1) ;
+}
+nav ul{
+	display: flex;
+	justify-content: flex-end;
+}
+nav ul li{
+	border-right: 1px #fff solid;
+	text-align: center;
+}
+nav ul li a{
+	display: inline-block;
+	padding: 15px;
+	color: #FFFFFF;
+}
+nav ul li a:hover{
+	background-color: rgba(0,0,0,0.5);
+}
+/* banner */
+.banner{
+	width: 100%;
+	background: url(../images/10.png);
+	margin-bottom: 15px;
+}
+.banner span{
+	display: block;
+	width: 100%;
+	max-width: 1021px;
+	position: relative;
+	top: 0;
+	left: 50%;
+	transform: translateX(-50%);
+}
+.banner span img{	
+	width: 100%;
+}
+
+/* 内容 */
+.main{
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 10px;
+}
+/* 左内容 */
+.main .mainLeft{
+	width: 48%;
+}
+.main .mainLeft ul{
+	display: flex;
+	justify-content: space-around;
+}
+.main .mainLeft  ul li{
+	width: 30%;
+	height: 100%;
+}
+.main .mainLeft ul li img{
+	width: 100%;
+	height: 100%;
+}
+/* 内容左右的顶部 */
+.main .Product{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	border-bottom: 2px #007d6b solid;
+	padding-bottom:10px ;
+	margin-bottom: 10px;
+}
+.main .Product img:last-child{
+	width: 32px;
+	height: 9px;
+}
+/* 右内容 */
+.main .mainRight{
+	width: 48%;
+}
+.main .mainRight .mainRightM{
+	display: flex;
+	justify-content: space-between;
+}
+.main .mainRight .mainRightM img{
+	width: 30%;
+	height: 100%;
+	padding: 5px;
+	border: 1px #ccc solid;
+}
+.main .mainRight .mainRightM p{
+	width: 70%;
+	font-size: 14px;
+	line-height: 1.5em;
+	height: 100%;
+}
+.main .mainRight ul{
+	width: 100%;
+	height: 50%;
+}
+.main .mainRight li{
+	border-bottom:1px #000000 dashed;
+	padding: 2px 0;
+	display: flex;
+	justify-content: space-between;
+	white-space: nowrap;
+	
+}
+.main .mainRight li p{
+	width: 80%;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}

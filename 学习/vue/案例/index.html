@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>添加</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <fieldset>
+            <legend>用户输入</legend>
+            <div class="from-ground">
+                <label for="">
+                    姓名：
+                </label>
+                <input type="text" name="" id="" v-model = "newPerson.name">
+            </div>
+            <div class="from-ground">
+                <label for="">
+                    年龄：
+                </label>
+                <input type="text" name="" id="" v-model = "newPerson.age">
+            </div>
+            <div class="from-ground">
+                <label for="">
+                    性别：
+                </label>
+                <select name="" id="" v-model = "newPerson.sex">
+                    <option value="男">男</option>
+                    <option value="女">女</option>
+                </select>
+            </div>
+            <button @click = "createPeople">添加</button>
+        </fieldset>
+        <table>
+            <thead>
+                <tr>
+                    <th>姓名</th>
+                    <th>年龄</th>
+                    <th>性别</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for = "(people,index) in people">
+                    <td>{{people.name}}</td>
+                    <td>{{people.age}}</td>
+                    <td>{{people.sex}}</td>
+                    <td><button @click = "del(index)">删除</button></td>
+
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <script>
+        let vm = new Vue({
+            el:'#app',
+            data:{
+                newPerson:{
+                    name : '',
+                    age : '',
+                    sex : '男'
+                },
+                people:[
+                    {
+                        name : '邵恒',
+                        age : '15',
+                        sex : '男'
+                    }
+                ]
+            },
+            methods:{
+                createPeople(){
+                    this.people.push(this.newPerson),
+                    this.newPerson ={
+                        name : '',
+                        age : '',
+                        sex : '男'
+                    }
+                },
+                del(index){
+                    this.people.splice(index,1)
+                }
+            }
+        })
+    </script>
+</body>
+</html>

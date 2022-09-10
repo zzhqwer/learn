@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      
+    </style>
+</head>
+<body>
+    <!-- 在页面中声明一个将要被vue所控制的DOM区域-->
+    <div id="app" >
+            {{msg}}
+    
+    </div>
+    <!--引入vue.js的script脚本文件-->
+    <script src="../js/vue.js"></script>
+    <script>
+        //创建vm实例对象（vue实例对象）
+        let vm = new Vue({
+            //指定当前vm实例要控制页面的哪个区域
+            el: '#app',
+            // 指定Model数据源
+            data: {
+                msg: 'Hello Vue'
+            }
+        })
+
+    </script>
+</body>
+</html>

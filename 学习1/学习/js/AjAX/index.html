@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick = "Resultrequest">登录</button>
+    <script>
+        //第一步  创建XMLHTTPRequest对象
+        let xmlHttp;
+        function createXMLHTTPREquest() {
+            if(window.ActiveXObject){
+                xmlHttp = new ActiveXObject('Microsoft.XMLHTTP');
+            }else{
+                xmlHttp = new XMLHttpRequest();
+            }
+        }
+        function Resultrequest(){
+            createXMLHTTPREquest();
+            //第二步打开
+            xmlHttp.open('get','dex.txt',true);
+            //第三步onreadystatechange
+            xmlHttp.onreadystatechange = function() {
+                if(xmlHttp.readyState == 4 && xmlHttp.status == 200){
+                    alert(xmlHttp.responseText);
+                }
+            }
+            xmlHttp.send(null);
+        }
+    </script>
+</body>
+</html>

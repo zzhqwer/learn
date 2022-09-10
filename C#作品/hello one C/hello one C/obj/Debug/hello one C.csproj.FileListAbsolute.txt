@@ -1,0 +1,6 @@
+E:\C#\hello one C\hello one C\bin\Debug\hello one C.exe.config
+E:\C#\hello one C\hello one C\obj\Debug\hello one C.csprojResolveAssemblyReference.cache
+E:\C#\hello one C\hello one C\bin\Debug\hello one C.exe
+E:\C#\hello one C\hello one C\bin\Debug\hello one C.pdb
+E:\C#\hello one C\hello one C\obj\Debug\hello one C.exe
+E:\C#\hello one C\hello one C\obj\Debug\hello one C.pdb

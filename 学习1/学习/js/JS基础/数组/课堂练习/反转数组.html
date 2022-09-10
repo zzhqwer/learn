@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>反转数组</title>
+	</head>
+	<body>
+		<!-- //反转数组？ -->
+		<!-- 将数组 arr = ['red','green','blue','perple']反转 -->
+		<!-- 先创建个空数组 arr1 = [] 因为需要他存放arr 反转的值-->
+		<script type="text/javascript">
+			var arr = ['red','green','blue','perple'];
+			var arr1 = [];
+			// arr[末尾] 赋值与 arr1[0] arr.length-1就是可以获得arr数组的末尾值；
+			for (let i = arr.length-1; i >= 0 ; i--) {
+				arr1[arr1.length] = arr[i];
+			}
+			console.log(arr1);
+		</script>
+	</body>
+</html>

@@ -1,0 +1,38 @@
+
+通过ID属性：
+	document.getElementById('id名称')； 单一的对象
+
+通过标签名字：
+	document.getElementsByTagName('标签名'); 集合【类似数组】
+
+通过name属性：
+	document.getElementsByName('name名称);  集合【类似数组】
+指定的CSS类：
+	document.getElementsByClassName('class类名'); 集合 【类似数组】 
+
+
+当获取单一元素时:
+	document.document.querySelect('css 选择器') 单个元素
+当获取多个元素时：
+	document.document.querySelectAll('css选择器')  如果是单个值也用索引【0】
+
+innerHTML: 将解析HTML脚本写入HTML内容，
+	获取的元素：innerHTML = ‘文本内容’
+
+innerTEXT：将解析的文本写入HTML内容
+	获取的元素：innerTEXT = ‘文本内容’；
+
+创建元素：
+	document.createElements();
+
+添加节点：
+	appendchild();
+删除节点：
+	removechild();
+
+获取标签元素：
+	getAttribute('属性');  返回值：属性的值
+设置标签元素：
+	setAttribute('属性','值');  无返回值；
+方法可在已有的节点前插入一个新的子节点：
+	insertBefore（）；

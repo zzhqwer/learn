@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        a{
+            text-decoration: none;
+          
+        }
+        i{
+            font-style: normal;
+        }
+        :root{
+            width: 100%;
+            height: 100%;
+            background-color: bisque;
+        }
+        .box{
+            width: 300px;
+            height: 300px;
+            background-color: #fff;
+            padding-top:50px ;
+            margin: 20px auto;
+            border-radius: 10px;
+        }
+        .box .active{
+            border-bottom: 2px solid green;
+        }
+        .box-header{
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            position: relative;
+        }
+        /* //登录 */
+        .box-header .login{
+            width: 100px;
+            height: 50px;
+            text-align: center;
+            line-height: 50px;
+        }
+        .box-header .erweima{
+            width: 100px;
+            height: 50px;
+            text-align: center;
+            line-height: 50px;
+        }
+        .box-header .login-main{
+            position: absolute;
+            top: 60px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .box-header .login-main .form-warp{
+            position: relative;
+            margin: 10px 0;
+            text-align: center;
+            font-size: 10px;
+        }
+        .box-header .login-main .form-warp input{
+            width: 200px;
+            height: 30px;
+            outline: none;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            padding-left: 50px;
+        }
+        .box-header .login-main .form-warp button{
+            width: 200px;
+            height: 30px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: aqua;
+            cursor: pointer;
+        }
+        .box-header .login-main .form-warp span{
+            position: absolute;
+            width: 40px;
+            height: 30px;
+            background-color: #ccc;
+            border: 1px solid #ccc;
+            border-top-left-radius: 10px;
+            border-bottom-left-radius: 10px;
+        }
+        .box-header .login-main .form-warp .check{
+            width: 20px;
+            height: 20px;
+            vertical-align: middle;
+        }
+        .box-header .login-main .login-footer{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 10px;
+        }
+
+        /* erweima */
+        .box-header .erweima-main{
+            position: absolute;
+            top: 60px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="box-header">
+            <div class="login active">
+                登录
+            </div>
+            <div class="erweima">
+                二维码
+            </div>
+            <div class="login-main">
+                <form action="" class="form">
+                    <div class="form-warp">
+                        <span></span>
+                        <input type="text" required name = "username" class="username" placeholder="请输入用户名">
+                    </div>
+                    <div class="form-warp">
+                        <span></span>
+                        <input type="text" required  name = "password" class="password" placeholder="请输入密码">
+                    </div>
+                    <div class="form-warp">
+                        <input type="checkbox" class="check">
+                        <i>我已同意服务</i>
+                    </div>
+                    <div class="form-warp">
+                        <button class="submit">登录</button>
+                    </div>
+                    <div class="login-footer">
+                        <div class="forget">
+                            <a href="#">忘记密码</a>
+                        </div>
+                        <div class="register">
+                            <a href="#">没有账号,去注册</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="erweima-main">
+                1231
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // 登录 和二维码的切换
+        let login = document.querySelector('.login')
+        let erweima = document.querySelector('.erweima')
+        let loginMain = document.querySelector('.login-main')
+        let erweimaMain = document.querySelector('.erweima-main')
+
+        login.addEventListener('click', function() {
+            document.querySelector('.box-header .active').classList.remove('active')
+            this.classList.add('active')
+            loginMain.style.display = 'block'
+            erweimaMain.style.display = 'none'
+
+        })
+
+        erweima.addEventListener('click', function() {
+            document.querySelector('.box-header .active').classList.remove('active')
+            this.classList.add('active')
+            loginMain.style.display = 'none'
+            erweimaMain.style.display = 'block'
+        })
+
+        let username = document.querySelector('.username')
+        let password = document.querySelector('.password')
+        let sut = document.querySelector('.submit')
+        let check = document.querySelector('.check')
+        sut.addEventListener('click', function(e) {
+            e.preventDefault()
+            if(!check.checked) {
+                alert('请同意此协议')
+                return
+            }
+            if(username.value.trim() === '') {
+                alert('请输入用户名')
+                return
+            }
+            if(password.value.trim() === '') {
+                alert('请输入密码')
+                return
+            }
+            let obj = {
+                username : username.value,
+                password : password.value
+            }
+            localStorage.setItem('pink', JSON.stringify(obj))
+            // 跳转到新的页面
+            location.href = './index.html'
+        })
+        let obj = JSON.parse(localStorage.getItem('pink'))
+        if(obj) {
+            username.value = obj.username
+            password.value = obj.password
+            check.checked = true
+        }
+    </script>
+</body>
+</html>

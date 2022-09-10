@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script> 
+        
+        function sum () {
+            let str = 'cncnxmjff1231545413184411'
+            let newstr = {};
+            for(let i = 0; i < str.length; i++){
+                let chars = str.charAt(i); //chars 是字符串的每一个字符
+                if(newstr[chars]){/// newstr[chars] 得到的是属性值  
+                    newstr[chars]++;
+                }else{
+                    newstr[ chars] = 1;
+                }
+            }
+            let max = 0;
+            let p;
+            // 2.遍历对象 
+            for(let k in newstr) {
+                // k 得到的是属性名
+                // newstr[k] 得到的是属性值
+                if(newstr[k] > max) {
+                    max = newstr[k];
+                    p = k;
+                }
+            }
+            return `出现最多的是${p},次数是${max}`
+        }
+       console.log(sum()); 
+    
+    </script>
+</body>
+</html>

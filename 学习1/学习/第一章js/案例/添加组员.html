@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			input {
+				outline-color: #00FFFF;
+			}
+
+			ul,
+			li {
+				list-style: none;
+			}
+		</style>
+	</head>
+	<body>
+		<form action="" method="post" autocomplete="off">
+			<label>请输入组员名称</label>
+			<input type="text" value="" />
+			<button type="button">完成添加</button>
+		</form>
+		<p>添加的组员</p>
+		<div class="name1">
+
+		</div>
+		<script type="text/javascript">
+			var input = document.querySelector("input")
+			var but = document.querySelector("button")
+			var name1 = document.querySelector(".name1")
+			var list = []
+			input.onfocus = function() {
+				input.value = ""
+			}
+			but.onclick = function() {
+				var inp = input.value
+				if (inp.indexOf(",") != -1 || inp.indexOf("，") != -1) {
+					alert("不能为逗号")
+				} else if (inp.length == "0") {
+					alert("不能为空")
+				} else if (list.indexOf(inp) != -1) {
+					alert("重复值")
+				} else {
+					list.push(inp)
+					name1.innerHTML = name1.innerHTML + inp.italics() + "</br>"
+				}
+			}
+		</script>
+
+	</body>
+</html>

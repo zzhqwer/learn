@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<script type="text/javascript">
+			function getMax(num1,num2) {
+				return  num1>num2 ? num1 :num2;
+			}
+			var num3 = parseInt(prompt('第一个要比较的数'));
+			var num4 = parseInt(prompt('第二个要比较的数'));
+			alert(getMax(num3,num4));
+			
+			
+			//return  只能返回一个值，多个返回值结果是最后一个值
+			//如果想返回多个值 可以返回数组；如下：
+			function fn(nu1,nu2) {
+				return [nu1 - nu2,nu1 + nu2,nu1 / nu2, nu1 * nu2];
+			}
+			let re = fn(2,4);
+			for (let i in re){
+				console.log(re[i]);{}
+			}
+		</script>
+	</body>
+</html>

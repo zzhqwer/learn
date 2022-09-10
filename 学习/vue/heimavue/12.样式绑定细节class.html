@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .active{
+            width: 200px;
+            height: 200px;
+            border: 1px solid red;
+        }
+        .error{
+            background-color: orange;
+        }
+        .test{
+            color: aqua;
+        }
+        .base{
+            font-size: 28px;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <!--- 数组  -->
+        <div :class = "[activeClass,errorClass,{test: isTest}]">测试样式</div>
+        <div :class = "arrClasses">简写数组样式</div>
+        <div :class = "objClasses">简写对象样式</div>
+        <!--- 默认class怎么处理--->>
+        <div class="base" :class = "objClasses"></div>
+        <button @click = "handle"></button>
+    </div>
+    <script src="../js/vue.js"></script>
+    <script>
+        /*
+            样式绑定相关语法细节：
+            1.对象绑定和数组绑定可以结合使用
+            2.class绑定的值可以简化操作
+            3.默认的class如何处理？ 默认的class会保留
+        */
+        let vm = new Vue({
+            el: '#app',
+            data: {
+                activeClass: 'active',
+                errorClass: 'error',
+                isTest: true,
+                arrClasses: [ 'active','error'],
+                objClasses: {
+                    active: true,
+                    error: true
+                }
+            },
+            methods: {
+                handle(){
+                    this.objClasses.active = !this.objClasses.active
+                    this.objClasses.error = !this.objClasses.error
+
+                    
+
+                }
+            }
+        })
+
+    </script>
+</body>
+</body>
+</html>

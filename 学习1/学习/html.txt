@@ -1,0 +1,17 @@
+textoverflow：ellipsis：[ɪˈlɪpsɪs]   省略号
+white-space [speɪs] ：  nowrap：不换行
+inherit：继承父级
+font-transform：控制文本大小写     uppercase大写   lowercase小写  capitaliz首字母大写  inherit 继承父级
+opacity:透明度
+cursor：pointer：鼠标变为手
+script-scr  链接js
+outline:	outline-color	轮廓 如input点击之后的框
+	outline-style
+	outline-width
+target：
+	_blank	在新窗口中打开被链接文档。
+	_self	默认。在相同的框架中打开被链接文档。
+	_parent	在父框架集中打开被链接文档。
+	_top	在整个窗口中打开被链接文档。
+	framename	在指定的框架中打开被链接文档
+letter-spacing ：字符之间的距离

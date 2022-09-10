@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        a{
+            text-decoration: 0;
+        }
+        .login-header{
+            text-align: center;
+        }
+        .login-header a{
+            font-size: 35px;
+            color: black;
+        }
+    
+        .login{
+            display: none;
+            width: 600px;
+            padding: 10px;
+            background-color: rgb(255, 255, 255);
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            box-shadow: 0px 0px 80px #ddd;
+            z-index: 9999;
+        }
+        .login-closeBtn{
+            width: 40px;
+            height: 40px;
+            position: absolute;
+            right:  -20px;
+            top: -20px;
+            border: 1px solid #ccc;
+            border-radius: 50%;
+            text-align: center;
+            background-color: #fff;
+        }
+        .login-closeBtn a{
+            font-size: 13px;
+            color: black;
+            line-height: 38px;
+
+        }
+        .login-title{
+            text-align: center;
+            font-size: 20px;
+            cursor: move;
+        }
+        .login-column{
+           margin-top: 20px;
+        }
+        .login-column input{
+            width: 400px;
+            padding: 5px;
+        }
+        .login-column label{
+            display: inline-block;
+            width: 100px;
+            text-align:right;
+        }
+        .login-btn{
+            width: 150px;
+            height: 30px;
+            margin: 10px auto;
+            border: 1px solid #ccc;
+            text-align: center;
+            line-height: 30px;
+
+        }
+        .login-btn a{
+            color: black;
+        }
+        .close-bgk{
+            display: none;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0,.3);
+            position: fixed;
+            top: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-header"><a href="javascript:;">点击，弹出登录</a></div>
+    <div class="login" id="login">
+        <div class="login-closeBtn"><a href="javascript:;">关闭</a></div>
+        <div class="login-title">
+            登录会员
+        </div>
+        <div class="login-column">
+            <label for="username">
+                用户名：
+            </label>
+            <input type="text" id="username">
+        </div>
+        <div class="login-column">
+            <label for="password">
+                密码：
+            </label>
+            <input type="text" id="password">
+        </div>
+        <div class="login-btn"> <a href="javascript:;">登录会员</a></div>
+    </div>
+    <div class="close-bgk"></div>
+
+    <script>
+        let login = document.querySelector('.login');
+        let loginBtn = login.children[0];
+        let closeBgk = document.querySelector('.close-bgk');
+        let loginHeader = document.querySelector('.login-header');
+        let loginTitle  = document.querySelector('.login-title');
+        // 点击隐藏显示
+            loginHeader.addEventListener('click',function(){
+                login.style.display = 'block';
+                closeBgk.style.display = 'block';
+            })
+            loginBtn.addEventListener('click',function(){
+            login.style.display = 'none';
+            closeBgk.style.display = 'none'
+        })
+        
+        // 鼠标按下弹起；
+            // 开始拖拽
+            //(当我们鼠标按下，就会获得鼠标在盒子内的坐标)
+            loginTitle.addEventListener('mousedown',function(e) {
+                let x = e.pageX - login.offsetLeft;
+                let y = e.pageY - login.offsetTop;
+                //鼠标移动的时候 ，把鼠标在页面中的坐标，减去鼠标在盒子内的坐标
+                document.addEventListener('mousemove', move)
+                function move(e) {
+                    login.style.left = e.pageX - x + 'px';
+                    login.style.top = e.pageY - y + 'px';
+
+                }
+                //（3）鼠标弹起。就让鼠标移动事件移除
+                document.addEventListener('mouseup',function(){
+                    document.removeEventListener('mousemove', move)
+                })
+            })
+    
+    </script>
+</body>
+</html>

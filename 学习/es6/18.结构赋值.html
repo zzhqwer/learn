@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //数组结构赋值 [a,b,c] 和 arr 里面的值一一对应
+        let arr = [1,2,3]
+        let [a,b,c] = arr
+        console.log(a);
+        console.log(b);
+        console.log(c);
+        
+
+        // 对象结构赋值 {name, age, sex} 这对应的是 对象的属性名
+        let obj = { 
+            name: 'zs',
+            age: 16,
+            sex: '男'
+        }
+        let {name, age, sex} = obj
+        console.log(name)
+        console.log(age)
+        console.log(sex)
+
+        // {name: myName, age: myAge, sex: mySex} :号是alias别名
+        let {name: myName, age: myAge, sex: mySex} = obj
+        console.log(myName)
+        console.log(myAge)
+        console.log(mySex)
+  
+
+        // 字符串也可以结构赋值  对象结构和数组结构都可以
+        let str = 'zhangshan'
+        // 这是 ...arr1剩余参数
+        let [...arr1] = str
+        console.log( arr1 ) // ['z', 'h', 'a', 'n', 'g', 's', 'h', 'a', 'n']
+        let {...obj2} = str
+        console.log( obj2 ) // {0: 'z', 1: 'h', 2: 'a', 3: 'n', 4: 'g', 5: 's', 6: 'h', 7: 'a', 8: 'n'}
+       
+        // bool 和 数值也可以结构赋值  只能先转换为对象
+        let bl = true
+        let {...bool} = bl
+        console.log(bool)
+        // undefined和null 不能结构赋值
+    </script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>九九乘法表</title>
+	</head>
+		
+	<body>
+		<!-- 双重for循环 -->
+			<!-- 最外层的for执行以一次 里面的for执行完毕 -->
+				<!-- 最外层的for控制它‘行’的循环次数，里面的for控制它‘列’的循环次数 -->
+		<script type="text/javascript">
+			var sum = '';
+			for (var i = 1 ; i <=9 ; i++){
+				for (var j = 1 ; j <= i ; j++){
+					sum += j + '*' + i + '=' + j * i +'\t';
+				}
+				sum += '</br>';
+			}
+			document.write(sum);
+		</script>
+	</body>
+</html>

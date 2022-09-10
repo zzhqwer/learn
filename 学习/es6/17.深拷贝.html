@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let obj = {
+            id: 1,
+            name: 'andy',
+            msg: {
+                age: 18
+            },
+            color: [ 'pink' , 'write'],
+            colors: [ 'pink' , 'write','block'],
+
+        }
+        let o = {}
+
+        //深拷贝 利用递归函数来实现
+        //封装函数
+        function deepClone(newObj,oldObj) {
+            //利用forin遍历旧对象
+            for(let k in oldObj) {
+                //k是对象属性名 oldObj[k]是属性值
+                let item = oldObj[k]
+                //判断属性值是不是复杂数据类型
+                if(item instanceof Array) {
+                    //o[k]是属性名  
+                    o[k] = []
+                    console.log(item)
+                    //利用递归函数
+                    deepClone(o[k],item)
+                }else if(item instanceof Object) {
+                    o[k] = {}
+                    console.log(item)
+                    deepClone(o[k],item)
+                }else {
+                    // newObj[k]也是属性名
+                    console.log(k)
+                    newObj[k] = item
+                }
+            }
+        }
+        //调用
+        deepClone(o,obj)
+        o.color.push('pink')
+        console.log(o)
+        o.msg.age = 19
+        console.log('-------------------------------------------')
+        console.log(obj)
+
+    </script>
+</body>
+</html>

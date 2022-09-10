@@ -1,0 +1,105 @@
+.box{
+    width: 1000px;
+    margin: 0 auto;
+}
+.focus{
+    width: 100%;
+    height: 600px;
+    position: relative;
+}
+.focus ul{
+    position: relative;
+    height: 100%;
+}
+.focus ul li{
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    height: 100%;
+    
+}
+.focus ul li.active{
+    opacity: 1;
+}
+.focus img{
+    width: 100%;
+    height: 100%;
+ 
+}
+.focus .placeHoder{
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 100px;
+    background-color: rgba(0, 0, 0, .2);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.placeHoder p{
+    font-size: 25px;
+    color: aquamarine;
+    
+}
+/* 按钮组 opacity 透明度  indicator*/ 
+.placeHoder .btns{
+    margin-right: 100px;
+}
+.placeHoder p{
+    vertical-align: middle;
+}
+.placeHoder img{
+    width: 25px;
+    height: 25px;
+    opacity: .5;
+
+}
+
+
+/* indicator指令图 */
+.indicator{
+    width: 100%;
+    height: 150px;
+    background-color: rgba(0, 0, 0, 5);
+}
+.indicator ul{
+    display: flex;
+    height: 100%;
+    justify-content: flex-start;
+    padding: 5px;
+}
+.indicator ul li{
+    width: 20%;
+    height: 100%;
+    position: relative;
+    margin-left:  5px;
+}
+.indicator .active .mask{
+    display: none;
+}
+.indicator .active .border{
+    display: block;
+}
+.indicator li .mask{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .6);
+    opacity: 1;
+}
+.indicator li .border{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    border-bottom: 10px solid greenyellow;
+    display: none;
+}
+.indicator ul img{
+    width: 100%;
+    height:100%;
+}

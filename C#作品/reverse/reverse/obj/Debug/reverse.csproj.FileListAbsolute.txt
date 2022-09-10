@@ -1,0 +1,6 @@
+E:\C#作品\reverse\reverse\bin\Debug\reverse.exe.config
+E:\C#作品\reverse\reverse\bin\Debug\reverse.exe
+E:\C#作品\reverse\reverse\bin\Debug\reverse.pdb
+E:\C#作品\reverse\reverse\obj\Debug\reverse.csprojResolveAssemblyReference.cache
+E:\C#作品\reverse\reverse\obj\Debug\reverse.exe
+E:\C#作品\reverse\reverse\obj\Debug\reverse.pdb

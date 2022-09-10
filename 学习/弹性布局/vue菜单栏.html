@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: content-box;
+        }
+        ul{
+            list-style: none;
+        }
+        body{
+            height: 100vh;
+        }
+        #app{
+            height: 100vh;
+
+            display: flex;
+            flex-direction: column;
+        }
+        main{
+            flex: 1;
+            background-color: #eee;
+        }
+        footer{
+            height: 50px;
+            background-color: #ccc;
+            display: flex;
+        }
+        footer section{
+            flex: 1;
+            display: flex;
+            flex-direction: column-reverse;
+        }
+        
+        footer section h4{
+            flex: 0 0 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+            border-right: solid 1px rgb(166, 166, 166);
+        }
+        footer section h4:last-child{
+            border-right: none;
+        }
+        footer section ul{
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+            border: solid 1px #ccc;
+            margin-bottom: 5px;
+            margin:  5px;
+            border-radius: 10px;
+        }
+        footer section ul.state{
+            display: flex;
+        
+        }
+        footer section ul li{
+            flex:  0 0 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            border-bottom: solid 1px #ccc;
+        }
+        footer section ul li:last-child{
+            border-bottom: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <main></main>
+        <footer>
+           <section @click = 'getclick(index,$event)' :key = "item.id" v-for = "(item,index) in arrlist">
+               <h4>{{item.h4}}</h4>
+               <ul v-if = "currentIndex === index">
+                    <li>{{item.java1}}</li>
+                    <li>{{item.java2}}</li>
+                    <li>{{item.java3}}</li>
+
+               </ul>
+            </section>
+        </footer>
+    </div>
+    <script src="js/vue.js"> </script>
+    <script>
+        let arr = [
+            {   id: 1,
+                h4: '教程', 
+                java1:1,
+                java2:2,
+                java3:3
+            },
+            {   id: 2,
+                h4: '教程',
+                java1:1,
+                java2:2,
+                java3:3
+
+            },
+            {   id: 3,
+                h4: '教程',
+                java1:1,
+                java2:2,
+                java3:3
+            }
+        ]
+     
+       let vm = new Vue({
+            el: '#app',
+            data: {
+                arrlist : arr,
+                currentIndex : 0,
+                flag : false
+            },
+            methods: {
+              getclick(i,e){
+                if(e.target.tagName === 'H4'){
+                    this.currentIndex = i
+                    if(this.currentIndex !== i) {
+                        console.log(11)
+                    }
+                }
+                }
+            }
+       })
+    </script>
+</body>
+</html>

@@ -1,0 +1,9 @@
+/*!*********************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./src/css/index.css ***!
+  \*********************************************************************/
+body {
+    /* background-image: url(https://www.imooc.com/static/img/index/logo.png); */
+    /* background-image: url('../image/3bcaf396fbc181d4.jpg');
+    background-repeat: no-repeat; */
+    background-color: brown;
+}

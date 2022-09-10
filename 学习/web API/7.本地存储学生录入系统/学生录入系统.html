@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        input,select{
+            outline: none;
+        }
+        .box{
+            width: 500px;
+            margin:  0 auto;
+        }
+        .box form{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            align-content: center;
+            margin: 30px 0;
+        }
+        .box form input{
+            width: 60px;
+        }
+        .box table{
+            width: 100%;
+            border: 1px solid rgb(0, 94, 255);
+            text-align: center;
+        }
+        .box table tr{
+            height: 40px;
+        }
+        .box table tr th{
+            background-color: aqua;
+        }
+        .box table tr th,td{
+            border: 1px solid rgb(0,94, 255);
+        }
+        .box table tbody tr:hover{
+            background-color: antiquewhite;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <form action="" autocomplete="off">
+            <div class="f-column">
+                <label for="username">姓名:</label>
+                <input type="text" id="username">
+            </div>
+            <div class="f-column">
+                <label for="age">年龄:</label>
+                <input type="text" id="age">
+            </div>
+            <div class="f-column">
+                <label for="sex">性别:</label>
+                <select name="" id="sex">
+                    <option value="男">男</option>
+                    <option value="女">女</option>
+                </select>
+            </div>
+            <div class="f-column">
+                <label for="area">地区:</label>
+                <select name="" id="area">
+                    <option value="北京">北京</option>
+                    <option value="苏州">苏州</option>
+                    <option value="南京">南京</option>
+                    <option value="郑州">郑州</option>
+                    <option value="上海">上海</option>
+                </select>
+            </div>
+            <button type="button" id="submit">提交</button>
+        </form>
+        <table cellspacing="0">
+            <thead>
+                <tr>
+                    <th>编号</th>
+                    <th>姓名</th>
+                    <th>年龄</th>
+                    <th>性别</th>
+                    <th>地区</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+            </tbody>
+        </table>
+    </div>
+    <script>
+        // 本地存储
+        function localStorages() {
+            // 获取localStorage里的数据
+            let data = localStorage.getItem('data')
+            if(data) {
+                    // 将转换为复杂数据类型
+                return JSON.parse(data)
+            } else {
+                let arr = [
+                {"number":"10001","username":"威严", "age":"18","sex":"男", "area":"北京"},
+                {"number":"10002","username":"威严", "age":"18","sex":"男", "area":"北京"},
+                {"number":"10003","username":"威严", "age":"18","sex":"男", "area":"北京"},
+                ]
+                // 设置本地存储的数据 需要转换成JSON格式 JSON.stringify()
+                data = localStorage.setItem('data',JSON.stringify(arr))
+            }
+        }
+        // 创建数组对象 存储数据
+        localStorages()
+        // 获取标签
+        let username = document.querySelector('#username')
+        let age = document.querySelector('#age')
+        let sex = document.querySelector('#sex')
+        let area = document.querySelector('#area')
+        let submit = document.querySelector('#submit')
+        let tbody = document.querySelector('table tbody')
+        // 遍历数组 渲染页面
+        function Render() {
+            // 获取本地存储
+            let arr = localStorages()
+            tbody.innerHTML = ''
+            for(let i = 0; i < arr.length; i++) {
+                let tr = document.createElement('tr')
+                tr.innerHTML = `
+                    <td>${arr[i].number}</td>
+                    <td>${arr[i].username}</td>
+                    <td>${arr[i].age}</td>
+                    <td>${arr[i].sex}</td>
+                    <td>${arr[i].area}</td>
+                    <td><a href="javascript:;" data-id = "${i}">删除</a></td>
+                `
+                tbody.appendChild(tr)
+            }
+            localStorage.setItem('data',JSON.stringify(arr))         
+        }   
+        Render()
+        // 点击提交
+        submit.addEventListener('click', function() {
+            let arr = localStorages()
+            arr.push({
+                "number":`${+arr[arr.length - 1].number +1}`,
+                "username":`${username.value}`,
+                "age":`${age.value}`,
+                "sex":`${sex.value}`,
+                "area":`${area.value}`
+            })
+            
+            username.value = age.value = ''
+            sex.value = '男'
+            area.value = '北京'
+            localStorage.setItem('data',JSON.stringify(arr))
+            //点击提交reset重置表单属性
+            Render()
+        }) 
+        //删除 用到事件委托  给tbody添加点击事件
+        tbody.addEventListener('click', function(e) {
+            let arr = localStorages()
+            if(arr.length === 1) {
+                return alert('不能在删除了')
+            }
+            if(e.target.tagName === "A") {
+                console.log(e.target.dataset.id)
+                arr.splice(e.target.dataset.id,1)
+            }
+            localStorage.setItem('data',JSON.stringify(arr))
+            Render()
+
+        })
+    </script>
+</body>
+</html>

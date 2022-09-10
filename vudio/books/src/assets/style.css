@@ -1,0 +1,131 @@
+* {padding: 0;margin: 0;}
+body {background: #f0f2f5;color: #000;font: 14px/1.5 "Microsoft YaHei";}
+a {color: #fff;text-decoration: none;}
+li {list-style: none;}
+.container {width: 100%;min-width: 1000px;background: #1c3870;}
+.header {width: 1000px;margin: 0 auto;height: 100px;}
+.logo {float: left;margin-top: 20px;}
+.min-nav {float: right;margin-top: 35px;color: #fff;}
+.min-nav a {padding: 0 10px;}
+.content {width: 1000px;margin: 10px auto;overflow: hidden;margin-bottom: 30px}
+.content a{color: #333}
+.content img{width: 100%;vertical-align: middle}
+.footer {width: 100%;min-width: 1000px;background: #e0e0e0;height: 70px;line-height: 70px;color: #0d2d6e;text-align: center;}
+/* left */
+.left{float: left;width: 250px;background-color: #fff}
+.left .hd{background-color: #058;height: 35px;line-height: 35px;padding: 0 10px;}
+.left .hd em{font-style: normal;color: #fff;font-weight: bold;}
+.sideBar h3{font-size: 16px;font-weight: normal;padding-left: 10px;padding-bottom: 10px}
+.books-list{padding: 10px 0;border-bottom: 1px solid #ddd}
+.books-list li{line-height: 2;}
+.books-list a{padding: 0 10px}
+.books-list a:hover{color: #058;}
+/* right */
+.right{width: 740px;float: right;background-color: #f0f2f5;overflow: hidden}
+.banner{width: 100%;}
+.products{width:345px;overflow: hidden;background-color: #fff;padding: 10px;margin-top: 10px}
+.products:nth-child(2n){float: left}
+.products:nth-child(2n+1){float: right}
+.imgBox{width: 90px;float: left;margin-right: 10px;padding-top: 20px}
+.info{ width: calc(100% - 100px);float: right;line-height: 1.5}
+.info h3{margin: 10px 0;color: #333}
+.info .btn{margin-top: 6%}
+.btn a{padding: 8px 25px;background-color: #006eff;border:none;color: #fff;font: 14px "Microsoft Yahei";outline: none;cursor: pointer;display: block;width: 56px}
+.btn a:hover{background-color: #ffa600;}
+/* detail -right */
+.detail-right .hd {
+    background: #fff
+}
+.detail-right .hd h3 {
+  font-size: 18px;
+  font-weight: 500;
+  padding: 10px 0 15px 20px;
+}
+.tips {
+  line-height: 50px;
+  height: 50px;
+  background-color: #f8f8dc;
+  padding-left: 20px;
+  color: #767676;
+  border-left: 1px solid #fff;
+  border-right: 1px solid #fff;
+}
+.select-menus {
+  padding: 20px;
+  background: #fff;
+}
+.form-item {
+  padding: 10px 0;
+}
+.form-item label {
+  width: 90px;
+  display: inline-block;
+  text-align: right;
+}
+.book-name button {
+  border: 1px solid #ccc;
+  padding: 7px 10px;
+  background-color: transparent;
+  border-radius: 3px;
+  margin: 10px 3px 0;
+  outline: none;
+  cursor: pointer;
+  font-family: "Microsoft Yahei"
+}
+.form-item .active {
+  background-color: #008aff;
+  color: #fff;
+}
+.count button {
+  font-size: 16px;
+  border: 1px solid #ccc;
+  padding: 3px 10px;
+  outline: none;
+  background-color: transparent;
+  cursor: pointer;
+  vertical-align: middle;
+}
+.count input {
+  width: 30px;
+  text-align: center;
+  outline: none;
+  vertical-align: top;
+  height: 24px;
+  border: 1px solid #ccc;
+  border-left: none;
+  border-right: none;
+}
+.form-item select {
+  padding: 4px;
+  outline: none;
+  border-radius: 3px;
+  font-family: "Microsoft Yahei";
+}
+.form-item select option {
+  padding: 10px;
+}
+.btn input {
+  padding: 7px 20px;
+  font: 14px/1.5 "Microsoft Yahei";
+  background: #008aff;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  margin-left: 50px;
+  outline: none;
+}
+.btn input:hover{
+  background: #ffa600;
+}
+.detail-left{width: 200px;background-color: #fff;float: left}
+.tipsImg{width: 50%;margin: 0 auto}
+.menu{padding: 10px 0}
+.menu li{line-height: 2.5;margin: 1px 0}
+.menu li a{display: block;padding-left: 15px}
+.menu li a:hover{background-color: #1683ff;color: #fff}
+.menu .active{background-color: #1683ff;color: #fff}
+.menu .default{background-color:none}
+.detail-right{width: 780px;float: right;}
+.illustrate {background: #fff;margin-top: 20px;padding-bottom: 20px;}
+.describe {padding: 0 20px;}
+.describe p {text-indent: 24px;line-height: 2;}

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        img{
+            vertical-align: middle;
+        }
+        ul,li{
+            list-style: none;
+        }
+        .box{
+            width: 1200px;
+            overflow: hidden;
+            margin: 0 auto;
+        }
+        .box ul{
+            width: 1200px;
+            height: 600px;
+        }
+        .box ul li{
+            float: left;
+            width: 240px;
+            height: 600px;
+        }
+        .box ul li img{
+            width: 800px;
+            height: 600px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <ul>
+            <li>
+                <a href="javascript:;">
+                    <img src="image/1.webp" alt="">
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <img src="image/2.webp" alt="">
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <img src="image/3.webp" alt="">
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <img src="image/4.webp" alt="">
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <img src="image/5.webp" alt="">
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <script>
+        let list = document.querySelectorAll('.box ul li')
+
+        for(let i = 0; i < list.length; i++) {
+            list[i].addEventListener('mouseover',function() {
+                for(let j  = 0; j < list.length; j++) {
+                    list[j].style.width = '100px'
+                }
+                console.log(list[i])
+                this.style.width = '800px'
+            })
+            list[i].addEventListener('mouseout',function() {
+                for(let i  = 0; i < list.length; i++) {
+                    list[i].style.width = '240px'
+                }
+            })
+        }
+    </script>
+</body>
+</html>

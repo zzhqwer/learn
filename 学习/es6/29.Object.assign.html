@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Object.assign('目标对象','源对象') 只是个浅拷贝 只能拷贝简单类型，复杂数据类型只是复制个地址
+        let obj = {
+            name: 'Zhangsan',
+            age: 15,
+            say: {
+                username: '李四',
+                age: 15,
+            },
+            arr: [
+                1,2,3,4
+            ]
+        }
+        let obj2 = Object.assign({},obj) 
+        obj2.arr.push(1)
+        console.log('-----------------------')
+
+        console.log('-----------------------')
+
+        let obj3 = {}
+        // 深拷贝  利用递归
+        function deepCopy(newObj,oldObj) {
+            //遍历旧对象
+            for(let k in oldObj) {
+                let item = oldObj[k]
+                if( item instanceof Array) {
+                    newObj[k] = []
+                    deepCopy(newObj[k],item)
+                } else {
+                    newObj[k] = item
+                }
+            }
+        }
+        deepCopy(obj3,obj)
+        obj.arr.push(1,2)
+        console.log(obj)
+        console.log(obj2)
+        console.log(obj3)
+
+        // object.assign() 的应用场景
+        // 合并默认参数和用户参数
+        const logUser = username => {
+            const DEFAULTS = {
+                username: "ZhangSan",
+                age: 19,
+                sex: 'male'
+            }
+            const options = Object.assign({},DEFAULTS,username)
+            return options
+        }
+        console.log(logUser({username: 'AELX'}))
+    </script>
+</body>
+</html>

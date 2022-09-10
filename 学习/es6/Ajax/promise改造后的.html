@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script type="module">
+        import { ajax, get, getJSON, post } from './Ajax/index.js'
+        const url = 'https://www.imooc.com/api/http/search/suggest?words=js'
+        const p = getJSON(url, {
+            params: { useame: 'alex' },
+            data: { age: 18 }
+        })
+        p.then(response => {
+            console.log(response)
+        }).catch(error => {
+            console.log(error)
+        }) 
+    </script>
+</body>
+
+</html>

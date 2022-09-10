@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+		function getGuess(){
+			function getRandom(min,max) {
+				return Math.floor(Math.random()*(max - min + 1) + min);
+			}
+			let num = getRandom(0,100);
+			console.log(num.length);
+			while(true) {
+				let num1 = parseInt(prompt('猜数字小游戏 猜一到100的数字'));
+				if(num1 > num) {
+					alert(`你猜大了数字`);
+				}else if(num1 < num) {
+					alert(`你猜小了数字`);
+				}else if (num1 == num) {
+					alert('恭喜你猜对了');
+					break;
+				}else{
+					alert('不能为空');
+				}
+			} 
+		}
+		getGuess();
+		</script>
+	</body>
+</html>
